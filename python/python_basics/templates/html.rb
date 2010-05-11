@@ -9,6 +9,9 @@
         <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="<%= @relative %>styles/iphone.css">
         <!--[if IE]><link rel="stylesheet" media="screen, projection" href="<%= @relative %>styles/cg.css"><![endif]-->
         <!--[if lte IE 8]><script src="<%= @relative %>scripts/create-elements.js" type="text/javascript"></script><![endif]-->
+        <link rel="stylesheet" href="styles/github.css">
+        <script type="text/javascript" src="highlight.pack.js"></script>
+        <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
         <title><%= @title %></title>
     </head>
     <body>

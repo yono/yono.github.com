@@ -9,6 +9,9 @@
         <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./styles/iphone.css">
         <!--[if IE]><link rel="stylesheet" media="screen, projection" href="./styles/cg.css"><![endif]-->
         <!--[if lte IE 8]><script src="./scripts/create-elements.js" type="text/javascript"></script><![endif]-->
+        <link rel="stylesheet" href="styles/github.css">
+        <script type="text/javascript" src="highlight.pack.js"></script>
+        <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
         <title>データ構造 - python_basics</title>
     </head>
     <body>
@@ -63,7 +66,7 @@ alist = ['hoge', 1, 2, ['fuga', 3], 'aaa', 'bbb']
 
 <h2>タプル</h2>
 
-<p>リストによく似ていますが、一度作成されたオブジェクトを変更することができません。</p>
+<p>リストによく似ていますが、一旦作成すると変更することができません。</p>
 
 <pre><code>&gt;&gt;&gt; atuple = (1, 2, 'aaa')
 &gt;&gt;&gt; atuple[0] = 2
