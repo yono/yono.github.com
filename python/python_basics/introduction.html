@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=320">
+        <link rel="stylesheet" media="screen, print" href="./styles/reset-min.css">
+        <link rel="stylesheet" media="screen, print" href="./styles/fonts-min.css">
+        <link rel="stylesheet" media="screen and (min-device-width: 481px), print" href="./styles/cg.css">
+        <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./styles/iphone.css">
+        <!--[if IE]><link rel="stylesheet" media="screen, projection" href="./styles/cg.css"><![endif]-->
+        <!--[if lte IE 8]><script src="./scripts/create-elements.js" type="text/javascript"></script><![endif]-->
+        <title>Python イントロダクション - yono.github.com</title>
+    </head>
+    <body>
+        <header>
+          <h1><a href="http://yono.github.com">yono.github.com</a></h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Index</a></li>
+            </ul>
+        </nav>
+
+        <article>
+
+<!-- Auto generated start -->
+
+<h1>Python イントロダクション</h1>
+
+<h2>Python とは</h2>
+
+<p>Guido van Rossum により開発されたオブジェクト指向スクリプト言語です。</p>
+
+<p>言語設計において「シンプル」で「習得が容易」という点に重点が置かれています。
+言語自体の機能は最小限に押さえ、必要な機能は拡張モジュールによってサポートするという特徴があります。</p>
+
+<p>英国のコメディ番組「モンティ パイソン」にちなんで Python と名付けられました。</p>
+
+<p><a href="http://www.python.jp/Zope/intro">via: Python の紹介</a></p>
+
+<h2>Python の特徴</h2>
+
+<ul>
+<li>オブジェクト指向言語</li>
+<li>動的な型付け</li>
+<li>インデントを用いたブロック構造の定義</li>
+</ul>
+
+
+<p>例を示します。</p>
+
+<pre><code>def func(x):
+    if (x % 2) == 0:
+        return x
+    else:
+        return x + 1
+</code></pre>
+
+<p>このように、C などで見られる {} によるブロック構造の代わりに
+インデントによってブロック構造を定義します。</p>
+
+<p>インデントはタブでもスペースでも構いません。Python 公式のコーディングスタイルである <a href="http://oldriver.org/python/pep-0008j.html">PEP8</a> ではスペース4つによるインデントが推奨されています。</p>
+
+<h2>とりあえず Hello, World!</h2>
+
+<p>ベタですが、Hello World プログラムを Python で書いてみましょう。</p>
+
+<p>エディタで hello_world.py を作成し、下記のように入力してください。</p>
+
+<pre><code>print "Hello, World!"
+</code></pre>
+
+<p>python インタプリタで hello_world.py を実行します。</p>
+
+<pre><code>$ python hello_world.py
+Hello, World!
+</code></pre>
+
+<h2>基本的な文法について</h2>
+
+<h3>コメントと空行</h3>
+
+<p>コメントは # で表され、その行の最後まで続きます。
+文の途中からでもコメント扱いされます。</p>
+
+<pre><code># これはコメントです
+</code></pre>
+
+<p>複数行コメントは仕様上存在しませんが、代わりに複数行文字列が使用されます。
+ただし、インデントに沿って記述する必要があります。</p>
+
+<pre><code>i = 0
+"""
+この中はコメント扱いされる。
+複数行記述できる
+"""
+
+if i &gt; 0:
+"""
+これはインデントに沿っていないのでエラー
+"""
+    print i
+</code></pre>
+
+<p>また、空行（改行のみ、空白 or タブのみ、コメントのみの行）に関しては
+インデントを無視しても問題ありません。</p>
+
+<h3>メソッド呼び出し</h3>
+
+<p>Ruby や Perl では () 無しでも問題ありませんが、Python の場合は () を付けないと文法エラーになります。</p>
+
+<p>ちなみに、 print はメソッドや関数ではなく文なので付ける必要はありません。</p>
+
+<pre><code>func('1') # OK
+func '1'  # ERROR
+print '1' # OK
+</code></pre>
+
+<h3>文字列について</h3>
+
+<ul>
+<li>シングルクォーテーション、ダブルクォーテーションに区別なし</li>
+<li>通常の文字列の他に Raw 文字列、Unicode 文字列がある</li>
+</ul>
+
+
+<p>Raw 文字列では \ によるエスケープシーケンスが無効になります。</p>
+
+<p>正規表現で \ そのものにマッチングさせたいような場合に有効です。</p>
+
+<pre><code>import re
+
+## 通常の文字列で \ にマッチさせたい場合
+re.match("\\\\", string) 
+
+## Raw 文字列で \ にマッチさせたい場合
+re.match(r"\\", string)
+</code></pre>
+
+<p>Unicode 文字列は頭に u と付ける。</p>
+
+<pre><code>string   =  "あああ" # str型
+u_string = u"あああ" # unicode型
+</code></pre>
+
+<p>詳細については後述。</p>
+
+<ul>
+<li>文字列に変数を埋め込む</li>
+</ul>
+
+
+<p>二種類の方法があります。</p>
+
+<pre><code>a = "hoge"
+print "a is %s" % (a)
+print "a is %(a)s" % locals()
+</code></pre>
+
+
+<!-- Auto generated end -->
+
+        </article>
+
+        <footer>
+            <p>Copyright &#169; 2010 <a href="mailto:tomohiro.t+github@gmail.com">Tomohiro</a> All rights reserved.</p>
+            <p>Powerd by <a href="http://github.com/Tomohiro/cg" title="cg - A Ruby based ContentsGenerator">cg - A Ruby based contents generator</a></p>
+        </footer>
+    </body>
+</html>

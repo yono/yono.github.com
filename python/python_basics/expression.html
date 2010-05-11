@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=320">
+        <link rel="stylesheet" media="screen, print" href="./styles/reset-min.css">
+        <link rel="stylesheet" media="screen, print" href="./styles/fonts-min.css">
+        <link rel="stylesheet" media="screen and (min-device-width: 481px), print" href="./styles/cg.css">
+        <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./styles/iphone.css">
+        <!--[if IE]><link rel="stylesheet" media="screen, projection" href="./styles/cg.css"><![endif]-->
+        <!--[if lte IE 8]><script src="./scripts/create-elements.js" type="text/javascript"></script><![endif]-->
+        <title>式／文 - yono.github.com</title>
+    </head>
+    <body>
+        <header>
+          <h1><a href="http://yono.github.com">yono.github.com</a></h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Index</a></li>
+            </ul>
+        </nav>
+
+        <article>
+
+<!-- Auto generated start -->
+
+<h1>式／文</h1>
+
+<p>Python における演算子や制御構造について。</p>
+
+<h2>演算子</h2>
+
+<h3>算術演算子</h3>
+
+<p>Python で扱える算術演算子は次の通りです。</p>
+
+<table>
+<thead>
+<tr>
+<th>演算子</th>
+<th>内容</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>*</td>
+    <td>乗算</td>
+    <td>4 * 3 = 12</td>
+</tr>
+<tr>
+    <td>/</td>
+    <td>除算</td>
+    <td>8 / 3.0 = 2.6666666666666665</td>
+</tr>
+<tr>
+    <td>//</td>
+    <td>切り捨て除算</td>
+    <td>8 // 3.0 = 2.0</td>
+</tr>
+<tr>
+    <td>%</td>
+    <td>剰余</td>
+    <td>5 % 3 = 2</td>
+</tr>
+<tr>
+    <td>+</td>
+    <td>加算</td>
+    <td>2 + 8 = 10</td>
+</tr>
+<tr>
+    <td>-</td>
+    <td>減算</td>
+    <td>3 - 1 = 2</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>べき乗演算子</h3>
+
+<p>べき乗演算子は ** です。</p>
+
+<pre><code>&gt;&gt;&gt; 3 ** 2
+9
+&gt;&gt;&gt;
+</code></pre>
+
+<h2>文</h2>
+
+<h3>while 文</h3>
+
+<p>while 文は、式の値が真である間、実行を繰り返すために使われます。</p>
+
+<pre><code>i = 0
+while i &lt; 5:
+    print i
+    i += 1
+</code></pre>
+
+<h3>for 文</h3>
+
+<p>for 文は、シーケンス（文字列、タプルまたはリスト）や、その他の反復可能なオブジェクト内の要素に渡って反復処理を行うために使われます。</p>
+
+<pre><code>text = 'aiueo'
+for c in text:
+    print c
+
+for i in xrange(10):
+    print i
+</code></pre>
+
+<h3>if 文</h3>
+
+<p>if 文は、条件分岐を実行するために使われます。</p>
+
+<pre><code>for i in xrange(1, 31):
+    if i % 15 == 0:
+        print 'FIzzBuzz'
+    elif i % 3 == 0:
+        print 'Fizz'
+    elif i % 5 == 0:
+        print 'Buzz'
+    else:
+        print i
+</code></pre>
+
+<h3>pass 文</h3>
+
+<p>pass 文は NULL 操作です。何も実行されません。</p>
+
+<pre><code># a function that does nothing
+def function():
+    pass 
+
+# a class with no methods
+class Klass:
+    pass
+</code></pre>
+
+
+<!-- Auto generated end -->
+
+        </article>
+
+        <footer>
+            <p>Copyright &#169; 2010 <a href="mailto:tomohiro.t+github@gmail.com">Tomohiro</a> All rights reserved.</p>
+            <p>Powerd by <a href="http://github.com/Tomohiro/cg" title="cg - A Ruby based ContentsGenerator">cg - A Ruby based contents generator</a></p>
+        </footer>
+    </body>
+</html>

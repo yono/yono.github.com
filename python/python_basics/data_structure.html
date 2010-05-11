@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=320">
+        <link rel="stylesheet" media="screen, print" href="./styles/reset-min.css">
+        <link rel="stylesheet" media="screen, print" href="./styles/fonts-min.css">
+        <link rel="stylesheet" media="screen and (min-device-width: 481px), print" href="./styles/cg.css">
+        <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./styles/iphone.css">
+        <!--[if IE]><link rel="stylesheet" media="screen, projection" href="./styles/cg.css"><![endif]-->
+        <!--[if lte IE 8]><script src="./scripts/create-elements.js" type="text/javascript"></script><![endif]-->
+        <title>データ構造 - yono.github.com</title>
+    </head>
+    <body>
+        <header>
+          <h1><a href="http://yono.github.com">yono.github.com</a></h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Index</a></li>
+            </ul>
+        </nav>
+
+        <article>
+
+<!-- Auto generated start -->
+
+<h1>データ構造</h1>
+
+<p>Python で扱えるデータ構造について。</p>
+
+<h2>リスト</h2>
+
+<p>いわゆる配列です。任意のオブジェクトを要素として持つことができます。</p>
+
+<pre><code>## リストの生成
+alist = [1, 2, 'hoge']
+
+## リスト自体もリストの要素として持つことができる
+alist = [1, 2, ['fuga', 3]]
+
+## リストの末尾に要素を追加
+alist.append(3)
+print alist
+[1, 2, ['fuga', 3], 3]
+
+## リストの末尾から要素を取り除く
+alist.pop()
+print alist
+alist = [1, 2, ['fuga', 3]]
+
+## 指定した位置に要素を追加
+alist.insert(0, 'hoge')
+print alist
+alist = ['hoge', 1, 2, ['fuga', 3]]
+
+## 指定したリストを対象のリストに追加し、リストを拡張
+alist.extend(['aaa', 'bbb'])
+print alist
+alist = ['hoge', 1, 2, ['fuga', 3], 'aaa', 'bbb']
+</code></pre>
+
+<h2>タプル</h2>
+
+<p>リストによく似ていますが、一度作成されたオブジェクトを変更することができません。</p>
+
+<pre><code>&gt;&gt;&gt; atuple = (1, 2, 'aaa')
+&gt;&gt;&gt; atuple[0] = 2
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: 'tuple' object does not support item assignment
+&gt;&gt;&gt; 
+</code></pre>
+
+<p>タプルは () で囲みます。要素が一つだけの場合は要素の後にカンマが必要です。</p>
+
+<pre><code>&gt;&gt;&gt; ('hoge')
+'hoge'
+&gt;&gt;&gt; ('hoge',)
+('hoge',)
+&gt;&gt;&gt; 
+</code></pre>
+
+<h2>辞書</h2>
+
+<p>いわゆる連想配列（ハッシュ）です。{ key1: value1, key2:value2, ...} の形式で生成します。</p>
+
+<pre><code>&gt;&gt;&gt; adict = {'hoge':1, 'fuga':2}
+&gt;&gt;&gt; adict['hoge']
+1
+&gt;&gt;&gt; adict['piyo']
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+KeyError: 'piyo'
+&gt;&gt;&gt; adict.get('piyo', 0)
+0
+&gt;&gt;&gt; 'hoge' in adict
+True
+&gt;&gt;&gt; 'piyo' in adict
+False
+&gt;&gt;&gt; adict.keys()
+['fuga', 'hoge']
+&gt;&gt;&gt; adict.values()
+[2, 1]
+&gt;&gt;&gt; adict.items()
+[('fuga', 2), ('hoge', 1)]
+&gt;&gt;&gt; 
+</code></pre>
+
+
+<!-- Auto generated end -->
+
+        </article>
+
+        <footer>
+            <p>Copyright &#169; 2010 <a href="mailto:tomohiro.t+github@gmail.com">Tomohiro</a> All rights reserved.</p>
+            <p>Powerd by <a href="http://github.com/Tomohiro/cg" title="cg - A Ruby based ContentsGenerator">cg - A Ruby based contents generator</a></p>
+        </footer>
+    </body>
+</html>
