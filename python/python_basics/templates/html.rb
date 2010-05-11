@@ -13,7 +13,7 @@
     </head>
     <body>
         <header>
-          <h1><a href="http://<%= @domain %>"><%= @domain %></a></h1>
+          <h1><a href="http://yono.github.com/python/python_basics/"><%= @domain %></a></h1>
         </header>
 
         <nav>
