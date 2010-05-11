@@ -77,7 +77,8 @@ Python はデフォルトだとソースコード中の文字列を ascii と想
     UnicodeDecodeError: 'ascii' codec can't decode byte 0xe3 in position 0: ordinal not in range(128)
      >>> u_hoge = unicode(hoge, 'utf-8')
      >>> u_hoge = hoge.decode('utf-8')
-     >>> 
+     >>> hoge = u_hoge.encode('utf-8')
+     >>>
 
 文字コードを指定しないと Python は ascii だと想定して変換しようとするので、
 ちゃんと文字コードを指定してあげましょう。
