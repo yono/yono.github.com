@@ -33,8 +33,12 @@
 <ul>
 <li>ひとつ前の状態における情報のみを参考に、現在の状態が決定する</li>
 <li>応用例
--- 手書き文字認識
--- 音声認識</li>
+
+<ul>
+<li>手書き文字認識</li>
+<li> 音声認識</li>
+</ul>
+</li>
 </ul>
 
 
@@ -42,8 +46,8 @@
 
 <ul>
 <li>マルコフ連鎖を利用して新しい文章を生成する</li>
+<li>チャットや Twitter などに存在する「人口無脳」に応用される</li>
 <li>[ 実例を見せる ]</li>
-<li>チャットや Twitter などに存在する「人口無能」に応用される</li>
 </ul>
 
 
@@ -51,29 +55,44 @@
 
 <ul>
 <li>python-markovchains の紹介
--- 読み込ませた文章をもとに文章生成
--- 文章をDBに読み込ませる
--- DBのデータをもとに文章生成</li>
-<li>github で公開している</li>
+
+<ul>
+<li>読み込ませた文章をもとに文章生成</li>
+<li>文章をDBに読み込ませる</li>
+<li>DBのデータをもとに文章生成</li>
+</ul>
+</li>
+<li>github で公開してます → <a href="http://github.com/yono/python-markovchains">http://github.com/yono/python-markovchains</a></li>
 </ul>
 
 
 <h2>よのぼっと</h2>
 
 <ul>
-<li>Twitter 上で動作する Bot</li>
-<li>python-markovchains を利用している</li>
-<li>簡単にマルコフ連鎖による文章生成を利用できる</li>
+<li>Twitter 上で動作する Bot → <a href="http://twiter.com/yonobot">http://twiter.com/yonobot</a></li>
+<li>python-markovchains を内部で利用している</li>
+<li><a href="http://twitlog.org/yono">http://twitlog.org/yono</a> から発言を収集</li>
 </ul>
 
 
-<h2>GAEを用いたAPI提供</h2>
+<h2>API提供 on GAE</h2>
+
+<p><a href="http://markovchain-y.appspot.com/">http://markovchain-y.appspot.com/</a></p>
 
 <ul>
-<li>GAE で API を提供することで、より扱いやすくする</li>
+<li>REST API を実装すればどこからでも扱えて便利</li>
 <li>python-markovchains をそのまま用いるだけでは使い物にならない
--- 速度を重視し、CPU にがんばらせているため
--- GAE で最も制限がきついのが CPU</li>
+
+<ul>
+<li>発言生成時に CPU に負荷がかかりすぎ
+
+<ul>
+<li>cron で定期的に発言を生成して、発言キューに保存</li>
+<li>アクセスがあったら発言キューから取り出す</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
 
