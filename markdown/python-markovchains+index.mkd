@@ -23,9 +23,9 @@
 
 ## よのぼっと
 
-- Twitter 上で動作する Bot → <http://twiter.com/yonobot>
+- Twitter 上で動作する Bot → <http://twitter.com/yonobot>
 - python-markovchains を内部で利用している
-- <http://twitlog.org/yono> から発言を収集
+- <http://twilog.org/yono> から発言を収集
 
 ## API提供 on GAE
 
