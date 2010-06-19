@@ -31,10 +31,167 @@
 
 <h1>Google App Engine / Python</h1>
 
-<ol>
-<li><a href="install.html">インストール</a></li>
-</ol>
+<h2>Google App Engine とは</h2>
 
+<ul>
+<li>Google が提供するサービスの一つ</li>
+<li>Web アプリケーションを Google のインフラ上で実行する環境</li>
+<li>PaaS (Platform as a Service) に分類される
+
+<ul>
+<li>Web アプリケーションが実際に動作するマシンを意識しなくともよい</li>
+<li>開発言語が制限される
+
+<ul>
+<li>Python (GAE/P)</li>
+<li>Java (GAE/J)</li>
+<li>JVM 上で動けば（JRuby や Quercus) 一応 OK</li>
+</ul>
+</li>
+<li>一般的な RDBMS は使えない
+
+<ul>
+<li>DataStore が用意されている</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>GAE/P SDK のインストール</h2>
+
+<h3>Python をインストールする</h3>
+
+<p>SDK をインストールする前に、まずは Python をインストールする必要があります。</p>
+
+<p>GAE/P は Python 2.5 以上の 2.x 環境が必要です。</p>
+
+<p>バージョンを確認する場合は以下のコマンドを実行してください。</p>
+
+<pre><code>% python -V
+</code></pre>
+
+<p>最近の OS（OS X Snow Leopard や Ubuntu 10.4 など）では 2.6 がインストールされてますのでそのままで結構です。
+また、3.x 系列だと（デフォルトでインストールされていることはまずないでしょうが）動かないので注意が必要です。</p>
+
+<p>Python のダウンロードは<a href="">http://www.python.org/download/</a> からできます。</p>
+
+<h3>SDK をダウンロードする</h3>
+
+<p><a href="">http://code.google.com/intl/ja/appengine/downloads.html</a> から
+OS ごとにダウンロードできます。</p>
+
+<p>Windows or Mac OS X には GoogleAppEngineLauncher というアプリケーションが付属しますが Linux の場合はライブラリ一式が渡されるので自分で適当なディレクトリに配置して使用します。</p>
+
+<p>以降、Linux でのインストール方法を解説します。</p>
+
+<h3>SDK の配置</h3>
+
+<pre><code>% wget http://googleappengine.googlecode.com/files/google_appengine_1.3.4.zip
+% unzip google_appengine_1.3.4.zip
+% ls
+google_appengine/  google_appengine_1.3.4.zip
+</code></pre>
+
+<p>解凍してできた google_appengine を適当なディレクトリに置きます。今回は /usr/local に配置することにします。</p>
+
+<pre><code># mv google_appengine /usr/local
+</code></pre>
+
+<p>配置したディレクトリを PATH と PYTHONPATH に設定します。</p>
+
+<pre><code># zsh の場合
+PATH=$PATH:/usr/local/google_appengine
+PYTHONPATH=$PATH:/usr/local/google_appengine
+</code></pre>
+
+<p>source するなりして、dev_appserver.py と appcfg.py がコマンドに含まれていれば ok です。</p>
+
+<h2>GAE/P のチュートリアル</h2>
+
+<p>公式で用意されているチュートリアルの紹介</p>
+
+<p>URL: <a href="">http://code.google.com/intl/ja/appengine/docs/python/gettingstarted/</a></p>
+
+<h2>GAE/P の便利機能の紹介</h2>
+
+<h3>Task Queue</h3>
+
+<p>キューにタスクをためておくと、サーバ側で非同期にタスクを実行してくれます。
+タスクは特定の URL に対するリクエストとして定義されます。</p>
+
+<pre><code>from google.appengine.api.labs import taskqueue
+
+    class SomeHandler(webapp.RequestHandler): 
+        def get(self):
+            self.response.out.write('Hello, World!')
+
+        def post(self):
+            key = self.request.get('key')
+
+            # Add the task to the default queue
+            taskqueue.add(url='/worker', params={'key':key})
+            self.redirect('/')
+
+
+    class SomeWorker(webapp.RequestHandler):
+        def post(self):
+            ## some task...
+
+
+def main():
+    run_wsgi_app(webapp.WSGIApplication([
+        ('/', SomeHandler),
+        ('/worker', CounterWorker),
+    ])
+
+if __name__ == '__main__':
+    main()
+</code></pre>
+
+<p>markovchains では、文章を解析してデータストアに保存する処理を Task Queue で行っています。同期的に処理する必要がない処理は積極的に Task Queue に投げるとよいと思われます。</p>
+
+<p>URL: <a href="">http://code.google.com/intl/ja/appengine/docs/python/taskqueue/overview.html</a></p>
+
+<h3>Cron</h3>
+
+<p>指定した時間、または一定の間隔で実行されるタスクのスケジュールを設定できます。タスクは特定の URL に対するリクエストとして定義されます。</p>
+
+<p>URL: <a href="">http://code.google.com/intl/ja/appengine/docs/python/config/cron.html</a></p>
+
+<p>markovchains では、Cron を利用して文章を定期的に生成しています。いわゆる作りおきです。</p>
+
+<h3>Memcache</h3>
+
+<p>GAE/P では memcached とよく似た Memcache という機能を提供しています。
+Memcache は Key とそれに対応する Value を保存することができます。</p>
+
+<pre><code>def get_data():
+    data = memcache.get("key")
+    if data is not None:
+        return data
+    else:
+        data = self.query_for_data()
+        memcache.add("key", data, 60)
+        return data
+</code></pre>
+
+<p>Memcache の特徴として、</p>
+
+<ul>
+<li>高速に動作</li>
+<li>容量が少ない</li>
+<li>サーバの状態によっては勝手に破棄されることもある</li>
+</ul>
+
+
+<p>などがあります。あくまでキャッシュとして利用すべきで、実データは
+DataStore に持たせておいた方がいいでしょう。</p>
+
+<p>markovchains では生成しておいた文章の保管場所として等、様々な箇所で使用しています。</p>
+
+<p>URL: <a href="">http://code.google.com/intl/ja/appengine/docs/python/memcache/usingmemcache.html</a></p>
 
 
 <!-- Auto generated end -->

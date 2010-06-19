@@ -1,4 +1,134 @@
-# Google App Engine / Python 
+# Google App Engine / Python
 
-1. [インストール](install.html)
+## Google App Engine とは
+- Google が提供するサービスの一つ
+- Web アプリケーションを Google のインフラ上で実行する環境
+- PaaS (Platform as a Service) に分類される
+  - Web アプリケーションが実際に動作するマシンを意識しなくともよい
+  - 開発言語が制限される
+    - Python (GAE/P)
+    - Java (GAE/J)
+    - JVM 上で動けば（JRuby や Quercus) 一応 OK
+  - 一般的な RDBMS は使えない
+    - DataStore が用意されている
 
+## GAE/P SDK のインストール
+
+### Python をインストールする
+
+SDK をインストールする前に、まずは Python をインストールする必要があります。
+
+GAE/P は Python 2.5 以上の 2.x 環境が必要です。
+
+バージョンを確認する場合は以下のコマンドを実行してください。
+
+    % python -V
+
+最近の OS（OS X Snow Leopard や Ubuntu 10.4 など）では 2.6 がインストールされてますのでそのままで結構です。
+また、3.x 系列だと（デフォルトでインストールされていることはまずないでしょうが）動かないので注意が必要です。
+
+Python のダウンロードは[http://www.python.org/download/]() からできます。
+
+### SDK をダウンロードする
+[http://code.google.com/intl/ja/appengine/downloads.html]() から
+OS ごとにダウンロードできます。
+
+Windows or Mac OS X には GoogleAppEngineLauncher というアプリケーションが付属しますが Linux の場合はライブラリ一式が渡されるので自分で適当なディレクトリに配置して使用します。
+
+以降、Linux でのインストール方法を解説します。
+
+### SDK の配置
+
+    % wget http://googleappengine.googlecode.com/files/google_appengine_1.3.4.zip
+    % unzip google_appengine_1.3.4.zip
+    % ls
+    google_appengine/  google_appengine_1.3.4.zip
+
+解凍してできた google_appengine を適当なディレクトリに置きます。今回は /usr/local に配置することにします。
+
+    # mv google_appengine /usr/local
+
+配置したディレクトリを PATH と PYTHONPATH に設定します。
+
+    # zsh の場合
+    PATH=$PATH:/usr/local/google_appengine
+    PYTHONPATH=$PATH:/usr/local/google_appengine
+
+source するなりして、dev_appserver.py と appcfg.py がコマンドに含まれていれば ok です。
+
+## GAE/P のチュートリアル
+
+公式で用意されているチュートリアルの紹介
+
+URL: [http://code.google.com/intl/ja/appengine/docs/python/gettingstarted/]()
+
+## GAE/P の便利機能の紹介
+
+### Task Queue
+キューにタスクをためておくと、サーバ側で非同期にタスクを実行してくれます。
+タスクは特定の URL に対するリクエストとして定義されます。
+
+    from google.appengine.api.labs import taskqueue
+
+        class SomeHandler(webapp.RequestHandler): 
+            def get(self):
+                self.response.out.write('Hello, World!')
+
+            def post(self):
+                key = self.request.get('key')
+                
+                # Add the task to the default queue
+                taskqueue.add(url='/worker', params={'key':key})
+                self.redirect('/')
+
+
+        class SomeWorker(webapp.RequestHandler):
+            def post(self):
+                ## some task...
+
+
+    def main():
+        run_wsgi_app(webapp.WSGIApplication([
+            ('/', SomeHandler),
+            ('/worker', CounterWorker),
+        ])
+
+    if __name__ == '__main__':
+        main()
+     
+markovchains では、文章を解析してデータストアに保存する処理を Task Queue で行っています。同期的に処理する必要がない処理は積極的に Task Queue に投げるとよいと思われます。
+
+URL: [http://code.google.com/intl/ja/appengine/docs/python/taskqueue/overview.html]()
+
+### Cron
+指定した時間、または一定の間隔で実行されるタスクのスケジュールを設定できます。タスクは特定の URL に対するリクエストとして定義されます。
+
+URL: [http://code.google.com/intl/ja/appengine/docs/python/config/cron.html]()
+
+markovchains では、Cron を利用して文章を定期的に生成しています。いわゆる作りおきです。
+
+### Memcache
+GAE/P では memcached とよく似た Memcache という機能を提供しています。
+Memcache は Key とそれに対応する Value を保存することができます。
+
+    def get_data():
+        data = memcache.get("key")
+        if data is not None:
+            return data
+        else:
+            data = self.query_for_data()
+            memcache.add("key", data, 60)
+            return data
+
+Memcache の特徴として、
+
+- 高速に動作
+- 容量が少ない
+- サーバの状態によっては勝手に破棄されることもある
+
+などがあります。あくまでキャッシュとして利用すべきで、実データは
+DataStore に持たせておいた方がいいでしょう。
+
+markovchains では生成しておいた文章の保管場所として等、様々な箇所で使用しています。
+
+URL: [http://code.google.com/intl/ja/appengine/docs/python/memcache/usingmemcache.html]()
