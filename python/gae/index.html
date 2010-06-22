@@ -59,7 +59,47 @@
 </ul>
 
 
-<h2>GAE/P SDK のインストール</h2>
+<h3>基本的に無料</h3>
+
+<p>その代わりいろいろと制限があります。</p>
+
+<ul>
+<li>作成できるアプリケーションは10個まで
+
+<ul>
+<li>一旦作成したドメイン名は変更できません</li>
+</ul>
+</li>
+<li>DataStore の容量: 1GB</li>
+<li>一日あたり
+
+<ul>
+<li>CPU時間: 6.5 CPU-hours</li>
+<li>ネットワーク帯域: 1 GB(受信発信それぞれ)</li>
+<li>送信できる E-mail の数: 2000</li>
+</ul>
+</li>
+<li>1 リクエストは 30 秒以内に終えること</li>
+</ul>
+
+
+<p>課金することで緩めることのできる制限もあります</p>
+
+<h3>制限を超過すると</h3>
+
+<p>503 Error を返すようになります。一日ごとにこの制限はリセットされます。</p>
+
+<h2>GAE/P で開発するための準備</h2>
+
+<p>GAE/P で開発するための準備として、主に</p>
+
+<ul>
+<li>SDK をインストールする</li>
+<li>GAE に登録する</li>
+</ul>
+
+
+<p>の二つが必要です。</p>
 
 <h3>Python をインストールする</h3>
 
@@ -75,11 +115,13 @@
 <p>最近の OS（OS X Snow Leopard や Ubuntu 10.4 など）では 2.6 がインストールされてますのでそのままで結構です。
 また、3.x 系列だと（デフォルトでインストールされていることはまずないでしょうが）動かないので注意が必要です。</p>
 
-<p>Python のダウンロードは<a href="">http://www.python.org/download/</a> からできます。</p>
+<p>Python のダウンロードは<a href="http://www.python.org/download/">http://www.python.org/download/</a> からできます。</p>
+
+<p>参考URL: <a href="http://yono.github.com/python/python_basics/introduction.html">Python イントロダクション</a></p>
 
 <h3>SDK をダウンロードする</h3>
 
-<p><a href="">http://code.google.com/intl/ja/appengine/downloads.html</a> から
+<p><a href="http://code.google.com/intl/ja/appengine/downloads.html">http://code.google.com/intl/ja/appengine/downloads.html</a> から
 OS ごとにダウンロードできます。</p>
 
 <p>Windows or Mac OS X には GoogleAppEngineLauncher というアプリケーションが付属しますが Linux の場合はライブラリ一式が渡されるので自分で適当なディレクトリに配置して使用します。</p>
@@ -108,11 +150,34 @@ PYTHONPATH=$PATH:/usr/local/google_appengine
 
 <p>source するなりして、dev_appserver.py と appcfg.py がコマンドに含まれていれば ok です。</p>
 
+<h3>GAE へのアカウント登録</h3>
+
+<p>アカウントを登録する必要があります（Google アカウントを持っている前提）。
+アカウント登録には携帯電話が必要です。</p>
+
+<p><a href="http://appengine.google.com">http://appengine.google.com</a> にアクセスし、[Welcome to Google App Engine] → [Create an Application] の順に進みます。</p>
+
+<p>Verify Your Acount by SMS という画面に進むので、</p>
+
+<p>Country and Carrier: でそれぞれ Japan, 携帯電話のキャリアを選択します。</p>
+
+<p>Username: に携帯電話の e-mail アドレスの @ より前の部分を入力します。</p>
+
+<p>[Send] を押すと、携帯に下記のような 7 桁の認証キーが送られてきます。</p>
+
+<p>Google App Engine Code: 0000000</p>
+
+<p>これを画面に入力すると、アカウントの登録が完了します。</p>
+
+<p>注意: 携帯の e-mail 設定で noreply@google.com を受信許可してください。</p>
+
+<p>参考URL: <a href="http://d.hatena.ne.jp/chipa34/2009/0121/1232506248">http://d.hatena.ne.jp/chipa34/2009/0121/1232506248</a></p>
+
 <h2>GAE/P のチュートリアル</h2>
 
 <p>公式で用意されているチュートリアルの紹介</p>
 
-<p>URL: <a href="">http://code.google.com/intl/ja/appengine/docs/python/gettingstarted/</a></p>
+<p>URL: <a href="http://code.google.com/intl/ja/appengine/docs/python/gettingstarted/">http://code.google.com/intl/ja/appengine/docs/python/gettingstarted/</a></p>
 
 <h2>GAE/P の便利機能の紹介</h2>
 
@@ -152,15 +217,15 @@ if __name__ == '__main__':
 
 <p>markovchains では、文章を解析してデータストアに保存する処理を Task Queue で行っています。同期的に処理する必要がない処理は積極的に Task Queue に投げるとよいと思われます。</p>
 
-<p>URL: <a href="">http://code.google.com/intl/ja/appengine/docs/python/taskqueue/overview.html</a></p>
+<p>URL: <a href="http://code.google.com/intl/ja/appengine/docs/python/taskqueue/overview.html">http://code.google.com/intl/ja/appengine/docs/python/taskqueue/overview.html</a></p>
 
 <h3>Cron</h3>
 
 <p>指定した時間、または一定の間隔で実行されるタスクのスケジュールを設定できます。タスクは特定の URL に対するリクエストとして定義されます。</p>
 
-<p>URL: <a href="">http://code.google.com/intl/ja/appengine/docs/python/config/cron.html</a></p>
+<p>URL: <a href="http://code.google.com/intl/ja/appengine/docs/python/config/cron.html">http://code.google.com/intl/ja/appengine/docs/python/config/cron.html</a></p>
 
-<p>markovchains では、Cron を利用して文章を定期的に生成しています。いわゆる作りおきです。</p>
+<p>markovchains では、Cron を利用して文章を定期的に生成しています。これによって文章生成の負荷を平準化しています。</p>
 
 <h3>Memcache</h3>
 
@@ -191,7 +256,65 @@ DataStore に持たせておいた方がいいでしょう。</p>
 
 <p>markovchains では生成しておいた文章の保管場所として等、様々な箇所で使用しています。</p>
 
-<p>URL: <a href="">http://code.google.com/intl/ja/appengine/docs/python/memcache/usingmemcache.html</a></p>
+<p>URL: <a href="http://code.google.com/intl/ja/appengine/docs/python/memcache/usingmemcache.html">http://code.google.com/intl/ja/appengine/docs/python/memcache/usingmemcache.html</a></p>
+
+<h2>DataStore について</h2>
+
+<p>DataStore を使う上でひっかかった箇所をまとめました。</p>
+
+<h3>正規化は極力避けましょう</h3>
+
+<p>DataStore は RDB ではありません。JOIN は使えません。正規化はやめましょう。</p>
+
+<pre><code># ダメな例
+class Word(db.Model):
+    name = db.StringProperty()
+
+class Chain(db.Model):
+    preword = db.ReferenceProperty(Word)
+    postword = db.ReferenceProperty(Word)
+    isstart = db.BooleanProperty()
+
+# よい例
+class Chain(db.Model):
+    preword = db.StringProperty(Word)
+    postword = db.StringProperty(Word)
+    isstart = db.BooleanProperty()
+</code></pre>
+
+<h3>Read / Write を減らす工夫をしましょう</h3>
+
+<p>DataStore の Read は決して速くありません。Write はさらに遅いです。
+極力一回のレスポンスで実行する get/put は減らす努力をしましょう。</p>
+
+<p>put に関しては、本当に今すぐ更新しなければならないデータなのか考慮しましょう。
+そうでない場合、Task Queue を使ってレスポンス内で処理しないようにしましょう。</p>
+
+<p>get に関しては、</p>
+
+<ul>
+<li>正規化を避けて一つの画面で必要なデータは一つのモデルにまとめる</li>
+<li>Memcache を活用する</li>
+</ul>
+
+
+<p>などを考慮にいれましょう。</p>
+
+<p>ある条件で複数のデータをまとめて取得するような場合は、それらをあらかじめ取得しておいて（Cron を使うなどして）、Memcache に保存しておくという方法もよいでしょう。</p>
+
+<pre><code># 複数のデータを取得
+chains = Chain.gql("WHERE isstart = True")
+
+# Memcache に突っ込む
+memcache.add("isstart", chains)
+
+# 必要なときに取り出す
+chains = memcache.get("isstart")
+</code></pre>
+
+<p>以下、下記URLが参考になります。</p>
+
+<p>URL:<a href="http://satoshi.blogs.com/life/2010/02/app_engine.html">http://satoshi.blogs.com/life/2010/02/app_engine.html</a></p>
 
 
 <!-- Auto generated end -->

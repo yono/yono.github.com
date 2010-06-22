@@ -12,7 +12,32 @@
   - 一般的な RDBMS は使えない
     - DataStore が用意されている
 
-## GAE/P SDK のインストール
+### 基本的に無料
+
+その代わりいろいろと制限があります。
+
+- 作成できるアプリケーションは10個まで
+    - 一旦作成したドメイン名は変更できません
+- DataStore の容量: 1GB
+- 一日あたり
+    - CPU時間: 6.5 CPU-hours
+    - ネットワーク帯域: 1 GB(受信発信それぞれ)
+    - 送信できる E-mail の数: 2000
+- 1 リクエストは 30 秒以内に終えること
+
+課金することで緩めることのできる制限もあります
+
+### 制限を超過すると
+503 Error を返すようになります。一日ごとにこの制限はリセットされます。
+
+## GAE/P で開発するための準備
+
+GAE/P で開発するための準備として、主に
+
+- SDK をインストールする
+- GAE に登録する
+
+の二つが必要です。
 
 ### Python をインストールする
 
@@ -27,10 +52,12 @@ GAE/P は Python 2.5 以上の 2.x 環境が必要です。
 最近の OS（OS X Snow Leopard や Ubuntu 10.4 など）では 2.6 がインストールされてますのでそのままで結構です。
 また、3.x 系列だと（デフォルトでインストールされていることはまずないでしょうが）動かないので注意が必要です。
 
-Python のダウンロードは[http://www.python.org/download/]() からできます。
+Python のダウンロードは<http://www.python.org/download/> からできます。
+
+参考URL: [Python イントロダクション](http://yono.github.com/python/python_basics/introduction.html)
 
 ### SDK をダウンロードする
-[http://code.google.com/intl/ja/appengine/downloads.html]() から
+<http://code.google.com/intl/ja/appengine/downloads.html> から
 OS ごとにダウンロードできます。
 
 Windows or Mac OS X には GoogleAppEngineLauncher というアプリケーションが付属しますが Linux の場合はライブラリ一式が渡されるので自分で適当なディレクトリに配置して使用します。
@@ -56,11 +83,34 @@ Windows or Mac OS X には GoogleAppEngineLauncher というアプリケーシ�
 
 source するなりして、dev_appserver.py と appcfg.py がコマンドに含まれていれば ok です。
 
+### GAE へのアカウント登録
+
+アカウントを登録する必要があります（Google アカウントを持っている前提）。
+アカウント登録には携帯電話が必要です。
+
+<http://appengine.google.com> にアクセスし、[Welcome to Google App Engine] → [Create an Application] の順に進みます。
+
+Verify Your Acount by SMS という画面に進むので、
+
+Country and Carrier: でそれぞれ Japan, 携帯電話のキャリアを選択します。
+
+Username: に携帯電話の e-mail アドレスの @ より前の部分を入力します。
+
+[Send] を押すと、携帯に下記のような 7 桁の認証キーが送られてきます。
+
+Google App Engine Code: 0000000
+
+これを画面に入力すると、アカウントの登録が完了します。
+
+注意: 携帯の e-mail 設定で noreply@google.com を受信許可してください。
+
+参考URL: <http://d.hatena.ne.jp/chipa34/2009/0121/1232506248>
+
 ## GAE/P のチュートリアル
 
 公式で用意されているチュートリアルの紹介
 
-URL: [http://code.google.com/intl/ja/appengine/docs/python/gettingstarted/]()
+URL: <http://code.google.com/intl/ja/appengine/docs/python/gettingstarted/>
 
 ## GAE/P の便利機能の紹介
 
@@ -98,14 +148,14 @@ URL: [http://code.google.com/intl/ja/appengine/docs/python/gettingstarted/]()
      
 markovchains では、文章を解析してデータストアに保存する処理を Task Queue で行っています。同期的に処理する必要がない処理は積極的に Task Queue に投げるとよいと思われます。
 
-URL: [http://code.google.com/intl/ja/appengine/docs/python/taskqueue/overview.html]()
+URL: <http://code.google.com/intl/ja/appengine/docs/python/taskqueue/overview.html>
 
 ### Cron
 指定した時間、または一定の間隔で実行されるタスクのスケジュールを設定できます。タスクは特定の URL に対するリクエストとして定義されます。
 
-URL: [http://code.google.com/intl/ja/appengine/docs/python/config/cron.html]()
+URL: <http://code.google.com/intl/ja/appengine/docs/python/config/cron.html>
 
-markovchains では、Cron を利用して文章を定期的に生成しています。いわゆる作りおきです。
+markovchains では、Cron を利用して文章を定期的に生成しています。これによって文章生成の負荷を平準化しています。
 
 ### Memcache
 GAE/P では memcached とよく似た Memcache という機能を提供しています。
@@ -131,4 +181,56 @@ DataStore に持たせておいた方がいいでしょう。
 
 markovchains では生成しておいた文章の保管場所として等、様々な箇所で使用しています。
 
-URL: [http://code.google.com/intl/ja/appengine/docs/python/memcache/usingmemcache.html]()
+URL: <http://code.google.com/intl/ja/appengine/docs/python/memcache/usingmemcache.html>
+
+## DataStore について
+
+DataStore を使う上でひっかかった箇所をまとめました。
+
+### 正規化は極力避けましょう
+DataStore は RDB ではありません。JOIN は使えません。正規化はやめましょう。
+
+    # ダメな例
+    class Word(db.Model):
+        name = db.StringProperty()
+
+    class Chain(db.Model):
+        preword = db.ReferenceProperty(Word)
+        postword = db.ReferenceProperty(Word)
+        isstart = db.BooleanProperty()
+
+    # よい例
+    class Chain(db.Model):
+        preword = db.StringProperty(Word)
+        postword = db.StringProperty(Word)
+        isstart = db.BooleanProperty()
+
+
+### Read / Write を減らす工夫をしましょう
+DataStore の Read は決して速くありません。Write はさらに遅いです。
+極力一回のレスポンスで実行する get/put は減らす努力をしましょう。
+
+put に関しては、本当に今すぐ更新しなければならないデータなのか考慮しましょう。
+そうでない場合、Task Queue を使ってレスポンス内で処理しないようにしましょう。
+
+get に関しては、
+
+- 正規化を避けて一つの画面で必要なデータは一つのモデルにまとめる
+- Memcache を活用する
+
+などを考慮にいれましょう。
+
+ある条件で複数のデータをまとめて取得するような場合は、それらをあらかじめ取得しておいて（Cron を使うなどして）、Memcache に保存しておくという方法もよいでしょう。
+
+    # 複数のデータを取得
+    chains = Chain.gql("WHERE isstart = True")
+
+    # Memcache に突っ込む
+    memcache.add("isstart", chains)
+
+    # 必要なときに取り出す
+    chains = memcache.get("isstart")
+
+以下、下記URLが参考になります。
+
+URL:<http://satoshi.blogs.com/life/2010/02/app_engine.html>
