@@ -10,7 +10,7 @@
     - Java (GAE/J)
     - JVM 上で動けば（JRuby や Quercus) 一応 OK
   - 一般的な RDBMS は使えない
-    - DataStore が用意されている
+    - DataStore というデータを保存する仕組みが用意されている
 
 ### 基本的に無料
 
