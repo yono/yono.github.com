@@ -2,13 +2,14 @@
 
 ## Google App Engine とは
 - Google が提供するサービスの一つ
-- Web アプリケーションを Google のインフラ上で実行する環境
+- Web アプリケーションを Google のインフラ上で実行する環境を提供する
 - PaaS (Platform as a Service) に分類される
   - Web アプリケーションが実際に動作するマシンを意識しなくともよい
+  - 本番環境があらかじめ整備されている
   - 開発言語が制限される
     - Python (GAE/P)
     - Java (GAE/J)
-    - JVM 上で動けば（JRuby や Quercus) 一応 OK
+    - JVM 上で動けば（Scala, JRuby, Quercus など) 一応 OK
   - 一般的な RDBMS は使えない
     - DataStore というデータを保存する仕組みが用意されている
 
@@ -79,13 +80,39 @@ Windows or Mac OS X には GoogleAppEngineLauncher というアプリケーシ�
 
     # zsh の場合
     PATH=$PATH:/usr/local/google_appengine
-    PYTHONPATH=$PATH:/usr/local/google_appengine
+    export PYTHONPATH=$PYTHONPATH:/usr/local/google_appengine
 
-source するなりして、dev_appserver.py と appcfg.py がコマンドに含まれていれば ok です。
+
+SDK が適切にインストールされたか確認するために、デモアプリケーションを動かしてみましょう
+
+    % dev_appserver.py /usr/local/google_appengine/demos/guestbook
+
+正常に起動すれば ok です。<http://localhost:8080>にアクセスしてみましょう。
+<a href="../../images/guestbook.jpg"><img src="../../images/guestbook.jpg" alt="guestbook"/ height="70%" width="70%"></a>
+
+*正常に起動しない場合*
+
+下記のようなエラーが出た場合、アクセス権を修正する必要があります。
+
+    appengine/tools/dev_appserver_main.py", line 66, in 
+    from google.appengine.tools import os_compat
+    ImportError: cannot import name os_compat
+
+以下のコマンドを実行してみてください。
+ 
+    % cd /usr/local/google_appengine
+    % sudo chmod -R ugoa+r * 
+
+管理者権限を持っていないユーザの場合上記のエラーが出ることがあるようです。
+
+参考URL:
+
+- <http://www.dr-chuck.com/csev-blog/2010/03/app-engine-fix-for-importerror-cannot-import-name-os_compat/>
+- <http://fileformat.wordpress.com/2010/03/14/fix-for-google-appengine-importerror-cannot-import-name-os_compat-on-linux/>
 
 ### GAE へのアカウント登録
 
-アカウントを登録する必要があります（Google アカウントを持っている前提）。
+作成したアプリケーションをデプロイするためには、アカウントを登録する必要があります（Google アカウントを持っている前提）。
 アカウント登録には携帯電話が必要です。
 
 <http://appengine.google.com> にアクセスし、[Welcome to Google App Engine] → [Create an Application] の順に進みます。
@@ -102,7 +129,7 @@ Google App Engine Code: 0000000
 
 これを画面に入力すると、アカウントの登録が完了します。
 
-注意: 携帯の e-mail 設定で noreply@google.com を受信許可してください。
+*注意*: 携帯の e-mail 設定で noreply@google.com を受信許可してください。
 
 参考URL: <http://d.hatena.ne.jp/chipa34/2009/0121/1232506248>
 
@@ -111,6 +138,68 @@ Google App Engine Code: 0000000
 公式で用意されているチュートリアルの紹介
 
 URL: <http://code.google.com/intl/ja/appengine/docs/python/gettingstarted/>
+
+## Hello World アプリケーションの作成
+では、実際にアプリケーションを作成してみましょう。
+
+お決まりですが、Hello, world! と出力するだけのアプリケーションを作成します。
+
+    % mkdir helloworld
+    % cd helloworld
+
+helloworld という名前のディレクトリを作成しました。アプリケーションに関するファイルは全てこのディレクトリに配置します。
+
+### 設定ファイルの作成
+
+Google App Engine では app.yaml というファイルにアプリケーションの設定を記述します。
+
+    % cat app.yaml
+    application: helloworld  # アプリケーション名
+    version: 1               # アプリケーションのバージョン
+    runtime: python          
+    api_version: 1
+
+    handlers:                
+    - url: /.*               # URLが /.* に一致する場合は
+      script: helloworld.py  # helloworld.py で処理する
+
+このファイルを、helloworld ディレクトリ直下に配置します。
+
+### アプリケーション本体の作成
+リクエストを実際に処理するスクリプトファイルを作成します。
+
+    % cat helloworld.py
+    print 'Content-Type: text/plain'
+    print ''
+    print 'Hello, world!'
+
+### アプリケーションの実行
+以上の二つのファイルを用意すればアプリケーションは完成です。
+ファイル構成は以下のようになっています。
+
+    % tree
+    .
+    |-- app.yaml
+    `-- helloworld.py
+
+では、アプリケーションを実行してみましょう。デモを実行した場合と同様に dev_appserver.py を使用します。
+
+    % dev_appserver.py ../helloworld
+
+では、<http://localhost:8080> にアクセスしてみましょう。Hello, world! と出力されているはずです。
+
+## webapp フレームワークを使ってみる
+このままだと物悲しいので、Web アプリケーションフレームワークを使ってみましょう。
+
+Google App Engine は WSGI に対応しているため、様々な Web アプリケーションフレームワークを使うことができます。
+
+- Django
+- web.py
+- cherrypy
+
+ここでは、Google が GAE のために用意した webapp というフレームワークを使ってみることにします。
+
+補足: WSGI について
 
 ## GAE/P の便利機能の紹介
 
