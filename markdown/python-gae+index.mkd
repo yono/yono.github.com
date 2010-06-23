@@ -199,7 +199,48 @@ Google App Engine は WSGI に対応しているため、様々な Web アプリ
 
 ここでは、Google が GAE のために用意した webapp というフレームワークを使ってみることにします。
 
-補足: WSGI について
+### 補足: WSGI について
+<p>
+WSGI とは Python 製の Web アプリケーションと、Web サーバ間をとりもつインターフェースです。
+同様のソフトウェアとして、Ruby の場合は Rack, Perl の場合は PSGI/Plack が存在します。
+</p>
+<a href="https://cacoo.com/diagrams/h8DrRTFy6K74Ga5I.png" alt="WSGI"><img src="https://cacoo.com/diagrams/h8DrRTFy6K74Ga5I.png"/ height="45%" width="45%"></a>
+
+### webapp フレームワークで Hello World を書き直してみる。
+
+さきほどと同様の機能を webapp フレームワークを使って書き直してみます。
+helloworld.py を下記のように書き直します。 # から始まる行はコメントなので書き写す必要はありません。
+
+
+    # 必要なライブラリをインポート
+    from google.appengine.ext import webapp
+    from google.appengine.ext.webapp import run_wsgi_app
+
+    # HTTPリクエストへレスポンスを返す
+    class MainHandler(webapp.RequestHandler):
+        # GET リクエストに対応
+        def get(self):
+            self.response.headers['Content-Type'] = 'text/plain'
+            self.response.out.write('Hello, world!')
+
+    # 作成したハンドラとURLを対応付けます
+    application = webapp.WSGIApplication(['/', MainHandler)],
+                                         debug=True)
+
+    def main():
+        # アプリケーションを実行します
+        run_wsgi_app(application)
+
+    if __name__ == "__main__":
+        main()
+
+## フォームからデータを受け取る
+
+## DataStore を使う
+
+## テンプレートを使う
+
+## アプリケーションをアップロードする
 
 ## GAE/P の便利機能の紹介
 

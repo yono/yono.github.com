@@ -283,7 +283,51 @@ print 'Hello, world!'
 
 <p>ここでは、Google が GAE のために用意した webapp というフレームワークを使ってみることにします。</p>
 
-<p>補足: WSGI について</p>
+<h3>補足: WSGI について</h3>
+
+<p>
+WSGI とは Python 製の Web アプリケーションと、Web サーバ間をとりもつインターフェースです。
+同様のソフトウェアとして、Ruby の場合は Rack, Perl の場合は PSGI/Plack が存在します。
+</p>
+
+
+<p><a href="https://cacoo.com/diagrams/h8DrRTFy6K74Ga5I.png" alt="WSGI"><img src="https://cacoo.com/diagrams/h8DrRTFy6K74Ga5I.png"/ height="45%" width="45%"></a></p>
+
+<h3>webapp フレームワークで Hello World を書き直してみる。</h3>
+
+<p>さきほどと同様の機能を webapp フレームワークを使って書き直してみます。
+helloworld.py を下記のように書き直します。 # から始まる行はコメントなので書き写す必要はありません。</p>
+
+<pre><code># 必要なライブラリをインポート
+from google.appengine.ext import webapp
+from google.appengine.ext.webapp import run_wsgi_app
+
+# HTTPリクエストへレスポンスを返す
+class MainHandler(webapp.RequestHandler):
+    # GET リクエストに対応
+    def get(self):
+        self.response.headers['Content-Type'] = 'text/plain'
+        self.response.out.write('Hello, world!')
+
+# 作成したハンドラとURLを対応付けます
+application = webapp.WSGIApplication(['/', MainHandler)],
+                                     debug=True)
+
+def main():
+    # アプリケーションを実行します
+    run_wsgi_app(application)
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+
+<h2>フォームからデータを受け取る</h2>
+
+<h2>DataStore を使う</h2>
+
+<h2>テンプレートを使う</h2>
+
+<h2>アプリケーションをアップロードする</h2>
 
 <h2>GAE/P の便利機能の紹介</h2>
 
