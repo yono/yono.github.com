@@ -151,7 +151,7 @@ helloworld という名前のディレクトリを作成しました。アプリ
 
 ### 設定ファイルの作成
 
-Google App Engine では app.yaml というファイルにアプリケーションの設定を記述します。
+GAE/P では app.yaml というファイルにアプリケーションの設定を記述します。
 
     % cat app.yaml
     application: helloworld  # アプリケーション名
@@ -191,7 +191,7 @@ Google App Engine では app.yaml というファイルにアプリケーショ�
 ## webapp フレームワークを使ってみる
 このままだと物悲しいので、Web アプリケーションフレームワークを使ってみましょう。
 
-Google App Engine は WSGI に対応しているため、様々な Web アプリケーションフレームワークを使うことができます。
+GAE/P は WSGI に対応しているため、様々な Web アプリケーションフレームワークを使うことができます。
 
 - Django
 - web.py
@@ -235,12 +235,222 @@ helloworld.py を下記のように書き直します。 # から始まる行は
         main()
 
 ## フォームからデータを受け取る
+次に、フォームから受け取ったデータを表示する機能を追加してみましょう。
+
+    import cgi
+
+    from google.appengine.ext import webapp
+    from google.appengine.ext.webapp import run_wsgi_app
+
+    class MainHandler(webapp.RequestHandler):
+        def get(self):
+            self.response.out.write("""
+            <html>
+              <body>
+                <form action="/" method="post">
+                  <div>
+                    <textarea name="content" rows="3" cols="60"></textarea>
+                  </div>
+                  <div><input type="submit" value="Sign Guestbook"></div>
+                </form>
+              </body>
+            </html>
+            """)
+
+        # POST メソッドでアクセスが来た場合
+        def post(self):
+            self.response.out.write("""
+            <html>
+              <body>
+                <p>You wrote:<pre>
+            """)
+            ## フォームから送信された情報を受取る
+            self.response.write(cgi.escape(self.request.get('content')))
+            self.response.out.write("""
+                </pre></p>
+                <form action="/sign" method="post">
+                  <div>
+                    <textarea name="content" rows="3" cols="60"></textarea>
+                  </div>
+                  <div><input type="submit" value="Sign Guestbook"></div>
+                </form>
+              </body>
+            </html>
+            """)
+    
+    application = webapp.WSGIApplication(
+            [('/', MainHandler)], debug=True)
+
+    def main():
+        run_wsgi_app(application)
+
+    if __name__ == "__main__":
+        main()
+
+これで、ユーザが入力した情報を受取ることが可能となりました。
+
+参考 URL: <http://code.google.com/intl/ja/appengine/docs/python/gettingstarted/handlingforms.html>
+ 
+## テンプレートを使う
+
+一つ前のサンプルは Python のソースコードに HTML が埋め込まれていてお世辞にも良いコードとは言えませんでした。これらを分離するためにテンプレートを使用しましょう。
+
+テンプレートとは MVC で言うところの View に当たる部分で、動的に生成される HTML の雛形のことを指します。
+
+webapp では、Django のテンプレートエンジンがあらかじめ用意されています。今回はそれを使ってみましょう。
+
+先程のソースコードをテンプレートを使う形で書き換えてみます。
+
+    import cgi
+    import os ## 追加
+
+    from google.appengine.ext import webapp
+    from google.appengine.ext.webapp import run_wsgi_app
+    from google.appengine.ext.webapp import template ## 追加
+
+    # 本当はこっちの方が望ましい（書き方として）
+    # from google.appengine.ext.webapp import run_wsgi_app, template
+
+    class MainHandler(webapp.RequestHandler):
+        path = os.path.join(os.path.dirname(__file__), 'index.html')
+        def get(self):
+            template_values = {}
+            self.response.out.write(template.render(self.path, tempalte_values))
+
+        # POST メソッドでアクセスが来た場合
+        def post(self):
+            template_values = {'content': self.request.get('content')}
+            self.response.out.write(template.render(self.path, tempalte_values))
+    
+    application = webapp.WSGIApplication(
+            [('/', MainHandler)], debug=True)
+
+    def main():
+        run_wsgi_app(application)
+
+    if __name__ == "__main__":
+        main()
+
+次に、helloworld ディレクトリに index.html というファイルを用意します。
+
+    <html>
+      <body>
+        {% if content %}<!-- template_value に格納された content が空でない -->
+        <p>You wrote:<pre>
+        {{ content }} <!-- content を表示 -->
+        </pre></p>
+        {% endif %}
+        <form action="/" method="post">
+          <div>
+            <textarea name="content" rows="3" cols="60"></textarea>
+          </div>
+          <div><input type="submit" value="Sign Guestbook"></div>
+        </form>
+      </body>
+    </html>
+
+これで、python のソースコードと HTML の分離ができました。
+
+参考URL: <http://code.google.com/intl/ja/appengine/docs/python/gettingstarted/templates.html>
 
 ## DataStore を使う
 
-## テンプレートを使う
+では次に、送信されたデータを保存してみましょう。
+データを保存する仕組みとして GAE/P では DataStore が用意されています。
+
+DataStore を利用するように helloworld.py と index.html を書き換えてみましょう。
+
+    import cgi
+    import os
+
+    from google.appengine.ext import webapp
+    from google.appengine.ext.webapp import run_wsgi_app
+    from google.appengine.ext.webapp import template
+    from google.appengine.ext import db ## 追加
+
+    # DataStore に保存するクラス
+    class Greeting(db.Model):
+        content = db.StringProperty(multiline=True)
+        date = db.DateTimeProperty(auto_now_add=True)
+
+    class MainHandler(webapp.RequestHandler):
+        path = os.path.join(os.path.dirname(__file__), 'index.html')
+        def get(self):
+            # 保存されたデータを取り出す
+            greetings = db.GqlQuery("SELECT * FROM Greeting ORDER BY date DESC")
+
+            template_values = {'greetings': greetings}
+            self.response.out.write(template.render(self.path, tempalte_values))
+
+        # POST メソッドでアクセスが来た場合
+        def post(self):
+            greeting = Greeting()
+
+            greeting.content = self.request.get('content')
+            greeting.put() # Greeting オブジェクトを保存
+
+            greetings = db.GqlQuery("SELECT * FROM Greeting ORDER BY date DESC")
+
+            template_values = {'greetings': greetings}
+            self.response.out.write(template.render(self.path, tempalte_values))
+    
+    application = webapp.WSGIApplication(
+            [('/', MainHandler)], debug=True)
+
+    def main():
+        run_wsgi_app(application)
+
+    if __name__ == "__main__":
+        main()
+
+DataStore では GQL という SQL に似た言語を用いてデータへのアクセスを行います。
+    greetings = db.GqlQuery("SELECT * FROM Greeting ORDER BY date DESC")
+
+Greeting クラスの gql メソッドを使用することでクエリを省略することもできます。
+    greetings = Greeting.gql("ORDER BY date DESC")
+
+GQL は SQL を模しているだけのインターフェースなので、SQL に比べると機能は非常に限られています。例えば、GQL では JOIN を行うことができません。また、GQLは返り値としてオブジェクトそのものを返すため "SELECT date FROM" といったように特定のプロパティを選択しても意味がありません。
+
+GQL で条件を指定する場合は以下のように記述します。
+
+    greetings = Greeting.gql("WHERE content = :1", content)
+
+また、名前付きパラメータを用いることもできます。
+
+    greetings = Greeting.gql("WHERE content = :content" content=content)
+
+DataStore では、GQL の他に、メソッドを利用してオブジェクトを取得する機構が別個用意されています。
+
+    greetings = Greeting.all()
+    greetings.filter("content = ", content)
+    greetings.order("-date")
+
+参考URL: <http://code.google.com/intl/ja/appengine/docs/python/gettingstarted/usingdatastore.html>
 
 ## アプリケーションをアップロードする
+
+### アプリケーションの登録
+アプリケーションの作成は <http://appengine.google.com> から行います。
+アカウント登録していない場合はまず登録から行いましょう。
+
+新しいアプリケーションを作成するには [Create an Application] をクリックしてアプリケーション名を登録します。これは一度設定すると変更することができません。注意してください。また、無料の場合はアプリケーションは10個までしか作成できません。試しに作ってみたアプリケーションを登録して無駄にしたくない方は気をつけてください。
+
+アプリケーション登録が完了したら、app.yaml の application: を登録したアプリケーションIDに変更しましょう。
+
+### アプリケーションのアップロード
+アプリケーションを GAE/P にアップロードするには、下記のコマンドを使用します。
+
+    % appcfg.py update helloworld/
+
+Google のユーザ名とパスワードの入力が促されます。
+
+これで、アプリケーションがアップロードされました。作成されたアプリケーションは http://application-id.appspot.com から閲覧することができます。
+
+アップロードしたアプリケーションの管理は管理コンソールから行います。
+
+<https://appengine.google.com>
+
+参考URL: <http://code.google.com/intl/ja/appengine/docs/python/gettingstarted/uploading.html>
 
 ## GAE/P の便利機能の紹介
 
