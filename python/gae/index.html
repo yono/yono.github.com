@@ -474,6 +474,8 @@ if __name__ == "__main__":
 
 <p>DataStore を利用するように helloworld.py と index.html を書き換えてみましょう。</p>
 
+<h3>helloworld.py</h3>
+
 <pre><code>import cgi
 import os
 
@@ -516,6 +518,26 @@ def main():
 
 if __name__ == "__main__":
     main()
+</code></pre>
+
+<h3>index.html</h3>
+
+<pre><code>&lt;html&gt;
+  &lt;body&gt;
+    {% for greeting in greetings %}
+    &lt;p&gt;You wrote:
+    &lt;pre&gt;{{ greeting.content }}&lt;/pre&gt;
+    at: {{ greeting.date }}
+    &lt;/p&gt;
+    {% endfor %}
+    &lt;form action="/" method="post"&gt;
+      &lt;div&gt;
+        &lt;textarea name="content" rows="3" cols="60"&gt;&lt;/textarea&gt;
+      &lt;/div&gt;
+      &lt;div&gt;&lt;input type="submit" value="Sign Guestbook"&gt;&lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
 
 <p>DataStore では GQL という SQL に似た言語を用いてデータへのアクセスを行います。</p>

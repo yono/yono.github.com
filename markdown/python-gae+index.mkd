@@ -377,6 +377,8 @@ webapp では、Django のテンプレートエンジンがあらかじめ用意
 
 DataStore を利用するように helloworld.py と index.html を書き換えてみましょう。
 
+### helloworld.py
+
     import cgi
     import os
 
@@ -419,6 +421,26 @@ DataStore を利用するように helloworld.py と index.html を書き換え�
 
     if __name__ == "__main__":
         main()
+
+
+### index.html
+
+    <html>
+      <body>
+        {% for greeting in greetings %}
+        <p>You wrote:
+        <pre>{{ greeting.content }}</pre>
+        at: {{ greeting.date }}
+        </p>
+        {% endfor %}
+        <form action="/" method="post">
+          <div>
+            <textarea name="content" rows="3" cols="60"></textarea>
+          </div>
+          <div><input type="submit" value="Sign Guestbook"></div>
+        </form>
+      </body>
+    </html>
 
 DataStore では GQL という SQL に似た言語を用いてデータへのアクセスを行います。
     greetings = db.GqlQuery("SELECT * FROM Greeting ORDER BY date DESC")
