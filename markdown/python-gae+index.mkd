@@ -234,7 +234,7 @@ helloworld.py を下記のように書き直します。 # から始まる行は
 
     # 必要なライブラリをインポート
     from google.appengine.ext import webapp
-    from google.appengine.ext.webapp import run_wsgi_app
+    from google.appengine.ext.webapp.util import run_wsgi_app
 
     # HTTPリクエストへレスポンスを返す
     class MainHandler(webapp.RequestHandler):
@@ -244,7 +244,7 @@ helloworld.py を下記のように書き直します。 # から始まる行は
             self.response.out.write('Hello, world!')
 
     # 作成したハンドラとURLを対応付けます
-    application = webapp.WSGIApplication(['/', MainHandler)],
+    application = webapp.WSGIApplication([('/', MainHandler)],
                                          debug=True)
 
     def main():
@@ -325,11 +325,8 @@ webapp では、Django のテンプレートエンジンがあらかじめ用意
     import os ## 追加
 
     from google.appengine.ext import webapp
-    from google.appengine.ext.webapp import run_wsgi_app
+    from google.appengine.ext.webapp.util import run_wsgi_app
     from google.appengine.ext.webapp import template ## 追加
-
-    # 本当はこっちの方が望ましい（書き方として）
-    # from google.appengine.ext.webapp import run_wsgi_app, template
 
     class MainHandler(webapp.RequestHandler):
         path = os.path.join(os.path.dirname(__file__), 'index.html')
@@ -384,7 +381,7 @@ DataStore を利用するように helloworld.py と index.html を書き換え�
     import os
 
     from google.appengine.ext import webapp
-    from google.appengine.ext.webapp import run_wsgi_app
+    from google.appengine.ext.webapp.util import run_wsgi_app
     from google.appengine.ext.webapp import template
     from google.appengine.ext import db ## 追加
 
