@@ -1,0 +1,121 @@
+!SLIDE
+
+# VMware Fusion で自宅仮想サーバー
+
+!SLIDE
+
+# 今回の話は
+
+- Mac を自宅で使っていて
+- VMware Fusion を使っていて
+- 仮想サーバを運用したい
+
+という物好きのためのものです
+
+!SLIDE
+
+# VMware Fusion って？
+
+VMware 社が販売する Mac 用の仮想化ソフトウェア。
+
+デスクトップ環境で使われることを想定している。
+
+!SLIDE
+
+# VMware Fusion で仮想サーバを運用
+
+- 既に VMware Fusion を利用していて、この環境で完結させたい
+- Virtual Box、Parallels Desktop については調査してません
+
+!SLIDE
+
+# イメージ図
+  <img src="img/home-lan.jpg"/>
+
+!SLIDE
+
+# 問題点
+
+VMware Fusion は仮想デスクトップとして使用されることを
+
+想定しているためか、仮想マシンの画面を閉じると
+
+仮想マシン自体が終了してしまう
+
+  <img src="img/debian.jpg" />
+
+!SLIDE
+
+# ヘッドレスモードを使おう！
+
+バックグラウンドで仮想マシンを実行するモード
+
+@@@
+    % /Library/Application\ Support/VMware\ Fusion/vmrun start \
+      /path/to/vm.vmx nogui
+@@@
+
+!SLIDE
+
+# 実際に運用する際の設定
+
+!SLIDE
+
+# [仮想マシンのライブラリ]から消す
+
+- 消す際に[ファイルの保持]を選択すること
+
+!SLIDE
+
+# 自動起動を設定する
+
+    Mac が立ち上がった時点で自動的に仮想マシンを起動させるために
+    launchctl 用の plist(XML) を準備します
+
+<br />
+@@@
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
+          "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+     <plist version="1.0">
+     <dict>
+     <key>Label</key>
+     <string>vm-label.whatever.you.like</string>
+     <key>RunAtLoad</key>
+     <true/>
+     <key>ProgramArguments</key>
+     <array>
+       <string>/Library/Application Support/VMware Fusion/vmrun</string>
+       <string>start</string>
+       <string>/path/to/vm.vmx</string>
+       <string>nogui</string>
+     </array>
+     </dict>
+     </plist>
+@@@
+<br />
+このファイルを ~/Library/LaunchDaemons/ に置きます
+
+<br />
+<br />
+    
+    http://blog.as-is.net/2008/12/vmware-fusion-20.html
+
+!SLIDE
+
+# 自動終了を設定する
+
+    Mac 終了時に、仮想マシンも安全に終了させるために
+    vmx ファイルに以下の記述を追加する
+
+    @@@
+    signal.suspendOnHUP = "TRUE"
+    singal.powerOffOnTERM ="TRUE"
+    @@@
+
+!SLIDE
+
+# 外部から接続するために
+- 仮想マシンのネットワークを[ブリッジ]に設定
+- ルータで Port Forwarding 設定
+- DDNS を導入
