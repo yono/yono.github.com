@@ -41,9 +41,9 @@ https://cacoo.com/diagrams/vSolBk9KTFTdzzEc.png
 *** メールアドレスが必要
 ** Twitter アカウントでのアプリケーション登録
 * Google のアカウント作成
-[[file:img/google-signup-1.tiff]]
+http://yono.github.com/static/twitterbot/img/google-signup-1.png
 * Google のアカウント作成
-file:img/google-signup-2.tiff
+http://yono.github.com/static/twitterbot/img/google-signup-2.png
 * Gmail の設定 :Incremental:
 たしか Google のアカウント持ってたら使えたと思います
 ** なぜ Gmail か？
@@ -56,42 +56,42 @@ file:img/google-signup-2.tiff
 - これだけ
 - + 以降の文字を変えればいくらでもアカウントが作れます
 * Twitter のアカウント作成
-http://yono.github.com/static/twitterbot/img/twitter-signup1.tiff
+http://yono.github.com/static/twitterbot/img/twitter-signup1.png
 * Twitter アカウントでのアプリケーション登録
-http://yono.github.com/static/twitterbot/img/twitterapp-signup-1.jpg
+http://yono.github.com/static/twitterbot/img/twitterapp-signup-1.png
 * Twitter アカウントでのアプリケーション登録
-http://yono.github.com/static/twitterbot/img/twitterapp-signup-2.jpg
+http://yono.github.com/static/twitterbot/img/twitterapp-signup-2.png
 * Twitter アカウントでのアプリケーション登録
-http://yono.github.com/static/twitterbot/img/twitterapp-signup-3.jpg
+http://yono.github.com/static/twitterbot/img/twitterapp-signup-3.png
 * Twitter アカウントでのアプリケーション登録
-http://yono.github.com/static/twitterbot/img/twitterapp-signup-4.jpg
+http://yono.github.com/static/twitterbot/img/twitterapp-signup-4.png
 * Twitter アカウントでのアプリケーション登録
-http://yono.github.com/static/twitterbot/img/twitterapp-signup-5.jpg
+http://yono.github.com/static/twitterbot/img/twitterapp-signup-5.png
 * Twitter アカウントでのアプリケーション登録
-http://yono.github.com/static/twitterbot/img/twitterapp-signup-6.jpg
+http://yono.github.com/static/twitterbot/img/twitterapp-signup-6.png
 * 下準備（ソフトウェアのインストール）
 ** Python のインストール
 ** Google App Engine SDK のインストール
 * Python のダウンロード
-http://yono.github.com/static/twitterbot/img/python-install-6.jpg
+http://yono.github.com/static/twitterbot/img/python-install-6.png
 * Python のインストール
-http://yono.github.com/static/twitterbot/img/python-installer-1.jpg
+http://yono.github.com/static/twitterbot/img/python-installer-1.png
 * Python のインストール
-http://yono.github.com/static/twitterbot/img/python-installer-2.jpg
+http://yono.github.com/static/twitterbot/img/python-installer-2.png
 * Python のインストール
-http://yono.github.com/static/twitterbot/img/python-installer-3.jpg
+http://yono.github.com/static/twitterbot/img/python-installer-3.png
 * Python のインストール
-http://yono.github.com/static/twitterbot/img/python-installer-4.jpg
+http://yono.github.com/static/twitterbot/img/python-installer-4.png
 * Google App Engine SDK のダウンロード
-http://yono.github.com/static/twitterbot/img/gae-install-1.jpg
+http://yono.github.com/static/twitterbot/img/gae-install-1.png
 * Google App Engine SDK のインストール
-http://yono.github.com/static/twitterbot/img/gae-installer-1.jpg
+http://yono.github.com/static/twitterbot/img/gae-installer-1.png
 * Google App Engine SDK のインストール
-http://yono.github.com/static/twitterbot/img/gae-installer-2.jpg
+http://yono.github.com/static/twitterbot/img/gae-installer-2.png
 * Google App Engine SDK のインストール
-http://yono.github.com/static/twitterbot/img/gae-installer-3.jpg
+http://yono.github.com/static/twitterbot/img/gae-installer-3.png
 * Google App Engine SDK のインストール
-http://yono.github.com/static/twitterbot/img/gae-installer-4.jpg
+http://yono.github.com/static/twitterbot/img/gae-installer-4.png
 * ツールの説明
 ** 二種類のつぶやきパターン
 *** 自動的に生成した文章をポスト
