@@ -1,0 +1,32 @@
+table {
+    /*background-color: #cccccc;*/
+    border-collapse: collapse;
+    font-size: 20px;
+    margin-top: 10px;
+    border: 1px solid #000000;
+}
+
+table td{
+    //text-align: right;
+    border: 2px solid #333333;
+    padding: 2px 30px;
+}
+table th{
+    border: 2px solid #333333;
+    padding: 2px 30px;
+}
+blockquote {
+    background-color: #dddddd;
+    font-style:normal;
+    font-size:0.8em;
+}
+ol.dp-c li{
+    font-size: 20px;
+    line-height:1.3em;
+    margin-top:0em;
+}
+
+pre {
+    marin-top: 10px;
+    font-size: 20px;
+}

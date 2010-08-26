@@ -1,0 +1,106 @@
+#+SETUPFILE: s5.org
+#+TITLE: ぼっと勉強会 (H22/09/??)
+#+AUTHOR: @yono
+
+* 本勉強会の目的 :Incremental:
+** ぼっとを作ろう！
+** ……でも難しいんでしょう？
+** 簡単にぼっとを作れるツールを用意しました！！
+** ただし、凝ったことはできないよ
+
+* 本勉強会の流れ
+** ぼっとの仕組みについて
+** 下準備（環境設定）
+** ツールの説明
+** プログラミングについて
+
+* ぼっとの仕組み
+https://cacoo.com/diagrams/vSolBk9KTFTdzzEc.png
+* ぼっとを動かす環境
+** 自宅PC
+- 好きに設定できる
+- PC の電源を落とすとぼっとも死ぬ
+- Windows だと面倒かも
+** レンタルサーバー
+- 最低限の設定はされている
+- 制限あり
+- ぼっとを動かすための準備が必要
+* よのぼっとはどうやって動かしているか
+** Google App Engine 
+*** Google が提供するサービス
+*** プログラムを動かす環境
+*** 無料
+*** 登録が必要
+*** 自分の PC にも設定が必要
+* 下準備（サービスへの登録）:Incremental:
+** Google のアカウント作成
+*** Gmail の設定（あると便利）
+*** Google App Engine への登録
+**** 携帯のメールアドレスが必要
+** Twitter のアカウント作成
+*** メールアドレスが必要
+** Twitter アカウントでのアプリケーション登録
+* Google のアカウント作成
+[[file:img/google-signup-1.tiff]]
+* Google のアカウント作成
+file:img/google-signup-2.tiff
+* Gmail の設定 :Incremental:
+たしか Google のアカウント持ってたら使えたと思います
+** なぜ Gmail か？
+- Twitter アカウント作成にはメールアドレスが必要
+- 通常は 1 メールアドレスで 1 アカウント
+- Gmail だと 1 メールアドレスでいくらでもアカウントが作成できます
+** 作り方
+- 例: yono@gmail.com というメールアドレスを使う場合
+- Twitter 登録時に yono+bot@gmail.com というアドレスを入力します
+- これだけ
+- + 以降の文字を変えればいくらでもアカウントが作れます
+* Twitter のアカウント作成
+http://yono.github.com/static/twitterbot/img/twitter-signup1.tiff
+* Twitter アカウントでのアプリケーション登録
+http://yono.github.com/static/twitterbot/img/twitterapp-signup-1.tiff
+* Twitter アカウントでのアプリケーション登録
+http://yono.github.com/static/twitterbot/img/twitterapp-signup-2.tiff
+* Twitter アカウントでのアプリケーション登録
+http://yono.github.com/static/twitterbot/img/twitterapp-signup-3.tiff
+* Twitter アカウントでのアプリケーション登録
+http://yono.github.com/static/twitterbot/img/twitterapp-signup-4.tiff
+* Twitter アカウントでのアプリケーション登録
+http://yono.github.com/static/twitterbot/img/twitterapp-signup-5.tiff
+* Twitter アカウントでのアプリケーション登録
+http://yono.github.com/static/twitterbot/img/twitterapp-signup-6.tiff
+* 下準備（ソフトウェアのインストール）
+** Python のインストール
+** Google App Engine SDK のインストール
+* Python のダウンロード
+http://yono.github.com/static/twitterbot/img/python-install-6.tiff
+* Python のインストール
+http://yono.github.com/static/twitterbot/img/python-installer-1.tiff
+* Python のインストール
+http://yono.github.com/static/twitterbot/img/python-installer-2.tiff
+* Python のインストール
+http://yono.github.com/static/twitterbot/img/python-installer-3.tiff
+* Python のインストール
+http://yono.github.com/static/twitterbot/img/python-installer-4.tiff
+* Google App Engine SDK のダウンロード
+http://yono.github.com/static/twitterbot/img/gae-install-1.tiff
+* Google App Engine SDK のインストール
+http://yono.github.com/static/twitterbot/img/gae-installer-1.tiff
+* Google App Engine SDK のインストール
+http://yono.github.com/static/twitterbot/img/gae-installer-2.tiff
+* Google App Engine SDK のインストール
+http://yono.github.com/static/twitterbot/img/gae-installer-3.tiff
+* Google App Engine SDK のインストール
+http://yono.github.com/static/twitterbot/img/gae-installer-4.tiff
+* ツールの説明
+** 二種類のつぶやきパターン
+*** 自動的に生成した文章をポスト
+- よのぼっとと同じ
+- ついったーのアカウントを基に作成
+*** あらかじめ用意した文章をポスト
+- ファイルに書かれた文章をランダムにポスト
+** リプライに対する返信
+- ON, OFF の切り替え
+** 自動リフォロー
+- ON, OFF の切り替え
+* プログラミングについて

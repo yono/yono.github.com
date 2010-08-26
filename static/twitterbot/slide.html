@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>ぼっと勉強会 (H22/09/??)</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2010-08-26 22:32:05 JST"/>
+<meta name="author" content="@yono"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<!-- configuration parameters --> <meta name='defaultView' content='slideshow' /> <meta name='controlVis' content='hidden' /> <!-- style sheet links --> <link rel='stylesheet' href='ui/default/slides.css' type='text/css' media='projection' id='slideProj' /> <link rel='stylesheet' href='ui/default/outline.css' type='text/css' media='screen' id='outlineStyle' /> <link rel='stylesheet' href='ui/default/print.css' type='text/css' media='print' id='slidePrint' /> <link rel='stylesheet' href='ui/default/opera.css' type='text/css' media='projection' id='operaFix' /><!-- S5 JS --> <script src='ui/jquery.js' type='text/javascript'></script> <script src='ui/org-slides.js' type='text/javascript'></script> <script src='ui/default/slides.js' type='text/javascript'></script> <script src='ui/default/style.js' type='text/javascript'></script> <link rel='stylesheet' media='screen, print' href='css/prettify.css'> <script src='js/prettify.js' type='text/javascript'></script> <script>$(function(){prettyPrint();});</script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+
+<div class='layout'>
+<div id='controls'></div>
+<div id='currentSlide'></div>
+<div id='header'></div>
+<div id='footer'></div>
+</div>
+<div class='presentation'>
+<div class='slide front'>
+  <div id='front-logo'></div>
+<h1 class='front'>ぼっと勉強会 (H22/09/??)</h1><h3>@yono</h3></div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">本勉強会の目的 &nbsp;&nbsp;&nbsp;<span class="tag"><span class="Incremental">Incremental</span></span></h2>
+<div class="outline-text-2" id="text-1">
+
+<ul>
+<li id="sec-1_1">ぼっとを作ろう！ <br/>
+</li>
+<li id="sec-1_2">……でも難しいんでしょう？ <br/>
+</li>
+<li id="sec-1_3">簡単にぼっとを作れるツールを用意しました！！ <br/>
+</li>
+<li id="sec-1_4">ただし、凝ったことはできないよ <br/>
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">本勉強会の流れ </h2>
+<div class="outline-text-2" id="text-2">
+
+<ul>
+<li id="sec-2_1">ぼっとの仕組みについて <br/>
+</li>
+<li id="sec-2_2">下準備（環境設定） <br/>
+</li>
+<li id="sec-2_3">ツールの説明 <br/>
+</li>
+<li id="sec-2_4">プログラミングについて <br/>
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">ぼっとの仕組み </h2>
+<div class="outline-text-2" id="text-3">
+
+<p><img src="https://cacoo.com/diagrams/vSolBk9KTFTdzzEc.png"  alt="https://cacoo.com/diagrams/vSolBk9KTFTdzzEc.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">ぼっとを動かす環境 </h2>
+<div class="outline-text-2" id="text-4">
+
+<ul>
+<li id="sec-4_1">自宅PC <br/>
+<ul>
+<li>
+好きに設定できる
+</li>
+<li>
+PC の電源を落とすとぼっとも死ぬ
+</li>
+<li>
+Windows だと面倒かも
+</li>
+</ul>
+</li>
+<li id="sec-4_2">レンタルサーバー <br/>
+<ul>
+<li>
+最低限の設定はされている
+</li>
+<li>
+制限あり
+</li>
+<li>
+ぼっとを動かすための準備が必要
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">よのぼっとはどうやって動かしているか </h2>
+<div class="outline-text-2" id="text-5">
+
+<ul>
+<li id="sec-5_1">Google App Engine <br/>
+<ul>
+<li id="sec-5_1_1">Google が提供するサービス <br/>
+</li>
+<li id="sec-5_1_2">プログラムを動かす環境 <br/>
+</li>
+<li id="sec-5_1_3">無料 <br/>
+</li>
+<li id="sec-5_1_4">登録が必要 <br/>
+</li>
+<li id="sec-5_1_5">自分の PC にも設定が必要 <br/>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6">下準備（サービスへの登録）&nbsp;&nbsp;&nbsp;<span class="tag"><span class="Incremental">Incremental</span></span></h2>
+<div class="outline-text-2" id="text-6">
+
+<ul>
+<li id="sec-6_1">Google のアカウント作成 <br/>
+<ul>
+<li id="sec-6_1_1">Gmail の設定（あると便利） <br/>
+</li>
+<li id="sec-6_1_2">Google App Engine への登録 <br/>
+<ul>
+<li id="sec-6_1_2_1">携帯のメールアドレスが必要 <br/>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li id="sec-6_2">Twitter のアカウント作成 <br/>
+<ul>
+<li id="sec-6_2_1">メールアドレスが必要 <br/>
+</li>
+</ul>
+</li>
+<li id="sec-6_3">Twitter アカウントでのアプリケーション登録 <br/>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7">Google のアカウント作成 </h2>
+<div class="outline-text-2" id="text-7">
+
+<p><a href="img/google-signup-1.tiff">img/google-signup-1.tiff</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-8" class="outline-2">
+<h2 id="sec-8">Google のアカウント作成 </h2>
+<div class="outline-text-2" id="text-8">
+
+<p><a href="img/google-signup-2.tiff">img/google-signup-2.tiff</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-9" class="outline-2">
+<h2 id="sec-9">Gmail の設定 &nbsp;&nbsp;&nbsp;<span class="tag"><span class="Incremental">Incremental</span></span></h2>
+<div class="outline-text-2" id="text-9">
+
+<p>たしか Google のアカウント持ってたら使えたと思います
+</p><ul>
+<li id="sec-9_1">なぜ Gmail か？ <br/>
+<ul>
+<li>
+Twitter アカウント作成にはメールアドレスが必要
+</li>
+<li>
+通常は 1 メールアドレスで 1 アカウント
+</li>
+<li>
+Gmail だと 1 メールアドレスでいくらでもアカウントが作成できます
+</li>
+</ul>
+</li>
+<li id="sec-9_2">作り方 <br/>
+<ul>
+<li>
+例: yono@gmail.com というメールアドレスを使う場合
+</li>
+<li>
+Twitter 登録時に yono+bot@gmail.com というアドレスを入力します
+</li>
+<li>
+これだけ
+</li>
+<li>
++ 以降の文字を変えればいくらでもアカウントが作れます
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-10" class="outline-2">
+<h2 id="sec-10">Twitter のアカウント作成 </h2>
+<div class="outline-text-2" id="text-10">
+
+<p><a href="http://yono.github.com/static/twitterbot/img/twitter-signup1.tiff">http://yono.github.com/static/twitterbot/img/twitter-signup1.tiff</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-11" class="outline-2">
+<h2 id="sec-11">Twitter アカウントでのアプリケーション登録 </h2>
+<div class="outline-text-2" id="text-11">
+
+<p><a href="http://yono.github.com/static/twitterbot/img/twitterapp-signup-1.tiff">http://yono.github.com/static/twitterbot/img/twitterapp-signup-1.tiff</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-12" class="outline-2">
+<h2 id="sec-12">Twitter アカウントでのアプリケーション登録 </h2>
+<div class="outline-text-2" id="text-12">
+
+<p><a href="http://yono.github.com/static/twitterbot/img/twitterapp-signup-2.tiff">http://yono.github.com/static/twitterbot/img/twitterapp-signup-2.tiff</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-13" class="outline-2">
+<h2 id="sec-13">Twitter アカウントでのアプリケーション登録 </h2>
+<div class="outline-text-2" id="text-13">
+
+<p><a href="http://yono.github.com/static/twitterbot/img/twitterapp-signup-3.tiff">http://yono.github.com/static/twitterbot/img/twitterapp-signup-3.tiff</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-14" class="outline-2">
+<h2 id="sec-14">Twitter アカウントでのアプリケーション登録 </h2>
+<div class="outline-text-2" id="text-14">
+
+<p><a href="http://yono.github.com/static/twitterbot/img/twitterapp-signup-4.tiff">http://yono.github.com/static/twitterbot/img/twitterapp-signup-4.tiff</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-15" class="outline-2">
+<h2 id="sec-15">Twitter アカウントでのアプリケーション登録 </h2>
+<div class="outline-text-2" id="text-15">
+
+<p><a href="http://yono.github.com/static/twitterbot/img/twitterapp-signup-5.tiff">http://yono.github.com/static/twitterbot/img/twitterapp-signup-5.tiff</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-16" class="outline-2">
+<h2 id="sec-16">Twitter アカウントでのアプリケーション登録 </h2>
+<div class="outline-text-2" id="text-16">
+
+<p><a href="http://yono.github.com/static/twitterbot/img/twitterapp-signup-6.tiff">http://yono.github.com/static/twitterbot/img/twitterapp-signup-6.tiff</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-17" class="outline-2">
+<h2 id="sec-17">下準備（ソフトウェアのインストール） </h2>
+<div class="outline-text-2" id="text-17">
+
+<ul>
+<li id="sec-17_1">Python のインストール <br/>
+</li>
+<li id="sec-17_2">Google App Engine SDK のインストール <br/>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-18" class="outline-2">
+<h2 id="sec-18">Python のダウンロード </h2>
+<div class="outline-text-2" id="text-18">
+
+<p><a href="http://yono.github.com/static/twitterbot/img/python-install-6.tiff">http://yono.github.com/static/twitterbot/img/python-install-6.tiff</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-19" class="outline-2">
+<h2 id="sec-19">Python のインストール </h2>
+<div class="outline-text-2" id="text-19">
+
+<p><a href="http://yono.github.com/static/twitterbot/img/python-installer-1.tiff">http://yono.github.com/static/twitterbot/img/python-installer-1.tiff</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-20" class="outline-2">
+<h2 id="sec-20">Python のインストール </h2>
+<div class="outline-text-2" id="text-20">
+
+<p><a href="http://yono.github.com/static/twitterbot/img/python-installer-2.tiff">http://yono.github.com/static/twitterbot/img/python-installer-2.tiff</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-21" class="outline-2">
+<h2 id="sec-21">Python のインストール </h2>
+<div class="outline-text-2" id="text-21">
+
+<p><a href="http://yono.github.com/static/twitterbot/img/python-installer-3.tiff">http://yono.github.com/static/twitterbot/img/python-installer-3.tiff</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-22" class="outline-2">
+<h2 id="sec-22">Python のインストール </h2>
+<div class="outline-text-2" id="text-22">
+
+<p><a href="http://yono.github.com/static/twitterbot/img/python-installer-4.tiff">http://yono.github.com/static/twitterbot/img/python-installer-4.tiff</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-23" class="outline-2">
+<h2 id="sec-23">Google App Engine SDK のダウンロード </h2>
+<div class="outline-text-2" id="text-23">
+
+<p><a href="http://yono.github.com/static/twitterbot/img/gae-install-1.tiff">http://yono.github.com/static/twitterbot/img/gae-install-1.tiff</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-24" class="outline-2">
+<h2 id="sec-24">Google App Engine SDK のインストール </h2>
+<div class="outline-text-2" id="text-24">
+
+<p><a href="http://yono.github.com/static/twitterbot/img/gae-installer-1.tiff">http://yono.github.com/static/twitterbot/img/gae-installer-1.tiff</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-25" class="outline-2">
+<h2 id="sec-25">Google App Engine SDK のインストール </h2>
+<div class="outline-text-2" id="text-25">
+
+<p><a href="http://yono.github.com/static/twitterbot/img/gae-installer-2.tiff">http://yono.github.com/static/twitterbot/img/gae-installer-2.tiff</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-26" class="outline-2">
+<h2 id="sec-26">Google App Engine SDK のインストール </h2>
+<div class="outline-text-2" id="text-26">
+
+<p><a href="http://yono.github.com/static/twitterbot/img/gae-installer-3.tiff">http://yono.github.com/static/twitterbot/img/gae-installer-3.tiff</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-27" class="outline-2">
+<h2 id="sec-27">Google App Engine SDK のインストール </h2>
+<div class="outline-text-2" id="text-27">
+
+<p><a href="http://yono.github.com/static/twitterbot/img/gae-installer-4.tiff">http://yono.github.com/static/twitterbot/img/gae-installer-4.tiff</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-28" class="outline-2">
+<h2 id="sec-28">ツールの説明 </h2>
+<div class="outline-text-2" id="text-28">
+
+<ul>
+<li id="sec-28_1">二種類のつぶやきパターン <br/>
+<ul>
+<li id="sec-28_1_1">自動的に生成した文章をポスト <br/>
+<ul>
+<li>
+よのぼっとと同じ
+</li>
+<li>
+ついったーのアカウントを基に作成
+</li>
+</ul>
+</li>
+<li id="sec-28_1_2">あらかじめ用意した文章をポスト <br/>
+<ul>
+<li>
+ファイルに書かれた文章をランダムにポスト
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li id="sec-28_2">リプライに対する返信 <br/>
+<ul>
+<li>
+ON, OFF の切り替え
+</li>
+</ul>
+</li>
+<li id="sec-28_3">自動リフォロー <br/>
+<ul>
+<li>
+ON, OFF の切り替え
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-29" class="outline-2">
+<h2 id="sec-29">プログラミングについて </h2>
+<div class="outline-text-2" id="text-29">
+
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

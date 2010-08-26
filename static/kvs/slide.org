@@ -1,0 +1,64 @@
+#+SETUPFILE: s5.org
+#+TITLE: KVS
+#+AUTHOR:
+
+* KVS ってなんぞや
+** Key Value Store の略
+** Key と Value の組み合わせ（連想配列）
+#+BEGIN_SRC ruby
+hash = {:hoge => 1, :fuga => "hago"}
+#+END_SRC
+** RDB でないデータベース
+
+* なぜ KVS?
+** RDB の欠点を補う
+** スケーリングが苦手
+** データの冗長化、分散
+** データ取得が遅い
+
+* 大まかに分類してみる :Incremental:
+** memcached 系
+- memcached から派生
+- 単純な機能のみ所持
+- memcached 互換 API を提供
+** Hadoop 系
+- Google の Hadoop から派生
+- より高機能
+  - 列指向 DB
+  - Map Reduce
+- Cassandra も含む
+** 今回は memcached 系について
+
+* memcached とは :Incremental:
+** Key と Value の組をメモリ上に保存
+** データの永続化はしない
+** 位置づけはあくまでキャッシュ
+** 主に RDB + memcached という構成で使われる
+
+* memcached から派生したソフトウェア
+** Tokyo Cabinet / Tokyo Tyrant
+** kumofs
+** ROMA
+** Redis
+** Hibari
+
+* Tokyo Cabinet / Tokyo Tyrant
+** mixi のエンジニアが開発
+** TokyoCabinet
+データベース
+** Tokyo Tyrant
+Tokyo Cabinet のネットワークインターフェース
+** 特徴
+- データ永続化
+- データ冗長化
+
+* kumofs
+** えとらぼによる開発
+** 特徴
+*** 三種類のデーモンの組み合わせ
+
+* ROMA
+
+* Redis
+
+* Hibari

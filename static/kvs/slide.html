@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>KVS</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2010-08-23 22:41:29 JST"/>
+<meta name="author" content=""/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<!-- configuration parameters --> <meta name='defaultView' content='slideshow' /> <meta name='controlVis' content='hidden' /> <!-- style sheet links --> <link rel='stylesheet' href='ui/default/slides.css' type='text/css' media='projection' id='slideProj' /> <link rel='stylesheet' href='ui/default/outline.css' type='text/css' media='screen' id='outlineStyle' /> <link rel='stylesheet' href='ui/default/print.css' type='text/css' media='print' id='slidePrint' /> <link rel='stylesheet' href='ui/default/opera.css' type='text/css' media='projection' id='operaFix' /><!-- S5 JS --> <script src='ui/jquery.js' type='text/javascript'></script> <script src='ui/org-slides.js' type='text/javascript'></script> <script src='ui/default/slides.js' type='text/javascript'></script> <script src='ui/default/style.js' type='text/javascript'></script> <link rel='stylesheet' media='screen, print' href='css/prettify.css'> <script src='js/prettify.js' type='text/javascript'></script> <script>$(function(){prettyPrint();});</script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+
+<div class='layout'>
+<div id='controls'></div>
+<div id='currentSlide'></div>
+<div id='header'></div>
+<div id='footer'></div>
+</div>
+<div class='presentation'>
+<div class='slide front'>
+  <div id='front-logo'></div>
+<h1 class='front'>KVS</h1><h3></h3></div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">KVS ってなんぞや </h2>
+<div class="outline-text-2" id="text-1">
+
+<ul>
+<li id="sec-1_1">Key Value Store の略 <br/>
+</li>
+<li id="sec-1_2">Key と Value の組み合わせ（連想配列） <br/>
+
+
+
+<pre class="src src-ruby">hash = {<span style="color: #87ffd7;">:hoge</span> =&gt; 1, <span style="color: #87ffd7;">:fuga</span> =&gt; <span style="color: #ffaf87;">"hago"</span>}
+</pre>
+
+
+</li>
+<li id="sec-1_3">RDB でないデータベース <br/>
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">なぜ KVS? </h2>
+<div class="outline-text-2" id="text-2">
+
+<ul>
+<li id="sec-2_1">RDB の欠点を補う <br/>
+</li>
+<li id="sec-2_2">スケーリングが苦手 <br/>
+</li>
+<li id="sec-2_3">データの冗長化、分散 <br/>
+</li>
+<li id="sec-2_4">データ取得が遅い <br/>
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">大まかに分類してみる &nbsp;&nbsp;&nbsp;<span class="tag"><span class="Incremental">Incremental</span></span></h2>
+<div class="outline-text-2" id="text-3">
+
+<ul>
+<li id="sec-3_1">memcached 系 <br/>
+<ul>
+<li>
+memcached から派生
+</li>
+<li>
+単純な機能のみ所持
+</li>
+<li>
+memcached 互換 API を提供
+</li>
+</ul>
+</li>
+<li id="sec-3_2">Hadoop 系 <br/>
+<ul>
+<li>
+Google の Hadoop から派生
+</li>
+<li>
+より高機能
+<ul>
+<li>
+列指向 DB
+</li>
+<li>
+Map Reduce
+</li>
+</ul>
+</li>
+<li>
+Cassandra も含む
+</li>
+</ul>
+</li>
+<li id="sec-3_3">今回は memcached 系について <br/>
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">memcached とは &nbsp;&nbsp;&nbsp;<span class="tag"><span class="Incremental">Incremental</span></span></h2>
+<div class="outline-text-2" id="text-4">
+
+<ul>
+<li id="sec-4_1">Key と Value の組をメモリ上に保存 <br/>
+</li>
+<li id="sec-4_2">データの永続化はしない <br/>
+</li>
+<li id="sec-4_3">位置づけはあくまでキャッシュ <br/>
+</li>
+<li id="sec-4_4">主に RDB + memcached という構成で使われる <br/>
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">memcached から派生したソフトウェア </h2>
+<div class="outline-text-2" id="text-5">
+
+<ul>
+<li id="sec-5_1">Tokyo Cabinet / Tokyo Tyrant <br/>
+</li>
+<li id="sec-5_2">kumofs <br/>
+</li>
+<li id="sec-5_3">ROMA <br/>
+</li>
+<li id="sec-5_4">Redis <br/>
+</li>
+<li id="sec-5_5">Hibari <br/>
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6">Tokyo Cabinet / Tokyo Tyrant </h2>
+<div class="outline-text-2" id="text-6">
+
+<ul>
+<li id="sec-6_1">mixi のエンジニアが開発 <br/>
+</li>
+<li id="sec-6_2">TokyoCabinet <br/>
+データベース
+</li>
+<li id="sec-6_3">Tokyo Tyrant <br/>
+Tokyo Cabinet のネットワークインターフェース
+</li>
+<li id="sec-6_4">特徴 <br/>
+<ul>
+<li>
+データ永続化
+</li>
+<li>
+データ冗長化
+
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7">kumofs </h2>
+<div class="outline-text-2" id="text-7">
+
+<ul>
+<li id="sec-7_1">えとらぼによる開発 <br/>
+</li>
+<li id="sec-7_2">特徴 <br/>
+<ul>
+<li id="sec-7_2_1">三種類のデーモンの組み合わせ <br/>
+
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-8" class="outline-2">
+<h2 id="sec-8">ROMA </h2>
+<div class="outline-text-2" id="text-8">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-9" class="outline-2">
+<h2 id="sec-9">Redis </h2>
+<div class="outline-text-2" id="text-9">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-10" class="outline-2">
+<h2 id="sec-10">Hibari </h2>
+<div class="outline-text-2" id="text-10">
+
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
