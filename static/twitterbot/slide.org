@@ -41,6 +41,7 @@ https://cacoo.com/diagrams/vSolBk9KTFTdzzEc.png
 *** メールアドレスが必要
 ** Twitter アカウントでのアプリケーション登録
 * Google のアカウント作成
+http://www.google.co.jp/
 http://yono.github.com/static/twitterbot/img/google-signup-1.png
 * Google のアカウント作成
 http://yono.github.com/static/twitterbot/img/google-signup-2.png
@@ -56,23 +57,33 @@ http://yono.github.com/static/twitterbot/img/google-signup-2.png
 - これだけ
 - + 以降の文字を変えればいくらでもアカウントが作れます
 * Twitter のアカウント作成
+http://twitter.com
 http://yono.github.com/static/twitterbot/img/twitter-signup1.png
 * Twitter アカウントでのアプリケーション登録
+「設定」をクリック
 http://yono.github.com/static/twitterbot/img/twitterapp-signup-1.png
 * Twitter アカウントでのアプリケーション登録
+「連携アプリ」をクリック
 http://yono.github.com/static/twitterbot/img/twitterapp-signup-2.png
 * Twitter アカウントでのアプリケーション登録
+赤丸で囲まれた部分「こちら」をクリック
 http://yono.github.com/static/twitterbot/img/twitterapp-signup-3.png
 * Twitter アカウントでのアプリケーション登録
+「新しいアプリケーションを追加」をクリック
 http://yono.github.com/static/twitterbot/img/twitterapp-signup-4.png
 * Twitter アカウントでのアプリケーション登録
 http://yono.github.com/static/twitterbot/img/twitterapp-signup-5.png
 * Twitter アカウントでのアプリケーション登録
+「Default Access type:」は「Read & Write」を選択
 http://yono.github.com/static/twitterbot/img/twitterapp-signup-6.png
 * 下準備（ソフトウェアのインストール）
 ** Python のインストール
+- プログラミング言語
+- よのぼっとはこの言語で書かれています
 ** Google App Engine SDK のインストール
+- Google App Engine で開発するためのツール
 * Python のダウンロード
+http://www.python.org/download/releases/2.5.4/
 http://yono.github.com/static/twitterbot/img/python-install-6.png
 * Python のインストール
 http://yono.github.com/static/twitterbot/img/python-installer-1.png
@@ -83,6 +94,8 @@ http://yono.github.com/static/twitterbot/img/python-installer-3.png
 * Python のインストール
 http://yono.github.com/static/twitterbot/img/python-installer-4.png
 * Google App Engine SDK のダウンロード
+http://code.google.com/intl/ja/appengine/downloads.html
+「GoogleAppEngine-1.3.6.msi」をクリック
 http://yono.github.com/static/twitterbot/img/gae-install-1.png
 * Google App Engine SDK のインストール
 http://yono.github.com/static/twitterbot/img/gae-installer-1.png
