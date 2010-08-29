@@ -4,8 +4,9 @@
 - [Python 基礎](python/python_basics)
 - [文章生成ライブラリ markovchains](python/markovchains)
 - [Google App Engine/Python](python/gae)
+- [クロールして収集したHTMLの解析について](python/html_analysis)
 
 ## 勉強会
 - [10/6/11 Java Kuche 第10回勉強会](study_meeting/100611_javakuche/)
 - [10/8/6 HACK勉強会資料](static/how_to_insert_huge_data_to_rdb.html)
-- [10/8/13 HACK勉強会資料](static/vmware_fusion_server.html)
+- [10/8/13 HACK勉強会資料(未発表)](static/vmware_fusion_server.html)
