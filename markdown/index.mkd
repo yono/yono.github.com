@@ -10,3 +10,4 @@
 - [10/6/11 Java Kuche 第10回勉強会](study_meeting/100611_javakuche/)
 - [10/8/6 HACK勉強会資料](static/how_to_insert_huge_data_to_rdb.html)
 - [10/8/13 HACK勉強会資料(未発表)](static/vmware_fusion_server.html)
+- [10/9/9 HACK勉強会資料](static/ksv/slide.html)
