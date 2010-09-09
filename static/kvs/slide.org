@@ -11,18 +11,16 @@ hash = {:hoge => 1, :fuga => "hago"}
 ** RDB でないデータベース
 
 * なぜ KVS?
-** RDB の欠点を補う
-** スケーリングが苦手
-** データの冗長化、分散
-** データ取得が遅い
-
+** RDB の欠点を補うため
+*** スケーリングが苦手
+*** データの冗長化、分散
 * 大まかに分類してみる :Incremental:
 ** memcached 系
 - memcached から派生
-- 単純な機能のみ所持
+- 単純な機能のみ提供
 - memcached 互換 API を提供
-** Hadoop 系
-- Google の Hadoop から派生
+** BigTable/hBase 系
+- Google の BigTable から派生
 - より高機能
   - 列指向 DB
   - Map Reduce
@@ -35,30 +33,133 @@ hash = {:hoge => 1, :fuga => "hago"}
 ** 位置づけはあくまでキャッシュ
 ** 主に RDB + memcached という構成で使われる
 
+* memcached の利用
+** サーバを起動
+#+BEGIN_SRC bash   
+% memcached -d -m 1024 -l 127.0.0.1
+#+END_SRC
+** クライアントからアクセス（Python）
+#+BEGIN_SRC bash
+% sudo easy_install python-memcached
+#+END_SRC
+
+#+BEGIN_SRC python
+   import memcache
+   mc = memcache.Client(['127.0.0.1:11211'])
+
+   print mc.get('key') # => None
+   
+   mc.set('key', 'value')
+   
+   print mc.get('key') # => 'value'
+
+   mc.delete('key')
+#+END_SRC
+
+* クライアントからアクセス（Ruby）
+#+BEGIN_SRC bash
+% sudo gem install memcache-client
+#+END_SRC
+
+#+BEGIN_SRC ruby
+require 'rubygems'
+require 'memcache'
+
+mc = MemCache::new 'localhost:11211'
+
+puts mc["key"] # => nil
+
+mc["key"] = "value"
+
+puts mc["key"] # => "value"
+
+mc.delete("key")
+#+END_SRC
 * memcached から派生したソフトウェア
+特徴: memcached 互換プロトコルに対応
 ** Tokyo Cabinet / Tokyo Tyrant
 ** kumofs
-** ROMA
 ** Redis
-** Hibari
 
 * Tokyo Cabinet / Tokyo Tyrant
 ** mixi のエンジニアが開発
-** TokyoCabinet
+** Tokyo Cabinet
 データベース
 ** Tokyo Tyrant
 Tokyo Cabinet のネットワークインターフェース
 ** 特徴
-- データ永続化
-- データ冗長化
-
+*** データ永続化
+*** データ冗長化（replication）
+- Master and Slave
+- Dual Master 
 * kumofs
-** えとらぼによる開発
+** えとらぼによる開発（えとらぼ: 元 mixi CTO バタラ氏設立）
 ** 特徴
 *** 三種類のデーモンの組み合わせ
-
-* ROMA
-
+http://yono.github.com/static/kvs/img/kumofs1.png
+* kumofs のデーモンについて
+** kumo-server
+データベース
+** kumo-manager
+kumo-server を統括する
+** kumo-gateway
+クライアント側で動作する。kumo-server との接続を担当
+** その他の特徴
+- データ永続化
+- レプリケーション
+- データ分散
+  - データの格納先サーバを自動的に振り分け
 * Redis
+** 開発者: Salvatore Sanfilippo 氏
+** 特徴
+- データ永続化
+- 非同期的にデータを書き出す
+- リスト型、集合型、順序付き集合を扱える
 
-* Hibari
+* 機能比較
+| ソフトウェア | データ永続化 | データ冗長化 | サーバによるデータ分散 |
+| memcached    | ×           | ×           | ×                     |
+| TC/TT        | ○          | ○           | ×                     |
+| kumofs       | ○          | ○           | ○                     |
+| redis        | ○          | ○           | ×                      |
+* ベンチマーク
+** 目的: KVS & RDB におけるRead/Write 速度の比較
+** 方法: 大量データの Read/Write を複数ソフトウェアで実施
+** 使用したデータ: ランダムな key, value の組み合わせ
+- 数: およそ300万
+** 使用したソフトウェア
+- memcached
+- Tokyo Cabinet/Tokyo Tyrant
+- kumofs
+- redis
+- MySQL(INDEX有り、無し)
+- PostgreSQL(INDEX有り、無し)
+** Python : pylibmc 使用
+* 結果
+実験結果（単位は秒）
+| ソフトウェア           |       get |      set |
+| memcached              |       126 |      143 |
+| TC/TT                  |       213 |      201 |
+| kumofs                 |       360 |      599 |
+| redis                  |        96 |      120 |
+| MySQL (INDEX無し)      | 711 * 300 |      304 |
+| MySQL (INDEX有り）     |       928 |      460 |
+| PostgreSQL (INDEX無し) |       377 |      420 |
+| PostgreSQL (INDEX有り) |   79 * 10 | 測定不能 |
+
+* ソース
+#+BEGIN_SRC python
+def main_pylibmc():
+    file = open('hogehoge.csv').read().splitlines()
+    import pylibmc
+    mc = pylibmc.Client(['127.0.0.1:11211'])
+	mc.flush_all()
+
+    for line in file:
+        data = line.split(',')
+        num = data[-1]
+        data.pop(-1)
+        word = ','.join(data)
+        mc.set(word, num)
+		# value = mc.get(word)
+#+END_SRC
