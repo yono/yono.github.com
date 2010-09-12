@@ -116,5 +116,45 @@ http://yono.github.com/static/twitterbot/img/gae-installer-4.png
 - ON, OFF の切り替え
 ** 自動リフォロー
 - ON, OFF の切り替え
+* ツールを使うまでの準備
+** OAuth のキー入手
+** ツールを入手し、動作確認
+** アップロードしてぼっととして動かす
+* OAuth とは
+** Twitter が扱う認証形式
+** パスワードの代わりに四種類のキーを使う
+*** consumer\_key（アプリケーションごと）
+*** consumer\_secret（アプリケーションごと）
+*** access\_token（ユーザごと）
+*** access\_token\_secret（ユーザごと）
+** パスワードを教えないのでよいのでより安全
+** ただし手順が少し面倒
+* OAuth の手順
+** 説明
+- (1) ユーザがサービスの利用申請をする
+- (2) サービスが Twitter にユーザアカウントの利用許可を求める
+- (3) Twitter がユーザに確認し、OK であれば PIN 番号を渡す
+- (4) ユーザはサービスに PIN 番号を伝える
+- (5) サービスは Twitter に PIN 番号を伝える
+- (6) access\_token, access\_token\_secret が渡される
+https://cacoo.com/diagrams/iaHD4gejNTR4daBa.png
+* 四つのキーを取得
+http://dev.twitter.com にアクセス
+http://yono.github.com/static/twitterbot/img/devtwitter_1.png
+* 四つのキーを取得
+Sign In
+http://yono.github.com/static/twitterbot/img/devtwitter_2.png
+* 四つのキーを取得
+ぼっとのユーザ名とパスワード入力
+http://yono.github.com/static/twitterbot/img/devtwitter_3.png
+* 四つのキーを取得
+先ほど作成したアプリケーションを選択
+http://yono.github.com/static/twitterbot/img/devtwitter_4.png
+* 四つのキーを取得
+consumer_key と consumer_secret 
+http://yono.github.com/static/twitterbot/img/devtwitter_5.png
+http://yono.github.com/static/twitterbot/img/devtwitter_5_2.png
+* 四つのキーを取得
+access_token と access_token_secret
+http://yono.github.com/static/twitterbot/img/devtwitter_6.png
 * プログラミングについて
-
