@@ -139,7 +139,7 @@ http://yono.github.com/static/twitterbot/img/gae-installer-4.png
 - (6) access\_token, access\_token\_secret が渡される
 https://cacoo.com/diagrams/iaHD4gejNTR4daBa.png
 * 四つのキーを取得
-http://dev.twitter.com にアクセス
+**http://dev.twitter.com にアクセス
 
 http://yono.github.com/static/twitterbot/img/devtwitter-1.png
 * 四つのキーを取得
