@@ -140,21 +140,22 @@ http://yono.github.com/static/twitterbot/img/gae-installer-4.png
 https://cacoo.com/diagrams/iaHD4gejNTR4daBa.png
 * 四つのキーを取得
 http://dev.twitter.com にアクセス
-http://yono.github.com/static/twitterbot/img/devtwitter_1.png
+
+http://yono.github.com/static/twitterbot/img/devtwitter-1.png
 * 四つのキーを取得
 Sign In
-http://yono.github.com/static/twitterbot/img/devtwitter_2.png
+http://yono.github.com/static/twitterbot/img/devtwitter-2.png
 * 四つのキーを取得
 ぼっとのユーザ名とパスワード入力
-http://yono.github.com/static/twitterbot/img/devtwitter_3.png
+http://yono.github.com/static/twitterbot/img/devtwitter-3.png
 * 四つのキーを取得
 先ほど作成したアプリケーションを選択
-http://yono.github.com/static/twitterbot/img/devtwitter_4.png
+http://yono.github.com/static/twitterbot/img/devtwitter-4.png
 * 四つのキーを取得
 consumer_key と consumer_secret 
-http://yono.github.com/static/twitterbot/img/devtwitter_5.png
-http://yono.github.com/static/twitterbot/img/devtwitter_5_2.png
+http://yono.github.com/static/twitterbot/img/devtwitter-5.png
+http://yono.github.com/static/twitterbot/img/devtwitter-5-2.png
 * 四つのキーを取得
 access_token と access_token_secret
-http://yono.github.com/static/twitterbot/img/devtwitter_6.png
+http://yono.github.com/static/twitterbot/img/devtwitter-6.png
 * プログラミングについて
