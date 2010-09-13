@@ -4,10 +4,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 lang="en" xml:lang="en">
 <head>
-<title>ぼっと勉強会 (H22/09/??)</title>
+<title>ぼっと勉強会 (H22/09/25)</title>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2010-09-12 18:27:22 JST"/>
+<meta name="generated" content="2010-09-13 23:46:49 JST"/>
 <meta name="author" content="@yono"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -47,7 +47,7 @@ lang="en" xml:lang="en">
 <div class='presentation'>
 <div class='slide front'>
   <div id='front-logo'></div>
-<h1 class='front'>ぼっと勉強会 (H22/09/??)</h1><h3>@yono</h3></div>
+<h1 class='front'>ぼっと勉強会 (H22/09/25)</h1><h3>@yono</h3></div>
 
 <div id="outline-container-1" class="outline-2">
 <h2 id="sec-1">本勉強会の目的 &nbsp;&nbsp;&nbsp;<span class="tag"><span class="Incremental">Incremental</span></span></h2>
@@ -61,7 +61,8 @@ lang="en" xml:lang="en">
 <li id="sec-1_3">簡単にぼっとを作れるひな形を用意しました！！ <br/>
 </li>
 <li id="sec-1_4">ただし、凝ったことはできないよ <br/>
-
+</li>
+<li id="sec-1_5">ぼっとを改造したい場合はプログラミングを習得しましょう！ <br/>
 </li>
 </ul>
 </div>
@@ -80,7 +81,6 @@ lang="en" xml:lang="en">
 <li id="sec-2_3">ひな形の説明 <br/>
 </li>
 <li id="sec-2_4">プログラミングについて <br/>
-
 </li>
 </ul>
 </div>
@@ -151,6 +151,8 @@ Windows だと面倒かも
 </li>
 </ul>
 </li>
+<li id="sec-5_2">今回は Google App Engine を利用してぼっとを作成します <br/>
+</li>
 </ul>
 </div>
 
@@ -179,7 +181,7 @@ Windows だと面倒かも
 </li>
 </ul>
 </li>
-<li id="sec-6_3">Twitter アカウントでのアプリケーション登録 <br/>
+<li id="sec-6_3">Twitter のアプリケーション登録 <br/>
 </li>
 </ul>
 </div>
@@ -256,17 +258,18 @@ Twitter 登録時に yono+bot@gmail.com というアドレスを入力します
 </div>
 
 <div id="outline-container-11" class="outline-2">
-<h2 id="sec-11">Twitter アカウントでのアプリケーション登録 </h2>
+<h2 id="sec-11">Twitter のアプリケーション登録 </h2>
 <div class="outline-text-2" id="text-11">
 
-<p>「設定」をクリック
+<p>ぼっと用のアカウントでログインし、画面上部の
+「設定」をクリック
 <img src="http://yono.github.com/static/twitterbot/img/twitterapp-signup-1.png"  alt="http://yono.github.com/static/twitterbot/img/twitterapp-signup-1.png" />
 </p></div>
 
 </div>
 
 <div id="outline-container-12" class="outline-2">
-<h2 id="sec-12">Twitter アカウントでのアプリケーション登録 </h2>
+<h2 id="sec-12">Twitter のアプリケーション登録 </h2>
 <div class="outline-text-2" id="text-12">
 
 <p>「連携アプリ」をクリック
@@ -276,17 +279,17 @@ Twitter 登録時に yono+bot@gmail.com というアドレスを入力します
 </div>
 
 <div id="outline-container-13" class="outline-2">
-<h2 id="sec-13">Twitter アカウントでのアプリケーション登録 </h2>
+<h2 id="sec-13">Twitter のアプリケーション登録 </h2>
 <div class="outline-text-2" id="text-13">
 
-<p>赤丸で囲まれた部分「こちら」をクリック
+<p>赤丸で囲まれた部分の「こちら」をクリック
 <img src="http://yono.github.com/static/twitterbot/img/twitterapp-signup-3.png"  alt="http://yono.github.com/static/twitterbot/img/twitterapp-signup-3.png" />
 </p></div>
 
 </div>
 
 <div id="outline-container-14" class="outline-2">
-<h2 id="sec-14">Twitter アカウントでのアプリケーション登録 </h2>
+<h2 id="sec-14">Twitter のアプリケーション登録 </h2>
 <div class="outline-text-2" id="text-14">
 
 <p>「新しいアプリケーションを追加」をクリック
@@ -296,7 +299,7 @@ Twitter 登録時に yono+bot@gmail.com というアドレスを入力します
 </div>
 
 <div id="outline-container-15" class="outline-2">
-<h2 id="sec-15">Twitter アカウントでのアプリケーション登録 </h2>
+<h2 id="sec-15">Twitter のアプリケーション登録 </h2>
 <div class="outline-text-2" id="text-15">
 
 <p><img src="http://yono.github.com/static/twitterbot/img/twitterapp-signup-5.png"  alt="http://yono.github.com/static/twitterbot/img/twitterapp-signup-5.png" />
@@ -305,10 +308,16 @@ Twitter 登録時に yono+bot@gmail.com というアドレスを入力します
 </div>
 
 <div id="outline-container-16" class="outline-2">
-<h2 id="sec-16">Twitter アカウントでのアプリケーション登録 </h2>
+<h2 id="sec-16">Twitter のアプリケーション登録 </h2>
 <div class="outline-text-2" id="text-16">
 
-<p>「Default Access type:」は「Read &amp; Write」を選択
+<p>「アプリケーションの種類」は「クライアントアプリケーション」を選択
+</p>
+<p>
+「Default Access type:」は「Read &amp; Write」を選択
+</p>
+<p>
+それ以外は特に入力する必要はありません
 <img src="http://yono.github.com/static/twitterbot/img/twitterapp-signup-6.png"  alt="http://yono.github.com/static/twitterbot/img/twitterapp-signup-6.png" />
 </p></div>
 
@@ -336,6 +345,13 @@ Google App Engine で開発するためのツール
 </li>
 </ul>
 </li>
+<li id="sec-17_3">サクラエディタのインストール <br/>
+<ul>
+<li>
+ファイルを編集する際に使います
+</li>
+</ul>
+</li>
 </ul>
 </div>
 
@@ -346,6 +362,9 @@ Google App Engine で開発するためのツール
 <div class="outline-text-2" id="text-18">
 
 <p><a href="http://www.python.org/download/releases/2.5.4/">http://www.python.org/download/releases/2.5.4/</a>
+</p>
+<p>
+お使いのPCに合ったインストーラをダウンロードしてください
 <img src="http://yono.github.com/static/twitterbot/img/python-install-6.png"  alt="http://yono.github.com/static/twitterbot/img/python-install-6.png" />
 </p></div>
 
@@ -355,7 +374,11 @@ Google App Engine で開発するためのツール
 <h2 id="sec-19">Python のインストール </h2>
 <div class="outline-text-2" id="text-19">
 
-<p><img src="http://yono.github.com/static/twitterbot/img/python-installer-1.png"  alt="http://yono.github.com/static/twitterbot/img/python-installer-1.png" />
+<p>通常のアプリケーションのインストーラと同様です。
+</p>
+<p>
+特に設定変更する箇所はありません
+<img src="http://yono.github.com/static/twitterbot/img/python-installer-1.png"  alt="http://yono.github.com/static/twitterbot/img/python-installer-1.png" />
 </p></div>
 
 </div>
@@ -364,7 +387,8 @@ Google App Engine で開発するためのツール
 <h2 id="sec-20">Python のインストール </h2>
 <div class="outline-text-2" id="text-20">
 
-<p><img src="http://yono.github.com/static/twitterbot/img/python-installer-2.png"  alt="http://yono.github.com/static/twitterbot/img/python-installer-2.png" />
+<p>特に設定変更する箇所はありません
+<img src="http://yono.github.com/static/twitterbot/img/python-installer-2.png"  alt="http://yono.github.com/static/twitterbot/img/python-installer-2.png" />
 </p></div>
 
 </div>
@@ -373,7 +397,8 @@ Google App Engine で開発するためのツール
 <h2 id="sec-21">Python のインストール </h2>
 <div class="outline-text-2" id="text-21">
 
-<p><img src="http://yono.github.com/static/twitterbot/img/python-installer-3.png"  alt="http://yono.github.com/static/twitterbot/img/python-installer-3.png" />
+<p>特に設定変更する箇所はありません
+<img src="http://yono.github.com/static/twitterbot/img/python-installer-3.png"  alt="http://yono.github.com/static/twitterbot/img/python-installer-3.png" />
 </p></div>
 
 </div>
@@ -382,7 +407,8 @@ Google App Engine で開発するためのツール
 <h2 id="sec-22">Python のインストール </h2>
 <div class="outline-text-2" id="text-22">
 
-<p><img src="http://yono.github.com/static/twitterbot/img/python-installer-4.png"  alt="http://yono.github.com/static/twitterbot/img/python-installer-4.png" />
+<p>Finish をクリックしてインストールを完了します
+<img src="http://yono.github.com/static/twitterbot/img/python-installer-4.png"  alt="http://yono.github.com/static/twitterbot/img/python-installer-4.png" />
 </p></div>
 
 </div>
@@ -392,7 +418,7 @@ Google App Engine で開発するためのツール
 <div class="outline-text-2" id="text-23">
 
 <p><a href="http://code.google.com/intl/ja/appengine/downloads.html">http://code.google.com/intl/ja/appengine/downloads.html</a>
-「GoogleAppEngine-1.3.6.msi」をクリック
+「GoogleAppEngine-1.3.7.msi」をクリック
 <img src="http://yono.github.com/static/twitterbot/img/gae-install-1.png"  alt="http://yono.github.com/static/twitterbot/img/gae-install-1.png" />
 </p></div>
 
@@ -402,7 +428,11 @@ Google App Engine で開発するためのツール
 <h2 id="sec-24">Google App Engine SDK のインストール </h2>
 <div class="outline-text-2" id="text-24">
 
-<p><img src="http://yono.github.com/static/twitterbot/img/gae-installer-1.png"  alt="http://yono.github.com/static/twitterbot/img/gae-installer-1.png" />
+<p>通常のアプリケーションのインストーラと同様です。
+</p>
+<p>
+特に設定変更する箇所はありません
+<img src="http://yono.github.com/static/twitterbot/img/gae-installer-1.png"  alt="http://yono.github.com/static/twitterbot/img/gae-installer-1.png" />
 </p></div>
 
 </div>
@@ -411,7 +441,8 @@ Google App Engine で開発するためのツール
 <h2 id="sec-25">Google App Engine SDK のインストール </h2>
 <div class="outline-text-2" id="text-25">
 
-<p><img src="http://yono.github.com/static/twitterbot/img/gae-installer-2.png"  alt="http://yono.github.com/static/twitterbot/img/gae-installer-2.png" />
+<p>I accept&hellip; にチェックを入れて Next をクリック
+<img src="http://yono.github.com/static/twitterbot/img/gae-installer-2.png"  alt="http://yono.github.com/static/twitterbot/img/gae-installer-2.png" />
 </p></div>
 
 </div>
@@ -420,7 +451,8 @@ Google App Engine で開発するためのツール
 <h2 id="sec-26">Google App Engine SDK のインストール </h2>
 <div class="outline-text-2" id="text-26">
 
-<p><img src="http://yono.github.com/static/twitterbot/img/gae-installer-3.png"  alt="http://yono.github.com/static/twitterbot/img/gae-installer-3.png" />
+<p>特に設定変更する箇所はありません
+<img src="http://yono.github.com/static/twitterbot/img/gae-installer-3.png"  alt="http://yono.github.com/static/twitterbot/img/gae-installer-3.png" />
 </p></div>
 
 </div>
@@ -429,19 +461,77 @@ Google App Engine で開発するためのツール
 <h2 id="sec-27">Google App Engine SDK のインストール </h2>
 <div class="outline-text-2" id="text-27">
 
-<p><img src="http://yono.github.com/static/twitterbot/img/gae-installer-4.png"  alt="http://yono.github.com/static/twitterbot/img/gae-installer-4.png" />
+<p>Install をクリックしてインストールを完了します
+<img src="http://yono.github.com/static/twitterbot/img/gae-installer-4.png"  alt="http://yono.github.com/static/twitterbot/img/gae-installer-4.png" />
 </p></div>
 
 </div>
 
 <div id="outline-container-28" class="outline-2">
-<h2 id="sec-28">ツールの説明 </h2>
+<h2 id="sec-28">サクラエディタのインストール </h2>
 <div class="outline-text-2" id="text-28">
 
+<p><a href="http://mofmof.nsf.tc/soft/sakura_unicode/">http://mofmof.nsf.tc/soft/sakura_unicode/</a>
+</p>
+<p>
+sakuraW_r1428.zip をクリックしてダウンロード
+<img src="img/sakuraeditor-1.png"  alt="img/sakuraeditor-1.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-29" class="outline-2">
+<h2 id="sec-29">サクラエディタのインストール </h2>
+<div class="outline-text-2" id="text-29">
+
+<p>ダウンロードしてファイルを展開するとsakuraWというアプリケーションが
+入っています。
+<img src="img/sakuraeditor-6.png"  alt="img/sakuraeditor-6.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-30" class="outline-2">
+<h2 id="sec-30">サクラエディタのインストール </h2>
+<div class="outline-text-2" id="text-30">
+
+<p>ダブルクリックして一度起動すると、右クリックメニューに
+[SAKURAで開く]が追加されます。
+<img src="img/sakuraeditor-2.png"  alt="img/sakuraeditor-2.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-31" class="outline-2">
+<h2 id="sec-31">サクラエディタのインストール </h2>
+<div class="outline-text-2" id="text-31">
+
+<p>ファイルを右クリックして[SAKURAで開く]を選択すると
+サクラエディタでファイルを開くことができます。
+<img src="img/sakuraeditor-3.png"  alt="img/sakuraeditor-3.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-32" class="outline-2">
+<h2 id="sec-32">サクラエディタのインストール </h2>
+<div class="outline-text-2" id="text-32">
+
+<p>以降、テキストファイルを編集する際はこのアプリケーションを
+使用します。
+<img src="img/sakuraeditor-5.png"  alt="img/sakuraeditor-5.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-33" class="outline-2">
+<h2 id="sec-33">ぼっとひな形の説明 </h2>
+<div class="outline-text-2" id="text-33">
+
 <ul>
-<li id="sec-28_1">二種類のつぶやきパターン <br/>
+<li id="sec-33_1">二種類のつぶやきパターン <br/>
 <ul>
-<li id="sec-28_1_1">自動的に生成した文章をポスト <br/>
+<li id="sec-33_1_1">自動的に生成した文章をポスト <br/>
 <ul>
 <li>
 よのぼっとと同じ
@@ -451,7 +541,7 @@ Google App Engine で開発するためのツール
 </li>
 </ul>
 </li>
-<li id="sec-28_1_2">あらかじめ用意した文章をポスト <br/>
+<li id="sec-33_1_2">あらかじめ用意した文章をポスト <br/>
 <ul>
 <li>
 ファイルに書かれた文章をランダムにポスト
@@ -460,14 +550,7 @@ Google App Engine で開発するためのツール
 </li>
 </ul>
 </li>
-<li id="sec-28_2">リプライに対する返信 <br/>
-<ul>
-<li>
-ON, OFF の切り替え
-</li>
-</ul>
-</li>
-<li id="sec-28_3">自動リフォロー <br/>
+<li id="sec-33_2">リプライに対する返信 <br/>
 <ul>
 <li>
 ON, OFF の切り替え
@@ -479,56 +562,56 @@ ON, OFF の切り替え
 
 </div>
 
-<div id="outline-container-29" class="outline-2">
-<h2 id="sec-29">ツールを使うまでの準備 </h2>
-<div class="outline-text-2" id="text-29">
+<div id="outline-container-34" class="outline-2">
+<h2 id="sec-34">ぼっとひな形を使うまでの準備 </h2>
+<div class="outline-text-2" id="text-34">
 
 <ul>
-<li id="sec-29_1">OAuth のキー入手 <br/>
+<li id="sec-34_1">OAuth のキー入手 <br/>
 </li>
-<li id="sec-29_2">ツールを入手し、動作確認 <br/>
+<li id="sec-34_2">ツールを入手し、動作確認 <br/>
 </li>
-<li id="sec-29_3">アップロードしてぼっととして動かす <br/>
+<li id="sec-34_3">アップロードしてぼっととして動かす <br/>
 </li>
 </ul>
 </div>
 
 </div>
 
-<div id="outline-container-30" class="outline-2">
-<h2 id="sec-30">OAuth とは </h2>
-<div class="outline-text-2" id="text-30">
+<div id="outline-container-35" class="outline-2">
+<h2 id="sec-35">OAuth とは </h2>
+<div class="outline-text-2" id="text-35">
 
 <ul>
-<li id="sec-30_1">Twitter が扱う認証形式 <br/>
+<li id="sec-35_1">Twitter が扱う認証形式 <br/>
 </li>
-<li id="sec-30_2">パスワードの代わりに四種類のキーを使う <br/>
+<li id="sec-35_2">パスワードの代わりに四種類のキーを使う <br/>
 <ul>
-<li id="sec-30_2_1">consumer_key（アプリケーションごと） <br/>
+<li id="sec-35_2_1">consumer_key（アプリケーションごと） <br/>
 </li>
-<li id="sec-30_2_2">consumer_secret（アプリケーションごと） <br/>
+<li id="sec-35_2_2">consumer_secret（アプリケーションごと） <br/>
 </li>
-<li id="sec-30_2_3">access_token（ユーザごと） <br/>
+<li id="sec-35_2_3">access_token（ユーザごと） <br/>
 </li>
-<li id="sec-30_2_4">access_token_secret（ユーザごと） <br/>
+<li id="sec-35_2_4">access_token_secret（ユーザごと） <br/>
 </li>
 </ul>
 </li>
-<li id="sec-30_3">パスワードを教えないのでよいのでより安全 <br/>
+<li id="sec-35_3">パスワードを教えないのでよいのでより安全 <br/>
 </li>
-<li id="sec-30_4">ただし手順が少し面倒 <br/>
+<li id="sec-35_4">ただし手順が少し面倒 <br/>
 </li>
 </ul>
 </div>
 
 </div>
 
-<div id="outline-container-31" class="outline-2">
-<h2 id="sec-31">OAuth の手順 </h2>
-<div class="outline-text-2" id="text-31">
+<div id="outline-container-36" class="outline-2">
+<h2 id="sec-36">OAuth の手順 </h2>
+<div class="outline-text-2" id="text-36">
 
 <ul>
-<li id="sec-31_1">説明 <br/>
+<li id="sec-36_1">説明 <br/>
 <ul>
 <li>
 (1) ユーザがサービスの利用申請をする
@@ -557,11 +640,27 @@ ON, OFF の切り替え
 
 </div>
 
-<div id="outline-container-32" class="outline-2">
-<h2 id="sec-32">四つのキーを取得 </h2>
-<div class="outline-text-2" id="text-32">
+<div id="outline-container-37" class="outline-2">
+<h2 id="sec-37">キーを取得するためには </h2>
+<div class="outline-text-2" id="text-37">
 
-<p>**<a href="http://dev.twitter.com">http://dev.twitter.com</a> にアクセス
+<ul>
+<li>
+ぼっとを動かすためには前述の四種類のキーが必要です
+</li>
+<li>
+前述の手順だと面倒なので、Webサイトからダウンロードする方法を使います
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-38" class="outline-2">
+<h2 id="sec-38">四つのキーを取得 </h2>
+<div class="outline-text-2" id="text-38">
+
+<p><a href="http://dev.twitter.com">http://dev.twitter.com</a> にアクセス
 </p>
 <p>
 <img src="http://yono.github.com/static/twitterbot/img/devtwitter-1.png"  alt="http://yono.github.com/static/twitterbot/img/devtwitter-1.png" />
@@ -569,29 +668,33 @@ ON, OFF の切り替え
 
 </div>
 
-<div id="outline-container-33" class="outline-2">
-<h2 id="sec-33">四つのキーを取得 </h2>
-<div class="outline-text-2" id="text-33">
+<div id="outline-container-39" class="outline-2">
+<h2 id="sec-39">四つのキーを取得 </h2>
+<div class="outline-text-2" id="text-39">
 
-<p>Sign In
+<p>Sign In（ぼっとのユーザ名とパスワード入力）
+</p>
+<p>
 <img src="http://yono.github.com/static/twitterbot/img/devtwitter-2.png"  alt="http://yono.github.com/static/twitterbot/img/devtwitter-2.png" />
 </p></div>
 
 </div>
 
-<div id="outline-container-34" class="outline-2">
-<h2 id="sec-34">四つのキーを取得 </h2>
-<div class="outline-text-2" id="text-34">
+<div id="outline-container-40" class="outline-2">
+<h2 id="sec-40">四つのキーを取得 </h2>
+<div class="outline-text-2" id="text-40">
 
-<p>ぼっとのユーザ名とパスワード入力
+<p>[Your apps] をクリック
+</p>
+<p>
 <img src="http://yono.github.com/static/twitterbot/img/devtwitter-3.png"  alt="http://yono.github.com/static/twitterbot/img/devtwitter-3.png" />
 </p></div>
 
 </div>
 
-<div id="outline-container-35" class="outline-2">
-<h2 id="sec-35">四つのキーを取得 </h2>
-<div class="outline-text-2" id="text-35">
+<div id="outline-container-41" class="outline-2">
+<h2 id="sec-41">四つのキーを取得 </h2>
+<div class="outline-text-2" id="text-41">
 
 <p>先ほど作成したアプリケーションを選択
 <img src="http://yono.github.com/static/twitterbot/img/devtwitter-4.png"  alt="http://yono.github.com/static/twitterbot/img/devtwitter-4.png" />
@@ -599,31 +702,600 @@ ON, OFF の切り替え
 
 </div>
 
-<div id="outline-container-36" class="outline-2">
-<h2 id="sec-36">四つのキーを取得 </h2>
-<div class="outline-text-2" id="text-36">
+<div id="outline-container-42" class="outline-2">
+<h2 id="sec-42">四つのキーを取得 </h2>
+<div class="outline-text-2" id="text-42">
 
-<p>consumer<sub>key</sub> と consumer<sub>secret</sub> 
+<p>画面下部へスクロール
 <img src="http://yono.github.com/static/twitterbot/img/devtwitter-5.png"  alt="http://yono.github.com/static/twitterbot/img/devtwitter-5.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-43" class="outline-2">
+<h2 id="sec-43">四つのキーを取得 </h2>
+<div class="outline-text-2" id="text-43">
+
+<p>consumer_key と consumer_secret を記録しておいてください
 <img src="http://yono.github.com/static/twitterbot/img/devtwitter-5-2.png"  alt="http://yono.github.com/static/twitterbot/img/devtwitter-5-2.png" />
 </p></div>
 
 </div>
 
-<div id="outline-container-37" class="outline-2">
-<h2 id="sec-37">四つのキーを取得 </h2>
-<div class="outline-text-2" id="text-37">
+<div id="outline-container-44" class="outline-2">
+<h2 id="sec-44">四つのキーを取得 </h2>
+<div class="outline-text-2" id="text-44">
 
-<p>access<sub>token</sub> と access<sub>token</sub><sub>secret</sub>
+<p>画面上部へ戻って[My Access Token]をクリック
+<img src="http://yono.github.com/static/twitterbot/img/devtwitter-5.png"  alt="http://yono.github.com/static/twitterbot/img/devtwitter-5.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-45" class="outline-2">
+<h2 id="sec-45">四つのキーを取得 </h2>
+<div class="outline-text-2" id="text-45">
+
+<p>access_token と access_token_secret を記録しておいてください
 <img src="http://yono.github.com/static/twitterbot/img/devtwitter-6.png"  alt="http://yono.github.com/static/twitterbot/img/devtwitter-6.png" />
 </p></div>
 
 </div>
 
-<div id="outline-container-38" class="outline-2">
-<h2 id="sec-38">プログラミングについて </h2>
-<div class="outline-text-2" id="text-38">
+<div id="outline-container-46" class="outline-2">
+<h2 id="sec-46">ぼっとをダウンロードし、動かしてみる </h2>
+<div class="outline-text-2" id="text-46">
 
+<p><a href="http://github.com/yono/gae-twibot">http://github.com/yono/gae-twibot</a>
+</p>
+<p>
+赤丸で囲まれている「ダウンロード」をクリック
+</p>
+<p>
+<img src="img/github-1.png"  alt="img/github-1.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-47" class="outline-2">
+<h2 id="sec-47">ぼっとをダウンロードし、動かしてみる </h2>
+<div class="outline-text-2" id="text-47">
+
+<p>ZIP をダウンロードする
+<img src="img/github-2.png"  alt="img/github-2.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-48" class="outline-2">
+<h2 id="sec-48">ぼっとをダウンロードし、動かしてみる </h2>
+<div class="outline-text-2" id="text-48">
+
+<ul>
+<li>
+ダウンロードしたファイルを展開する
+</li>
+<li>
+中にフォルダが入っているので、取り出して My Documents 以下に置く
+（絶対パスに日本語が含まれるとぼっとが動作しません）
+
+</li>
+</ul>
+
+<p><img src="img/twitterbot-1.png"  alt="img/twitterbot-1.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-49" class="outline-2">
+<h2 id="sec-49">ぼっとをダウンロードし、動かしてみる </h2>
+<div class="outline-text-2" id="text-49">
+
+<p>Google App Engine Launcher を開く
+<img src="img/gae-init-1.png"  alt="img/gae-init-1.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-50" class="outline-2">
+<h2 id="sec-50">ぼっとをダウンロードし、動かしてみる </h2>
+<div class="outline-text-2" id="text-50">
+
+<p>[File] - [Add Existing Application] をクリック
+<img src="img/gae-init-2.png"  alt="img/gae-init-2.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-51" class="outline-2">
+<h2 id="sec-51">ぼっとをダウンロードし、動かしてみる </h2>
+<div class="outline-text-2" id="text-51">
+
+<p>Application 選択画面が表示される
+<img src="img/gae-init-3.png"  alt="img/gae-init-3.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-52" class="outline-2">
+<h2 id="sec-52">ぼっとをダウンロードし、動かしてみる </h2>
+<div class="outline-text-2" id="text-52">
+
+<p>さきほど取り出したフォルダを選択し、OK をクリック
+<img src="img/gae-init-4.png"  alt="img/gae-init-4.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-53" class="outline-2">
+<h2 id="sec-53">ぼっとをダウンロードし、動かしてみる </h2>
+<div class="outline-text-2" id="text-53">
+
+<p>Add をクリック
+<img src="img/gae-init-5.png"  alt="img/gae-init-5.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-54" class="outline-2">
+<h2 id="sec-54">ぼっとをダウンロードし、動かしてみる </h2>
+<div class="outline-text-2" id="text-54">
+
+<p>左上の [Run] をクリック
+<img src="img/gae-init-6.png"  alt="img/gae-init-6.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-55" class="outline-2">
+<h2 id="sec-55">ぼっとをダウンロードし、動かしてみる </h2>
+<div class="outline-text-2" id="text-55">
+
+<p>左側のアイコンが変わったのを確認
+<img src="img/gae-init-7.png"  alt="img/gae-init-7.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-56" class="outline-2">
+<h2 id="sec-56">ぼっとをダウンロードし、動かしてみる </h2>
+<div class="outline-text-2" id="text-56">
+
+<p>Browse をクリックして動いているか確認する
+<img src="img/gae-init-7-2.png"  alt="img/gae-init-7-2.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-57" class="outline-2">
+<h2 id="sec-57">ぼっとをダウンロードし、動かしてみる </h2>
+<div class="outline-text-2" id="text-57">
+
+<p>Hello World! と表示されたら成功
+<img src="img/gae-init-8.png"  alt="img/gae-init-8.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-58" class="outline-2">
+<h2 id="sec-58">ぼっとをダウンロードし、動かしてみる </h2>
+<div class="outline-text-2" id="text-58">
+
+<ul>
+<li>
+先ほど取り出したフォルダを開きます
+</li>
+<li>
+config.ini.sample というファイルをコピーして、
+config.ini というファイルを作ります
+</li>
+</ul>
+
+<p><img src="img/gae-config-ini-1.png"  alt="img/gae-config-ini-1.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-59" class="outline-2">
+<h2 id="sec-59">ぼっとをダウンロードし、動かしてみる </h2>
+<div class="outline-text-2" id="text-59">
+
+<ul>
+<li>
+先程保存した4つのキーを入力し、保存します
+</li>
+</ul>
+
+<p><img src="img/gae-config-ini-2.png"  alt="img/gae-config-ini-2.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-60" class="outline-2">
+<h2 id="sec-60">ぼっとをダウンロードし、動かしてみる </h2>
+<div class="outline-text-2" id="text-60">
+
+<p>ブラウザで <a href="http://localhost:8080/tweet">http://localhost:8080/tweet</a> にアクセスします
+<img src="img/gae-init-9.png"  alt="img/gae-init-9.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-61" class="outline-2">
+<h2 id="sec-61">ぼっとをダウンロードし、動かしてみる </h2>
+<div class="outline-text-2" id="text-61">
+
+<ul>
+<li>
+新しいウィンドウ（タブ）を開き、
+<a href="http://twitter.com/">http://twitter.com/</a>&lt;ぼっとのアカウント&gt; を開きます
+</li>
+<li>
+つぶやきが投稿されていたら成功です
+</li>
+</ul>
+
+<p><img src="img/gae-init-10.png"  alt="img/gae-init-10.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-62" class="outline-2">
+<h2 id="sec-62">ぼっとのファイル一覧 </h2>
+<div class="outline-text-2" id="text-62">
+
+<ul>
+<li id="sec-62_1">編集するファイル <br/>
+<ul>
+<li id="sec-62_1_1">app.yaml -&gt; GAE の設定 <br/>
+</li>
+<li id="sec-62_1_2">config.ini -&gt; ぼっとの設定 <br/>
+</li>
+<li id="sec-62_1_3">cron.yaml -&gt; 発言する間隔、reply に反応する間隔の設定 <br/>
+</li>
+<li id="sec-62_1_4">main.py -&gt; ぼっと本体 <br/>
+</li>
+<li id="sec-62_1_5">sentence.txt -&gt; ぼっとの発言が書かれたファイル <br/>
+</li>
+</ul>
+</li>
+<li id="sec-62_2">特に触らないでよいファイル <br/>
+<ul>
+<li>
+lib -&gt; ぼっと用のライブラリ
+</li>
+<li>
+twilog -&gt; 同上
+</li>
+<li>
+twoauth -&gt; 同上
+</li>
+<li>
+.gitignore -&gt; Git（バージョン管理システム）用のファイル
+</li>
+<li>
+index.yaml -&gt; GAE 用。自動生成される
+</li>
+<li>
+markov.py -&gt; ぼっと用のライブラリ
+</li>
+<li>
+README.mkdn -&gt; 説明書
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-63" class="outline-2">
+<h2 id="sec-63">ぼっとの機能説明 </h2>
+<div class="outline-text-2" id="text-63">
+
+<ul>
+<li id="sec-63_1">機能 <br/>
+<ul>
+<li id="sec-63_1_1">ツイートを投稿する <br/>
+以下の二つから選択できます
+<ul>
+<li>
+1. ファイル（sentence.txt）に書かれた文章をランダムにツイート
+</li>
+<li>
+2. マルコフ連鎖により自動生成した文章をツイート
+</li>
+</ul>
+
+<p>デフォルトは 1. です
+</p></li>
+<li id="sec-63_1_2">リプライに対して返信する <br/>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-64" class="outline-2">
+<h2 id="sec-64">ファイル中の文章をランダムにツイート </h2>
+<div class="outline-text-2" id="text-64">
+
+<p>sentence.txt に書かれた文をランダムにツイートします。
+</p>
+<p>
+文の区切り文字は % です。
+</p>
+<p>
+例を以下に示します。
+</p>
+<p>
+「こんにちは」「ねむい」「あつい」のいずれかをランダムに
+ツイートします。
+</p>
+
+
+
+<pre class="src src-txt">&#12371;&#12435;&#12395;&#12385;&#12399;
+%
+&#12397;&#12416;&#12356;
+%
+&#12354;&#12388;&#12356;
+</pre>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-65" class="outline-2">
+<h2 id="sec-65">ぼっとのつぶやく間隔を変更する </h2>
+<div class="outline-text-2" id="text-65">
+
+<p>cron.yaml を開いて以下の部分を変更
+</p>
+
+
+
+<pre class="src src-yaml">cron:
+- description: tweet
+  url: /tweet
+  # &#12484;&#12452;&#12540;&#12488;&#12398;&#38291;&#38548;
+  schedule: every 15 minutes # &lt;- &#12371;&#12371;
+</pre>
+
+
+
+<p>
+15 となっている部分がつぶやく間隔（単位: 分）
+</p>
+<p>
+この部分を変更すると、つぶやく間隔が変更されます。
+</p>
+<p>
+注: 半角で入力すること
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-66" class="outline-2">
+<h2 id="sec-66">マルコフ連鎖によるツイート </h2>
+<div class="outline-text-2" id="text-66">
+
+<ul>
+<li id="sec-66_1">機能 <br/>
+<ul>
+<li>
+特定のついったーアカウントの発言を元に文章を生成します。
+</li>
+<li>
+twilog から発言を収集します。
+</li>
+</ul>
+</li>
+<li id="sec-66_2">設定を変更するには <br/>
+config.ini を開いて以下の部分を変更
+
+
+
+
+<pre class="src src-ini">[bot]
+tweet_type = 1 # &lt;- &#12371;&#12371;
+reply = True
+</pre>
+
+
+
+<ul>
+<li>
+tweet_type = 1 だと sentence.txt を使用
+</li>
+<li>
+tweet_type = 2 だとマルコフ連鎖を使用
+
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-67" class="outline-2">
+<h2 id="sec-67">マルコフ連鎖によるツイート </h2>
+<div class="outline-text-2" id="text-67">
+
+<ul>
+<li id="sec-67_1">発言を収集するユーザを選択する <br/>
+config.ini を開いて以下の部分を変更
+
+
+
+
+<pre class="src src-ini">[twilog]
+original_id = # &lt;- &#12371;&#12371;
+</pre>
+
+
+
+<p>
+対象ユーザの Twitter ID を記入する。
+</p>
+<p>
+例:
+</p>
+
+
+<pre class="src src-ini">[twilog]
+original_id = yono
+</pre>
+
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-68" class="outline-2">
+<h2 id="sec-68">マルコフ連鎖によるツイート </h2>
+<div class="outline-text-2" id="text-68">
+
+<ul>
+<li id="sec-68_1">事前準備 <br/>
+マルコフ連鎖によるツイートを行うためには
+
+<p>
+事前に Yahoo!での登録が必要です。
+</p>
+<p>
+Yahoo! Japan ID を持ってない場合は別途登録が必要です。
+</p>
+<p>
+<a href="http://www.yahoo.co.jp">http://www.yahoo.co.jp</a>
+</p>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-69" class="outline-2">
+<h2 id="sec-69">マルコフ連鎖によるツイート </h2>
+<div class="outline-text-2" id="text-69">
+
+<p>アプリケーションIDの登録
+</p>
+<p>
+<a href="http://e.developer.yahoo.co.jp/webservices/register_application">http://e.developer.yahoo.co.jp/webservices/register_application</a>
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-70" class="outline-2">
+<h2 id="sec-70">マルコフ連鎖によるツイート </h2>
+<div class="outline-text-2" id="text-70">
+
+<p>まずはログインします
+<img src="img/yahooapi-1.png"  alt="img/yahooapi-1.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-71" class="outline-2">
+<h2 id="sec-71">マルコフ連鎖によるツイート </h2>
+<div class="outline-text-2" id="text-71">
+
+<p>IDとパスワードを入力してログイン
+<img src="img/yahooapi-2.png"  alt="img/yahooapi-2.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-72" class="outline-2">
+<h2 id="sec-72">マルコフ連鎖によるツイート </h2>
+<div class="outline-text-2" id="text-72">
+
+<p>メールアドレスは Yahoo のアドレスが選択済みになってます
+<img src="img/yahooapi-3.png"  alt="img/yahooapi-3.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-73" class="outline-2">
+<h2 id="sec-73">マルコフ連鎖によるツイート </h2>
+<div class="outline-text-2" id="text-73">
+
+<p>OAuth: 利用しない、ガイドライン: 同意する、を選択
+<img src="img/yahooapi-4.png"  alt="img/yahooapi-4.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-74" class="outline-2">
+<h2 id="sec-74">マルコフ連鎖によるツイート </h2>
+<div class="outline-text-2" id="text-74">
+
+<p>登録をクリック
+<img src="img/yahooapi-5.png"  alt="img/yahooapi-5.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-75" class="outline-2">
+<h2 id="sec-75">マルコフ連鎖によるツイート </h2>
+<div class="outline-text-2" id="text-75">
+
+<p>アプリケーションIDを記録しておく
+<img src="img/yahooapi-6.png"  alt="img/yahooapi-6.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-76" class="outline-2">
+<h2 id="sec-76">マルコフ連鎖によるツイート </h2>
+<div class="outline-text-2" id="text-76">
+
+<ul>
+<li id="sec-76_1">アプリケーションIDを記入 <br/>
+config.ini を開いて以下の部分にアプリケーションIDを記入
+
+
+
+<pre class="src src-ini">[yahoo]
+appid = # &lt;- &#12371;&#12371;
+</pre>
+
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-77" class="outline-2">
+<h2 id="sec-77">マルコフ連鎖によるツイート </h2>
+<div class="outline-text-2" id="text-77">
+
+<ul>
+<li id="sec-77_1">今までの発言データを収集（一括解析） <br/>
+これまでに発言データを大量に集めている場合は、
+
+<p>
+それらのデータをまとめて収集することができます。
+</p>
+<p>
+ぼっとを起動した状態で
+<a href="http://localhost:8080/learn\_tweet\_all">http://localhost:8080/learn_tweet_all</a> にアクセスしてみてください。
+</p>
+<p>
+また、事前に Twilog (<a href="http://twilog.org">http://twilog.org</a>) にデータが保存されているか
+確認しておきましょう
+</p></li>
+</ul>
 </div>
 </div>
 </div>

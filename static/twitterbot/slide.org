@@ -1,5 +1,5 @@
 #+SETUPFILE: s5.org
-#+TITLE: ぼっと勉強会 (H22/09/??)
+#+TITLE: ぼっと勉強会 (H22/09/25)
 #+AUTHOR: @yono
 
 * 本勉強会の目的 :Incremental:
@@ -7,13 +7,12 @@
 ** ……でも難しいんでしょう？
 ** 簡単にぼっとを作れるひな形を用意しました！！
 ** ただし、凝ったことはできないよ
-
+** ぼっとを改造したい場合はプログラミングを習得しましょう！
 * 本勉強会の流れ
 ** ぼっとの仕組みについて
 ** 下準備（環境設定）
 ** ひな形の説明
 ** プログラミングについて
-
 * ぼっとの仕組み
 https://cacoo.com/diagrams/vSolBk9KTFTdzzEc.png
 * ぼっとを動かす環境
@@ -32,6 +31,7 @@ https://cacoo.com/diagrams/vSolBk9KTFTdzzEc.png
 *** 無料
 *** 登録が必要
 *** 自分の PC にも設定が必要
+** 今回は Google App Engine を利用してぼっとを作成します
 * 下準備（サービスへの登録）:Incremental:
 ** Google のアカウント作成
 *** Gmail の設定（あると便利）
@@ -39,7 +39,7 @@ https://cacoo.com/diagrams/vSolBk9KTFTdzzEc.png
 **** 携帯のメールアドレスが必要
 ** Twitter のアカウント作成
 *** メールアドレスが必要
-** Twitter アカウントでのアプリケーション登録
+** Twitter のアプリケーション登録
 * Google のアカウント作成
 http://www.google.co.jp/
 http://yono.github.com/static/twitterbot/img/google-signup-1.png
@@ -59,22 +59,27 @@ http://yono.github.com/static/twitterbot/img/google-signup-2.png
 * Twitter のアカウント作成
 http://twitter.com
 http://yono.github.com/static/twitterbot/img/twitter-signup1.png
-* Twitter アカウントでのアプリケーション登録
+* Twitter のアプリケーション登録
+ぼっと用のアカウントでログインし、画面上部の
 「設定」をクリック
 http://yono.github.com/static/twitterbot/img/twitterapp-signup-1.png
-* Twitter アカウントでのアプリケーション登録
+* Twitter のアプリケーション登録
 「連携アプリ」をクリック
 http://yono.github.com/static/twitterbot/img/twitterapp-signup-2.png
-* Twitter アカウントでのアプリケーション登録
-赤丸で囲まれた部分「こちら」をクリック
+* Twitter のアプリケーション登録
+赤丸で囲まれた部分の「こちら」をクリック
 http://yono.github.com/static/twitterbot/img/twitterapp-signup-3.png
-* Twitter アカウントでのアプリケーション登録
+* Twitter のアプリケーション登録
 「新しいアプリケーションを追加」をクリック
 http://yono.github.com/static/twitterbot/img/twitterapp-signup-4.png
-* Twitter アカウントでのアプリケーション登録
+* Twitter のアプリケーション登録
 http://yono.github.com/static/twitterbot/img/twitterapp-signup-5.png
-* Twitter アカウントでのアプリケーション登録
+* Twitter のアプリケーション登録
+「アプリケーションの種類」は「クライアントアプリケーション」を選択
+
 「Default Access type:」は「Read & Write」を選択
+
+それ以外は特に入力する必要はありません
 http://yono.github.com/static/twitterbot/img/twitterapp-signup-6.png
 * 下準備（ソフトウェアのインストール）
 ** Python のインストール
@@ -82,30 +87,67 @@ http://yono.github.com/static/twitterbot/img/twitterapp-signup-6.png
 - よのぼっとはこの言語で書かれています
 ** Google App Engine SDK のインストール
 - Google App Engine で開発するためのツール
+** サクラエディタのインストール
+- ファイルを編集する際に使います
 * Python のダウンロード
 http://www.python.org/download/releases/2.5.4/
+
+お使いのPCに合ったインストーラをダウンロードしてください
 http://yono.github.com/static/twitterbot/img/python-install-6.png
 * Python のインストール
+通常のアプリケーションのインストーラと同様です。
+
+特に設定変更する箇所はありません
 http://yono.github.com/static/twitterbot/img/python-installer-1.png
 * Python のインストール
+特に設定変更する箇所はありません
 http://yono.github.com/static/twitterbot/img/python-installer-2.png
 * Python のインストール
+特に設定変更する箇所はありません
 http://yono.github.com/static/twitterbot/img/python-installer-3.png
 * Python のインストール
+Finish をクリックしてインストールを完了します
 http://yono.github.com/static/twitterbot/img/python-installer-4.png
 * Google App Engine SDK のダウンロード
 http://code.google.com/intl/ja/appengine/downloads.html
-「GoogleAppEngine-1.3.6.msi」をクリック
+「GoogleAppEngine-1.3.7.msi」をクリック
 http://yono.github.com/static/twitterbot/img/gae-install-1.png
 * Google App Engine SDK のインストール
+通常のアプリケーションのインストーラと同様です。
+
+特に設定変更する箇所はありません
 http://yono.github.com/static/twitterbot/img/gae-installer-1.png
 * Google App Engine SDK のインストール
+I accept... にチェックを入れて Next をクリック
 http://yono.github.com/static/twitterbot/img/gae-installer-2.png
 * Google App Engine SDK のインストール
+特に設定変更する箇所はありません
 http://yono.github.com/static/twitterbot/img/gae-installer-3.png
 * Google App Engine SDK のインストール
+Install をクリックしてインストールを完了します
 http://yono.github.com/static/twitterbot/img/gae-installer-4.png
-* ツールの説明
+* サクラエディタのインストール
+http://mofmof.nsf.tc/soft/sakura_unicode/
+
+sakuraW\_r1428.zip をクリックしてダウンロード
+file:img/sakuraeditor-1.png
+* サクラエディタのインストール
+ダウンロードしてファイルを展開するとsakuraWというアプリケーションが
+入っています。
+file:img/sakuraeditor-6.png
+* サクラエディタのインストール
+ダブルクリックして一度起動すると、右クリックメニューに
+[SAKURAで開く]が追加されます。
+file:img/sakuraeditor-2.png
+* サクラエディタのインストール
+ファイルを右クリックして[SAKURAで開く]を選択すると
+サクラエディタでファイルを開くことができます。
+file:img/sakuraeditor-3.png
+* サクラエディタのインストール
+以降、テキストファイルを編集する際はこのアプリケーションを
+使用します。
+file:img/sakuraeditor-5.png
+* ぼっとひな形の説明
 ** 二種類のつぶやきパターン
 *** 自動的に生成した文章をポスト
 - よのぼっとと同じ
@@ -114,9 +156,7 @@ http://yono.github.com/static/twitterbot/img/gae-installer-4.png
 - ファイルに書かれた文章をランダムにポスト
 ** リプライに対する返信
 - ON, OFF の切り替え
-** 自動リフォロー
-- ON, OFF の切り替え
-* ツールを使うまでの準備
+* ぼっとひな形を使うまでの準備
 ** OAuth のキー入手
 ** ツールを入手し、動作確認
 ** アップロードしてぼっととして動かす
@@ -138,24 +178,231 @@ http://yono.github.com/static/twitterbot/img/gae-installer-4.png
 - (5) サービスは Twitter に PIN 番号を伝える
 - (6) access\_token, access\_token\_secret が渡される
 https://cacoo.com/diagrams/iaHD4gejNTR4daBa.png
+* キーを取得するためには
+- ぼっとを動かすためには前述の四種類のキーが必要です
+- 前述の手順だと面倒なので、Webサイトからダウンロードする方法を使います
 * 四つのキーを取得
-**http://dev.twitter.com にアクセス
+http://dev.twitter.com にアクセス
 
 http://yono.github.com/static/twitterbot/img/devtwitter-1.png
 * 四つのキーを取得
-Sign In
+Sign In（ぼっとのユーザ名とパスワード入力）
+
 http://yono.github.com/static/twitterbot/img/devtwitter-2.png
 * 四つのキーを取得
-ぼっとのユーザ名とパスワード入力
+[Your apps] をクリック
+
 http://yono.github.com/static/twitterbot/img/devtwitter-3.png
 * 四つのキーを取得
 先ほど作成したアプリケーションを選択
 http://yono.github.com/static/twitterbot/img/devtwitter-4.png
 * 四つのキーを取得
-consumer_key と consumer_secret 
+画面下部へスクロール
 http://yono.github.com/static/twitterbot/img/devtwitter-5.png
+* 四つのキーを取得
+consumer\_key と consumer\_secret を記録しておいてください
 http://yono.github.com/static/twitterbot/img/devtwitter-5-2.png
 * 四つのキーを取得
-access_token と access_token_secret
+画面上部へ戻って[My Access Token]をクリック
+http://yono.github.com/static/twitterbot/img/devtwitter-5.png
+* 四つのキーを取得
+access\_token と access\_token\_secret を記録しておいてください
 http://yono.github.com/static/twitterbot/img/devtwitter-6.png
-* プログラミングについて
+* ぼっとをダウンロードし、動かしてみる
+http://github.com/yono/gae-twibot
+
+赤丸で囲まれている「ダウンロード」をクリック
+
+file:img/github-1.png
+* ぼっとをダウンロードし、動かしてみる
+ZIP をダウンロードする
+file:img/github-2.png
+* ぼっとをダウンロードし、動かしてみる
+- ダウンロードしたファイルを展開する
+- 中にフォルダが入っているので、取り出して My Documents 以下に置く
+  （絶対パスに日本語が含まれるとぼっとが動作しません）
+
+file:img/twitterbot-1.png
+* ぼっとをダウンロードし、動かしてみる
+Google App Engine Launcher を開く
+file:img/gae-init-1.png
+* ぼっとをダウンロードし、動かしてみる
+[File] - [Add Existing Application] をクリック
+file:img/gae-init-2.png
+* ぼっとをダウンロードし、動かしてみる
+Application 選択画面が表示される
+file:img/gae-init-3.png
+* ぼっとをダウンロードし、動かしてみる
+さきほど取り出したフォルダを選択し、OK をクリック
+file:img/gae-init-4.png
+* ぼっとをダウンロードし、動かしてみる
+Add をクリック
+file:img/gae-init-5.png
+* ぼっとをダウンロードし、動かしてみる
+左上の [Run] をクリック
+file:img/gae-init-6.png
+* ぼっとをダウンロードし、動かしてみる
+左側のアイコンが変わったのを確認
+file:img/gae-init-7.png
+* ぼっとをダウンロードし、動かしてみる
+Browse をクリックして動いているか確認する
+file:img/gae-init-7-2.png
+* ぼっとをダウンロードし、動かしてみる
+Hello World! と表示されたら成功
+file:img/gae-init-8.png
+* ぼっとをダウンロードし、動かしてみる
+- 先ほど取り出したフォルダを開きます
+- config.ini.sample というファイルをコピーして、
+  config.ini というファイルを作ります
+file:img/gae-config-ini-1.png
+* ぼっとをダウンロードし、動かしてみる
+- 先程保存した4つのキーを入力し、保存します
+file:img/gae-config-ini-2.png
+* ぼっとをダウンロードし、動かしてみる
+ブラウザで http://localhost:8080/tweet にアクセスします
+file:img/gae-init-9.png
+* ぼっとをダウンロードし、動かしてみる
+- 新しいウィンドウ（タブ）を開き、
+  http://twitter.com/<ぼっとのアカウント> を開きます
+- つぶやきが投稿されていたら成功です
+file:img/gae-init-10.png
+* ぼっとのファイル一覧
+** 編集するファイル
+*** app.yaml -> GAE の設定
+*** config.ini -> ぼっとの設定
+*** cron.yaml -> 発言する間隔、reply に反応する間隔の設定
+*** main.py -> ぼっと本体
+*** sentence.txt -> ぼっとの発言が書かれたファイル
+** 特に触らないでよいファイル
+- lib -> ぼっと用のライブラリ
+- twilog -> 同上
+- twoauth -> 同上
+- .gitignore -> Git（バージョン管理システム）用のファイル
+- index.yaml -> GAE 用。自動生成される
+- markov.py -> ぼっと用のライブラリ
+- README.mkdn -> 説明書
+* ぼっとの機能説明
+** 機能
+*** ツイートを投稿する
+以下の二つから選択できます
+- 1. ファイル（sentence.txt）に書かれた文章をランダムにツイート
+- 2. マルコフ連鎖により自動生成した文章をツイート
+デフォルトは 1. です
+*** リプライに対して返信する
+* ファイル中の文章をランダムにツイート
+sentence.txt に書かれた文をランダムにツイートします。
+
+文の区切り文字は % です。
+
+例を以下に示します。
+
+「こんにちは」「ねむい」「あつい」のいずれかをランダムに
+ツイートします。
+
+#+BEGIN_SRC txt
+こんにちは
+%
+ねむい
+%
+あつい
+#+END_SRC
+* ぼっとのつぶやく間隔を変更する
+cron.yaml を開いて以下の部分を変更
+
+#+BEGIN_SRC yaml
+cron:
+- description: tweet
+  url: /tweet
+  # ツイートの間隔
+  schedule: every 15 minutes # <- ここ
+#+END_SRC
+
+15 となっている部分がつぶやく間隔（単位: 分）
+
+この部分を変更すると、つぶやく間隔が変更されます。
+
+注: 半角で入力すること
+
+* マルコフ連鎖によるツイート
+** 機能
+- 特定のついったーアカウントの発言を元に文章を生成します。
+- twilog から発言を収集します。
+** 設定を変更するには
+config.ini を開いて以下の部分を変更
+
+#+BEGIN_SRC ini
+[bot]
+tweet_type = 1 # <- ここ
+reply = True
+#+END_SRC
+
+- tweet\_type = 1 だと sentence.txt を使用
+- tweet\_type = 2 だとマルコフ連鎖を使用
+
+* マルコフ連鎖によるツイート
+** 発言を収集するユーザを選択する
+config.ini を開いて以下の部分を変更
+
+#+BEGIN_SRC ini
+[twilog]
+original_id = # <- ここ
+#+END_SRC
+
+対象ユーザの Twitter ID を記入する。
+
+例:
+#+BEGIN_SRC ini
+[twilog]
+original_id = yono
+#+END_SRC
+* マルコフ連鎖によるツイート
+** 事前準備
+マルコフ連鎖によるツイートを行うためには
+
+事前に Yahoo!での登録が必要です。
+
+Yahoo! Japan ID を持ってない場合は別途登録が必要です。
+
+http://www.yahoo.co.jp
+
+* マルコフ連鎖によるツイート
+アプリケーションIDの登録
+
+http://e.developer.yahoo.co.jp/webservices/register_application
+
+* マルコフ連鎖によるツイート
+まずはログインします
+file:img/yahooapi-1.png
+* マルコフ連鎖によるツイート
+IDとパスワードを入力してログイン
+file:img/yahooapi-2.png
+* マルコフ連鎖によるツイート
+メールアドレスは Yahoo のアドレスが選択済みになってます
+file:img/yahooapi-3.png
+* マルコフ連鎖によるツイート
+OAuth: 利用しない、ガイドライン: 同意する、を選択
+file:img/yahooapi-4.png
+* マルコフ連鎖によるツイート
+登録をクリック
+file:img/yahooapi-5.png
+* マルコフ連鎖によるツイート
+アプリケーションIDを記録しておく
+file:img/yahooapi-6.png
+* マルコフ連鎖によるツイート
+** アプリケーションIDを記入
+config.ini を開いて以下の部分にアプリケーションIDを記入
+#+BEGIN_SRC ini
+[yahoo]
+appid = # <- ここ
+#+END_SRC
+* マルコフ連鎖によるツイート
+** 今までの発言データを収集（一括解析）
+これまでに発言データを大量に集めている場合は、
+
+それらのデータをまとめて収集することができます。
+
+ぼっとを起動した状態で
+http://localhost:8080/learn\_tweet\_all にアクセスしてみてください。
+
+また、事前に Twilog (http://twilog.org) にデータが保存されているか
+確認しておきましょう
