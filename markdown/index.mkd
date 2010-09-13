@@ -11,3 +11,4 @@
 - [10/8/6 HACK勉強会資料](static/how_to_insert_huge_data_to_rdb.html)
 - [10/8/13 HACK勉強会資料(未発表)](static/vmware_fusion_server.html)
 - [10/9/9 HACK勉強会資料](static/kvs/slide.html)
+- [10/9/25 ぼっと勉強会（第一回カジュアルプログラミング勉強会）](study_meeting/bot_study_meeting.html)

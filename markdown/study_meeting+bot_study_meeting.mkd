@@ -1,0 +1,28 @@
+# 第一回ぼっと勉強会
+
+## 日程および開催場所
+- 時間: 2010年9月25日（土）15:00 - 17:00
+- 場所: てんぶす那覇3階那覇市NPO活動支援センター内ミーティングルーム
+
+  [地図](http://www.city.naha.okinawa.jp/npo/map.htm)
+
+当日参加が難しい方向けに、別日にミニ勉強会を開催する予定です
+
+## 参加者一覧（予定）
+- @HemusAran
+- @kairei
+- @mimimi610
+- @summer\_orange
+- @Tomohiro
+- @gongoZ
+- @libkinjo
+
+## 資料
+
+作成中の資料を事前に公開します。
+勉強会当日までには完成させます。
+
+[ぼっと勉強会資料](http://yono.github.com/static/twitterbot/slide.html)
+
+できれば、事前に各種サイトへの登録とアプリケーションのインストールを
+終えていていただけると助かります。
