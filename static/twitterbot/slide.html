@@ -7,7 +7,7 @@ lang="en" xml:lang="en">
 <title>ぼっと勉強会 (H22/09/25)</title>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2010-09-13 23:46:49 JST"/>
+<meta name="generated" content="2010-09-14 23:28:46 JST"/>
 <meta name="author" content="@yono"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -1081,11 +1081,37 @@ README.mkdn -&gt; 説明書
 </div>
 
 <div id="outline-container-66" class="outline-2">
-<h2 id="sec-66">マルコフ連鎖によるツイート </h2>
+<h2 id="sec-66">リプライに反応する間隔を変更する </h2>
 <div class="outline-text-2" id="text-66">
 
+<p>cron.yaml を開いて以下の部分を変更する
+</p>
+
+
+<pre class="src src-yaml">- description: reply
+  url: /reply
+  schedule: every 1 minutes # &lt;- &#12371;&#12371;
+</pre>
+
+
+<p>
+1 となっている部分がリプライに反応する間隔（単位: 分)
+</p>
+<p>
+この部分を変更すると、リプライに反応する間隔が変更されます。
+</p>
+<p>
+注: 半角で入力すること
+</p></div>
+
+</div>
+
+<div id="outline-container-67" class="outline-2">
+<h2 id="sec-67">マルコフ連鎖によるツイート </h2>
+<div class="outline-text-2" id="text-67">
+
 <ul>
-<li id="sec-66_1">機能 <br/>
+<li id="sec-67_1">機能 <br/>
 <ul>
 <li>
 特定のついったーアカウントの発言を元に文章を生成します。
@@ -1095,7 +1121,7 @@ twilog から発言を収集します。
 </li>
 </ul>
 </li>
-<li id="sec-66_2">設定を変更するには <br/>
+<li id="sec-67_2">設定を変更するには <br/>
 config.ini を開いて以下の部分を変更
 
 
@@ -1123,12 +1149,12 @@ tweet_type = 2 だとマルコフ連鎖を使用
 
 </div>
 
-<div id="outline-container-67" class="outline-2">
-<h2 id="sec-67">マルコフ連鎖によるツイート </h2>
-<div class="outline-text-2" id="text-67">
+<div id="outline-container-68" class="outline-2">
+<h2 id="sec-68">マルコフ連鎖によるツイート </h2>
+<div class="outline-text-2" id="text-68">
 
 <ul>
-<li id="sec-67_1">発言を収集するユーザを選択する <br/>
+<li id="sec-68_1">発言を収集するユーザを選択する <br/>
 config.ini を開いて以下の部分を変更
 
 
@@ -1159,12 +1185,12 @@ original_id = yono
 
 </div>
 
-<div id="outline-container-68" class="outline-2">
-<h2 id="sec-68">マルコフ連鎖によるツイート </h2>
-<div class="outline-text-2" id="text-68">
+<div id="outline-container-69" class="outline-2">
+<h2 id="sec-69">マルコフ連鎖によるツイート </h2>
+<div class="outline-text-2" id="text-69">
 
 <ul>
-<li id="sec-68_1">事前準備 <br/>
+<li id="sec-69_1">事前準備 <br/>
 マルコフ連鎖によるツイートを行うためには
 
 <p>
@@ -1182,9 +1208,9 @@ Yahoo! Japan ID を持ってない場合は別途登録が必要です。
 
 </div>
 
-<div id="outline-container-69" class="outline-2">
-<h2 id="sec-69">マルコフ連鎖によるツイート </h2>
-<div class="outline-text-2" id="text-69">
+<div id="outline-container-70" class="outline-2">
+<h2 id="sec-70">マルコフ連鎖によるツイート </h2>
+<div class="outline-text-2" id="text-70">
 
 <p>アプリケーションIDの登録
 </p>
@@ -1195,22 +1221,12 @@ Yahoo! Japan ID を持ってない場合は別途登録が必要です。
 
 </div>
 
-<div id="outline-container-70" class="outline-2">
-<h2 id="sec-70">マルコフ連鎖によるツイート </h2>
-<div class="outline-text-2" id="text-70">
-
-<p>まずはログインします
-<img src="img/yahooapi-1.png"  alt="img/yahooapi-1.png" />
-</p></div>
-
-</div>
-
 <div id="outline-container-71" class="outline-2">
 <h2 id="sec-71">マルコフ連鎖によるツイート </h2>
 <div class="outline-text-2" id="text-71">
 
-<p>IDとパスワードを入力してログイン
-<img src="img/yahooapi-2.png"  alt="img/yahooapi-2.png" />
+<p>まずはログインします
+<img src="img/yahooapi-1.png"  alt="img/yahooapi-1.png" />
 </p></div>
 
 </div>
@@ -1219,8 +1235,8 @@ Yahoo! Japan ID を持ってない場合は別途登録が必要です。
 <h2 id="sec-72">マルコフ連鎖によるツイート </h2>
 <div class="outline-text-2" id="text-72">
 
-<p>メールアドレスは Yahoo のアドレスが選択済みになってます
-<img src="img/yahooapi-3.png"  alt="img/yahooapi-3.png" />
+<p>IDとパスワードを入力してログイン
+<img src="img/yahooapi-2.png"  alt="img/yahooapi-2.png" />
 </p></div>
 
 </div>
@@ -1229,8 +1245,8 @@ Yahoo! Japan ID を持ってない場合は別途登録が必要です。
 <h2 id="sec-73">マルコフ連鎖によるツイート </h2>
 <div class="outline-text-2" id="text-73">
 
-<p>OAuth: 利用しない、ガイドライン: 同意する、を選択
-<img src="img/yahooapi-4.png"  alt="img/yahooapi-4.png" />
+<p>メールアドレスは Yahoo のアドレスが選択済みになってます
+<img src="img/yahooapi-3.png"  alt="img/yahooapi-3.png" />
 </p></div>
 
 </div>
@@ -1239,8 +1255,8 @@ Yahoo! Japan ID を持ってない場合は別途登録が必要です。
 <h2 id="sec-74">マルコフ連鎖によるツイート </h2>
 <div class="outline-text-2" id="text-74">
 
-<p>登録をクリック
-<img src="img/yahooapi-5.png"  alt="img/yahooapi-5.png" />
+<p>OAuth: 利用しない、ガイドライン: 同意する、を選択
+<img src="img/yahooapi-4.png"  alt="img/yahooapi-4.png" />
 </p></div>
 
 </div>
@@ -1249,8 +1265,8 @@ Yahoo! Japan ID を持ってない場合は別途登録が必要です。
 <h2 id="sec-75">マルコフ連鎖によるツイート </h2>
 <div class="outline-text-2" id="text-75">
 
-<p>アプリケーションIDを記録しておく
-<img src="img/yahooapi-6.png"  alt="img/yahooapi-6.png" />
+<p>登録をクリック
+<img src="img/yahooapi-5.png"  alt="img/yahooapi-5.png" />
 </p></div>
 
 </div>
@@ -1259,8 +1275,18 @@ Yahoo! Japan ID を持ってない場合は別途登録が必要です。
 <h2 id="sec-76">マルコフ連鎖によるツイート </h2>
 <div class="outline-text-2" id="text-76">
 
+<p>アプリケーションIDを記録しておく
+<img src="img/yahooapi-6.png"  alt="img/yahooapi-6.png" />
+</p></div>
+
+</div>
+
+<div id="outline-container-77" class="outline-2">
+<h2 id="sec-77">マルコフ連鎖によるツイート </h2>
+<div class="outline-text-2" id="text-77">
+
 <ul>
-<li id="sec-76_1">アプリケーションIDを記入 <br/>
+<li id="sec-77_1">アプリケーションIDを記入 <br/>
 config.ini を開いて以下の部分にアプリケーションIDを記入
 
 
@@ -1276,12 +1302,12 @@ appid = # &lt;- &#12371;&#12371;
 
 </div>
 
-<div id="outline-container-77" class="outline-2">
-<h2 id="sec-77">マルコフ連鎖によるツイート </h2>
-<div class="outline-text-2" id="text-77">
+<div id="outline-container-78" class="outline-2">
+<h2 id="sec-78">マルコフ連鎖によるツイート </h2>
+<div class="outline-text-2" id="text-78">
 
 <ul>
-<li id="sec-77_1">今までの発言データを収集（一括解析） <br/>
+<li id="sec-78_1">今までの発言データを収集（一括解析） <br/>
 これまでに発言データを大量に集めている場合は、
 
 <p>
@@ -1296,6 +1322,245 @@ appid = # &lt;- &#12371;&#12371;
 確認しておきましょう
 </p></li>
 </ul>
+</div>
+
+</div>
+
+<div id="outline-container-79" class="outline-2">
+<h2 id="sec-79">ぼっとを GAE にアップロードする </h2>
+<div class="outline-text-2" id="text-79">
+
+<p>アップロードすることで、自動的につぶやくようになります。
+</p>
+<ul>
+<li id="sec-79_1">手順 <br/>
+<ol>
+<li>
+Google App Engine に登録してアプリケーション作成
+</li>
+<li>
+ぼっとの設定ファイルを変更する
+</li>
+<li>
+Google App Engine Launcher を使ってアップロードする
+</li>
+</ol>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-80" class="outline-2">
+<h2 id="sec-80">Google App Engine への登録 </h2>
+<div class="outline-text-2" id="text-80">
+
+
+<p>
+<a href="http://appengine.google.com">http://appengine.google.com</a> へアクセス
+</p>
+<p>
+Google アカウントでのログインを求められます
+</p>
+<p>
+<img src="img/gae-account-1.png"  alt="img/gae-account-1.png" />
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-81" class="outline-2">
+<h2 id="sec-81">Google App Engine への登録 </h2>
+<div class="outline-text-2" id="text-81">
+
+<p>Create an Application をクリック
+</p>
+<p>
+<img src="img/gae-account-2.png"  alt="img/gae-account-2.png" />
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-82" class="outline-2">
+<h2 id="sec-82">Google App Engine への登録 </h2>
+<div class="outline-text-2" id="text-82">
+
+
+<p>
+携帯のアドレスを登録します
+</p>
+<p>
+Country and Carrier: で Japan, Select your carrier で
+お手持ちの携帯のアドレスの @ 以降を選択します。
+</p>
+<p>
+Username: には 携帯アドレスの @ 以前を入力します。
+</p>
+<p>
+例: yono@ezweb.ne.jp の場合、Select your carrier で ezweb.ne.jp, 
+</p>
+<p>
+Username: で yono をそれぞれ入力します
+</p>
+<p>
+<img src="img/gae-account-3.png"  alt="img/gae-account-3.png" />
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-83" class="outline-2">
+<h2 id="sec-83">Google App Engine への登録 </h2>
+<div class="outline-text-2" id="text-83">
+
+<p>必要な情報を入力して Send を押すと、携帯にメールが届きます。
+</p>
+<p>
+そこに書かれている暗証番号をブラウザに入力すると、
+</p>
+<p>
+登録完了です。
+</p>
+<p>
+注: メールが届かない場合、携帯のメール拒否設定を変更してください
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-84" class="outline-2">
+<h2 id="sec-84">アプリケーション作成 </h2>
+<div class="outline-text-2" id="text-84">
+
+
+<p>
+再度 <a href="http://appengine.google.com">http://appengine.google.com</a> にアクセスし、
+</p>
+<p>
+[Create an Application] をクリックします
+</p>
+<p>
+<img src="img/gae-app-1.png"  alt="img/gae-app-1.png" />
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-85" class="outline-2">
+<h2 id="sec-85">アプリケーション作成 </h2>
+<div class="outline-text-2" id="text-85">
+
+
+<p>
+Application Identifier は、ぼっとをアップロードする際に必要なので
+</p>
+<p>
+メモしておいてください。
+</p>
+<p>
+<img src="img/gae-app-2.png"  alt="img/gae-app-2.png" />
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-86" class="outline-2">
+<h2 id="sec-86">ぼっとの設定ファイル編集 </h2>
+<div class="outline-text-2" id="text-86">
+
+<p>Google App Engine Launcher を起動し、Edit をクリックします
+</p>
+<p>
+<img src="img/bot-edit-1.png"  alt="img/bot-edit-1.png" />
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-87" class="outline-2">
+<h2 id="sec-87">ぼっとの設定ファイル編集 </h2>
+<div class="outline-text-2" id="text-87">
+
+<p>以下の部分を、Application Identifier で設定した文字列に変更します。
+</p>
+<p>
+変更したら保存してウィンドウを閉じます
+</p>
+
+
+
+<pre class="src src-yaml">application: yonobot_test # &lt;- &#12371;&#12371;&#12434;&#22793;&#26356;
+</pre>
+
+
+<p>
+↓
+</p>
+
+
+<pre class="src src-yaml">application: twibot # &lt;- Application Identifier &#12364; twibot &#12398;&#22580;&#21512;
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-88" class="outline-2">
+<h2 id="sec-88">ぼっとをアップロード </h2>
+<div class="outline-text-2" id="text-88">
+
+<p>Deploy をクリックします
+</p>
+<p>
+<img src="img/bot-edit-1-1.png"  alt="img/bot-edit-1-1.png" />
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-89" class="outline-2">
+<h2 id="sec-89">ぼっとをアップロード </h2>
+<div class="outline-text-2" id="text-89">
+
+<p>Google に登録した Email とパスワードを入力し、OK をクリックします
+</p>
+<p>
+<img src="img/bot-edit-2.png"  alt="img/bot-edit-2.png" />
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-90" class="outline-2">
+<h2 id="sec-90">ぼっとをアップロード </h2>
+<div class="outline-text-2" id="text-90">
+
+<p>完了までしばらく時間がかかります
+</p>
+<p>
+<img src="img/bot-edit-3.png"  alt="img/bot-edit-3.png" />
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-91" class="outline-2">
+<h2 id="sec-91">ぼっとをアップロード </h2>
+<div class="outline-text-2" id="text-91">
+
+<p>アップロードが完了したらぼっとのアカウントに
+アクセスしてみましょう
+</p>
+<p>
+<a href="http://twitter.com/">http://twitter.com/</a>*****
+</p>
+<p>
+定期的につぶやいていれば成功です
+</p>
+
 </div>
 </div>
 </div>
