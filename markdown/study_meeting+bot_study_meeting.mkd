@@ -66,7 +66,7 @@
     <td>@HemusAran</td>
 </tr>
 <tr>
-    <td><a href="http://twitter.com/miiii_bot">@miiii\_bot</a></td>
+    <td><a href="http://twitter.com/miiii_bot">@miiii_bot</a></td>
     <td>@mimimi610</td>
 </td>
 </tr>
