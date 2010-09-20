@@ -224,6 +224,15 @@ file:img/github-2.png
 
 file:img/twitterbot-1.png
 * ぼっとをダウンロードし、動かしてみる
+- 先ほど取り出したフォルダを開きます
+- config.ini.sample というファイルをコピーして、
+  config.ini というファイルを作ります
+file:img/gae-config-ini-1.png
+* ぼっとをダウンロードし、動かしてみる
+- config.ini を開きます
+- 先程保存した4つのキーを入力し、保存します
+file:img/gae-config-ini-2.png
+* ぼっとをダウンロードし、動かしてみる
 Google App Engine Launcher を開く
 file:img/gae-init-1.png
 * ぼっとをダウンロードし、動かしてみる
@@ -250,14 +259,6 @@ file:img/gae-init-7-2.png
 * ぼっとをダウンロードし、動かしてみる
 Hello World! と表示されたら成功
 file:img/gae-init-8.png
-* ぼっとをダウンロードし、動かしてみる
-- 先ほど取り出したフォルダを開きます
-- config.ini.sample というファイルをコピーして、
-  config.ini というファイルを作ります
-file:img/gae-config-ini-1.png
-* ぼっとをダウンロードし、動かしてみる
-- 先程保存した4つのキーを入力し、保存します
-file:img/gae-config-ini-2.png
 * ぼっとをダウンロードし、動かしてみる
 ブラウザで http://localhost:8080/tweet にアクセスします
 file:img/gae-init-9.png
@@ -420,7 +421,6 @@ http://localhost:8080/learn\_tweet\_all にアクセスしてみてください�
 確認しておきましょう
 * ぼっとを GAE にアップロードする
 アップロードすることで、自動的につぶやくようになります。
-
 ** 手順
 1. Google App Engine に登録してアプリケーション作成
 2. ぼっとの設定ファイルを変更する
@@ -518,7 +518,6 @@ file:img/bot-edit-3.png
 http://twitter.com/*****
 
 定期的につぶやいていれば成功です
-
 
 
 
