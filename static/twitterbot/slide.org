@@ -324,6 +324,10 @@ cron:
 
 注: 半角で入力すること
 
+* リプライ ON/OFF の変更
+** リプライに返信するかどうかを変更します
+** http://localhost:8080/settings
+file:img/reply.png
 * リプライに反応する間隔を変更する
 cron.yaml を開いて以下の部分を変更する
 #+BEGIN_SRC yaml
