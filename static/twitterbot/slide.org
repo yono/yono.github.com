@@ -15,6 +15,13 @@
 ** プログラミングについて
 * ぼっとの仕組み
 https://cacoo.com/diagrams/vSolBk9KTFTdzzEc.png
+* ぼっとの仕組み
+** よのぼっと = Web サイト
+** http://yonobot.appspot.com
+*** /tweet -> ついったーにつぶやく
+*** /reply -> リプライを返す
+*** /learn -> ログから学習する
+** これらのページに定期的にアクセスすることで動かしている
 * ぼっとを動かす環境
 ** 自宅PC
 - 好きに設定できる
