@@ -24,7 +24,7 @@
 当日参加が難しい方向けに、別日にミニ勉強会を開催する予定です
 →終了しました！（2010年9月18日）
 
-## 参加者一覧（予定）
+## 参加者一覧
 - @HemusAran (ミニ勉強会参加済み)
 - @kairei 
 - @kiriake (当日不参加、ミニ勉強会参加済み)
@@ -33,6 +33,7 @@
 - @Tomohiro
 - @gongoZ
 - @libkinjo
+- @nefo\_mi
 
 ## 資料
 
@@ -68,6 +69,14 @@
 <tr>
     <td><a href="http://twitter.com/miiii_bot">@miiii_bot</a></td>
     <td>@mimimi610</td>
+</td>
+<tr>
+    <td><a href="http://twitter.com/nefo_bot">@nefo_bot</a></td>
+    <td>@nefo\_mi</td>
+</td>
+<tr>
+    <td><a href="http://twitter.com/libkinjodev">@libkinjodev</a></td>
+    <td>@libkinjo</td>
 </td>
 </tr>
 </table>
