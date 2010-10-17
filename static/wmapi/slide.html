@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>WMAPI と iPad アプリ</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2010-10-06 23:23:21 JST"/>
+<meta name="author" content="Yusaku ONO"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<!-- configuration parameters --> <meta name='defaultView' content='slideshow' /> <meta name='controlVis' content='hidden' /> <!-- style sheet links --> <link rel='stylesheet' href='ui/default/slides.css' type='text/css' media='projection' id='slideProj' /> <link rel='stylesheet' href='ui/default/outline.css' type='text/css' media='screen' id='outlineStyle' /> <link rel='stylesheet' href='ui/default/print.css' type='text/css' media='print' id='slidePrint' /> <link rel='stylesheet' href='ui/default/opera.css' type='text/css' media='projection' id='operaFix' /><!-- S5 JS --> <script src='ui/jquery.js' type='text/javascript'></script> <script src='ui/org-slides.js' type='text/javascript'></script> <script src='ui/default/slides.js' type='text/javascript'></script> <script src='ui/default/style.js' type='text/javascript'></script> <link rel='stylesheet' media='screen, print' href='css/prettify.css'> <script src='js/prettify.js' type='text/javascript'></script> <script>$(function(){prettyPrint();});</script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+
+<div class='layout'>
+<div id='controls'></div>
+<div id='currentSlide'></div>
+<div id='header'></div>
+<div id='footer'></div>
+</div>
+<div class='presentation'>
+<div class='slide front'>
+  <div id='front-logo'></div>
+<h1 class='front'>WM API と iPad アプリ</h1><h3>Yusaku ONO</h3></div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">項目 </h2>
+<div class="outline-text-2" id="text-1">
+
+<ul>
+<li id="sec-1_1">WM API および iPad アプリの紹介 <br/>
+</li>
+<li id="sec-1_2">REST 型 API とは <br/>
+</li>
+<li id="sec-1_3">Sinatra で REST 型 API を実装するには <br/>
+</li>
+<li id="sec-1_4">既存システムの REST 型 API をどう開発するか <br/>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">WM API とは？ </h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+某グループウェアの機能を提供するREST型API
+</p>
+<p>
+※画面はイメージです
+</p>
+<p>
+<img src="img/wm-image2.png"  alt="img/wm-image2.png" />
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">WM API で使用したライブラリ </h2>
+<div class="outline-text-2" id="text-3">
+
+<ul>
+<li id="sec-3_1">Sinatra: Web アプリケーションフレームワーク
+
+
+
+<pre class="src src-ruby">require <span style="color: #ffaf87;">'rubygems'</span>
+require <span style="color: #ffaf87;">'sinatra'</span>
+
+get <span style="color: #ffaf87;">'/'</span> <span style="color: #00ffff;">do</span>
+  <span style="color: #ffaf87;">'hello world!'</span>
+<span style="color: #00ffff;">end</span>
+</pre>
+
+
+
+</li>
+<li id="sec-3_2">Sequel: O/R マッパー
+
+
+
+<pre class="src src-ruby">require <span style="color: #ffaf87;">'rubygems'</span>
+require <span style="color: #ffaf87;">'sequel'</span>
+
+<span style="color: #87ff87;">DB</span> = <span style="color: #87ff87;">Sequel</span>.connect(<span style="color: #ffaf87;">'postgres://user:pass@host/db'</span>)
+
+users = <span style="color: #87ff87;">DB</span>[<span style="color: #87ffd7;">:users</span>].all <span style="color: #ff8700;"># </span><span style="color: #ff8700;">SELECT * FROM users;
+</span></pre>
+
+
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">WM API で実装した機能 </h2>
+<div class="outline-text-2" id="text-4">
+
+
+<ul>
+<li id="sec-4_1">設備予約 <br/>
+</li>
+<li id="sec-4_2">スケジュール <br/>
+</li>
+<li id="sec-4_3">ワークフロー <br/>
+
+<p>
+※ ただし細かい部分の実装は省いてる部分もあります
+</p>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">WM API の機能を一部抜粋 </h2>
+<div class="outline-text-2" id="text-5">
+
+<ul>
+<li id="sec-5_1">設備予約 <br/>
+<ul>
+<li>
+予約情報に対する CRUD
+</li>
+<li>
+設備、区分情報に対する Read
+</li>
+</ul>
+</li>
+<li id="sec-5_2">スケジュール <br/>
+<ul>
+<li>
+スケジュール情報に対する CRUD
+</li>
+<li>
+日付、月で絞り込み
+</li>
+</ul>
+</li>
+<li id="sec-5_3">ワークフロー <br/>
+<ul>
+<li>
+ワークフローの作成
+</li>
+<li>
+自分宛のワークフロー閲覧
+</li>
+<li>
+ワークフロー確認
+
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6">iPad アプリは？ </h2>
+<div class="outline-text-2" id="text-6">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7">REST 型 API について </h2>
+<div class="outline-text-2" id="text-7">
+
+
+<p>
+<b>リソース指向アーキテクチャ</b>
+</p>
+<p>
+<img src="img/rest-book.jpeg"  alt="img/rest-book.jpeg" />
+</p>
+<p>
+参考書: RESTful Web サービス
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-8" class="outline-2">
+<h2 id="sec-8">リソース指向アーキテクチャについて </h2>
+<div class="outline-text-2" id="text-8">
+
+
+<p>
+penguin というタグが付いた画像
+</p>
+<ul>
+<li id="sec-8_1">GET: <a href="http://flickr.com/photos/tags/penguin">http://flickr.com/photos/tags/penguin</a> <br/>
+</li>
+<li id="sec-8_2">GET: <a href="http://api.flickr.com/services/rest/?method=flickr.photos.search&amp;tags=penguin">http://api.flickr.com/services/rest/?method=flickr.photos.search&amp;tags=penguin</a> <br/>
+
+<p>
+前者は URL でスコープ情報（どのデータを扱うか）、HTTPメソッド
+でメソッド情報（データをどう処理するか）を表している
+</p>
+<p>
+後者はどちらもパラメータで表現している
+</p>
+<p>
+URL はあくまでリソース情報のみを含むべき、というのがリソース指向アーキテクチャ
+</p>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-9" class="outline-2">
+<h2 id="sec-9">HTTP メソッドについて </h2>
+<div class="outline-text-2" id="text-9">
+
+<p><img src="img/httpmethod1.png"  alt="img/httpmethod1.png" />
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-10" class="outline-2">
+<h2 id="sec-10">HTTP メソッドについて </h2>
+<div class="outline-text-2" id="text-10">
+
+<p><img src="img/httpmethod2.png"  alt="img/httpmethod2.png" />
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-11" class="outline-2">
+<h2 id="sec-11">REST 型 API の特徴 </h2>
+<div class="outline-text-2" id="text-11">
+
+<ul>
+<li id="sec-11_1">アドレス可能性 <br/>
+リソースがURLで表現されていること
+</li>
+<li id="sec-11_2">統一インターフェイス <br/>
+それぞれの API が統一されたインターフェイスを使用すること
+</li>
+<li id="sec-11_3">ステートレス性 <br/>
+個々のHTTPリクエストが独立であること
+</li>
+<li id="sec-11_4">接続性 <br/>
+個々の機能が相互に接続されていること
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-12" class="outline-2">
+<h2 id="sec-12">URL + HTTP メソッドによる API 設計 </h2>
+<div class="outline-text-2" id="text-12">
+
+<p>スケジュールに対する機能
+</p><ul>
+<li id="sec-12_1">スケジュール作成 <br/>
+POST /schedules/&lt;username&gt;/&lt;YYYY&gt;/&lt;MM&gt;/&lt;DD&gt;
+</li>
+<li id="sec-12_2">スケジュール詳細閲覧 <br/>
+GET /schedule/&lt;username&gt;/&lt;schedule_id&gt;
+</li>
+<li id="sec-12_3">スケジュール編集 <br/>
+PUT /schedule/&lt;username&gt;/&lt;schedule_id&gt;
+</li>
+<li id="sec-12_4">スケジュール削除 <br/>
+DELETE /schedule/&lt;username&gt;/&lt;schedule_id&gt;
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-13" class="outline-2">
+<h2 id="sec-13">実際のコードは？ </h2>
+<div class="outline-text-2" id="text-13">
+
+
+
+
+<pre class="src src-RUBY">=BEGIN
+
+  *** &#12473;&#12465;&#12472;&#12517;&#12540;&#12523;&#35443;&#32048;&#12434;&#21462;&#24471; ***
+  &#12497;&#12521;&#12513;&#12540;&#12479;(&#26908;&#32034;&#26465;&#20214;)
+  username: STRING: &#12518;&#12540;&#12470;&#21517;(&#24517;&#38920;)
+  schedule_id: INTEGER: &#12473;&#12465;&#12472;&#12517;&#12540;&#12523;ID(&#24517;&#38920;)
+
+=END 
+get '/schedule/:username/:schedule_id' do
+  keys = [<SPAN STYLE="COLOR: #FFAF87;">"username"</SPAN>, <SPAN STYLE="COLOR: #FFAF87;">"schedule_id"</SPAN>]
+  return_400_if_has_not_required_keys(keys, params)
+  @schedule = schedule.get(params[:username], params[:schedule_id])
+  return_404_if_not_found(@schedule, 'schedule', keys)
+  erb :'schedule/schedule'
+end
+</pre>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-14" class="outline-2">
+<h2 id="sec-14">既存のシステムを API 化するまでの手順 </h2>
+<div class="outline-text-2" id="text-14">
+
+<ul>
+<li id="sec-14_1">対象機能からAPIとして提供する機能を抜き出す <br/>
+</li>
+<li id="sec-14_2">ソースコードとDBを調べ、必要なロジックを抜き出す <br/>
+</li>
+<li id="sec-14_3">ロジックに必要なキーから、URL構造を決める <br/>
+</li>
+<li id="sec-14_4">提供すべき情報から、XML（もしくはJSON）の構造を決める <br/>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-15" class="outline-2">
+<h2 id="sec-15">ディレクトリ構造 </h2>
+<div class="outline-text-2" id="text-15">
+
+
+
+
+<pre class="src src-bash">% tree -L 1
+.
+&#9500;&#9472;&#9472; api.rb
+&#9500;&#9472;&#9472; config.ru
+&#9500;&#9472;&#9472; controllers/
+&#9500;&#9472;&#9472; lib/ 
+&#9500;&#9472;&#9472; models/
+&#9500;&#9472;&#9472; public/
+&#9492;&#9472;&#9472; views/
+</pre>
+
+
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

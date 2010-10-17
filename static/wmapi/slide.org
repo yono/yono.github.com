@@ -1,0 +1,145 @@
+#+SETUPFILE: s5.org
+#+TITLE: んーAPI と iPad アプリ
+#+AUTHOR: Yusaku ONO
+
+* 項目
+** んー API および iPad アプリの紹介
+** REST 型 API とは
+** Sinatra で REST 型 API を実装するには
+** 既存システムの REST 型 API をどう開発するか
+* んー API とは？
+
+某グループウェアの機能を提供するREST型API
+
+※画面はイメージです
+
+file:img/wm-image2.png
+
+* んー API で使用したライブラリ
+** Sinatra
+Web アプリケーションフレームワーク
+#+BEGIN_SRC ruby
+require 'rubygems'
+require 'sinatra'
+
+get '/' do
+  'hello world!'
+end
+#+END_SRC
+
+** Sequel
+O/R マッパー
+#+BEGIN_SRC ruby
+require 'rubygems'
+require 'sequel'
+
+DB = Sequel.connect('postgres://user:pass@host/db')
+
+users = DB[:users].all # SELECT * FROM users;
+#+END_SRC
+
+* んー API で実装した機能
+
+** 設備予約
+** スケジュール
+** ワークフロー
+
+※ ただし細かい部分の実装は省いてる部分もあります
+
+* んー API の機能を一部抜粋
+** 設備予約
+- 予約情報に対する CRUD
+- 設備、区分情報に対する R
+** スケジュール
+- スケジュール情報に対する CRUD
+- 日付、月で絞り込み
+** ワークフロー
+- ワークフローの作成
+- 自分宛のワークフロー閲覧
+- ワークフロー確認
+
+* iPad アプリは？
+
+* REST 型 API について
+
+*リソース指向アーキテクチャ*
+
+file:img/rest-book.jpeg
+
+参考書: RESTful Web サービス
+
+* リソース指向アーキテクチャについて
+
+penguin というタグが付いた画像
+
+** GET: http://flickr.com/photos/tags/penguin
+** GET: http://api.flickr.com/services/rest/?method=flickr.photos.search&tags=penguin
+
+前者は URL でスコープ情報（どのデータを扱うか）、HTTPメソッド
+でメソッド情報（データをどう処理するか）を表している
+
+後者はどちらもパラメータで表現している
+
+URL はあくまでリソース情報のみを含むべき、というのがリソース指向アーキテクチャ
+
+* HTTP メソッドについて
+file:img/httpmethod1.png
+
+* HTTP メソッドについて
+file:img/httpmethod2.png
+
+* REST 型 API の特徴
+** アドレス可能性
+リソースがURLで表現されていること
+** 統一インターフェイス
+それぞれの API が統一されたインターフェイスを使用すること
+** ステートレス性
+個々のHTTPリクエストが独立であること
+** 接続性
+個々の機能が相互に接続されていること
+* URL + HTTP メソッドによる API 設計
+スケジュールに対する機能
+** スケジュール作成
+POST / SCHEDULE/?USERNAME=HOGE
+** スケジュール詳細閲覧
+GET / SCHEDULE/?USERNAME=HOGE&SCHEDULE\_ID=1
+** スケジュール編集
+PUT / SCHEDULE/?USERNAME=HOGE&SCHEDULE\_ID=1
+** スケジュール削除
+DELETE / SCHEDULE/?USERNAME=HOGE&SCHEDULE\_ID=1
+
+* 実際のコードは？
+#+BEGIN_SRC RUBY
+=BEGIN
+
+  *** スケジュール詳細を取得 ***
+  パラメータ(検索条件)
+  USERNAME: STRING: ユーザ名(必須)
+  SCHEDULE_ID: INTEGER: スケジュールID(必須)
+
+=END 
+GET '/SCHEDULE' DO
+  KEYS = ["USERNAME", "SCHEDULE_ID"]
+  RETURN_400_IF_HAS_NOT_REQUIRED_KEYS(KEYS, PARAMS)
+  @SCHEDULE = SCHEDULE.GET(PARAMS[:USERNAME], PARAMS[:SCHEDULE_ID])
+  RETURN_404_IF_NOT_FOUND(@SCHEDULE, 'SCHEDULE', KEYS)
+  ERB :'SCHEDULE/SCHEDULE'
+END
+#+END_SRC
+* 既存のシステムを API 化するまでの手順
+** 対象機能からAPIとして提供する機能を抜き出す
+** ソースコードとDBを調べ、必要なロジックを抜き出す
+** ロジックに必要なキーから、URL構造を決める
+** 提供すべき情報から、XML（もしくはJSON）の構造を決める
+* ディレクトリ構造
+#+BEGIN_SRC bash
+% tree -L 1
+.
+├── api.rb
+├── config.ru
+├── controllers/
+├── lib/ 
+├── models/
+├── public/
+└── views/
+#+END_SRC
