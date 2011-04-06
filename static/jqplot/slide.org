@@ -34,7 +34,7 @@
 #+END_HTML
 
 #+BEGIN_SRC html
-<div id="sample"></div><canvas id="sample" width="140" height="140"></canvas>
+<canvas id="sample" width="140" height="140"></canvas>
 <script type="text/javascript">
   var canvas = document.getElementById('sample');
   var ctx = canvas.getContext('2d');
