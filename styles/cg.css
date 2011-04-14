@@ -30,8 +30,13 @@ header h1 a {
     -moz-border-radius: 12px;
     -webkit-border-radius: 12px;
     font-size: 240%;
-    font-family: 'Monotype Corsiva';
-    color: #D2691E;
+    font-family: cursive;
+    color: #DC143C;
+}
+
+article {
+  padding-top: 10px;
+  padding-left: 30px;
 }
 
 article h1 {
@@ -43,6 +48,7 @@ article h1 {
 
 h2 {
     margin: 20px 0;
+    margin-left: 30px;
     font-size: 150%;
     line-height: 130%;
     border-bottom: 2px solid #000;
@@ -120,6 +126,7 @@ ol, ul {
 
 ul li {
     padding: 5px;
+    list-style-type: none;
 }
 
 ol li {
