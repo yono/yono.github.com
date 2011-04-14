@@ -16,7 +16,8 @@
     </head>
     <body>
         <header>
-          <h1><a href="http://<%= @domain %>"><%= @domain %></a></h1>
+          <!--<h1><a href="http://<%= @domain %>"><%= @domain %></a></h1>-->
+          <h1><a href="http://<%= @domain %>"><img src="<%= @relative %>static/img/top.png"></img></a></h1>
         </header>
 
         <nav>
