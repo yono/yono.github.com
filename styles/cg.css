@@ -25,12 +25,13 @@ header {
 }
 header h1 a {
     padding: 5px 20px;
-    background-color: #000;
-    color: #fff;
+    /*background-color: #000;
+    color: #fff;*/
     -moz-border-radius: 12px;
     -webkit-border-radius: 12px;
     font-size: 240%;
-
+    font-family: 'Monotype Corsiva';
+    color: #D2691E;
 }
 
 article h1 {

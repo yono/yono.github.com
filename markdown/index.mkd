@@ -1,4 +1,3 @@
-# yono.github.com
 
 ## Python 
 - [Python 基礎](python/python_basics)
