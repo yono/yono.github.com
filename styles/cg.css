@@ -40,7 +40,7 @@ article {
 }
 
 article h1 {
-    margin: 50px 0px 30px;
+    margin: 10px 0px 30px;
     border-bottom: double solid #000;
     text-align: center;
     font-size: 200%;
@@ -48,7 +48,7 @@ article h1 {
 
 h2 {
     margin: 20px 0;
-    margin-left: 30px;
+    margin-left: 1px;
     font-size: 150%;
     line-height: 130%;
     border-bottom: 2px solid #000;
