@@ -51,9 +51,9 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href=".././publish-the-blog-create-by-pelican-at-github.html">Publish the blog create by Pelican at github</a></h1> 
+                    <h1 class="entry-title"><a href=".././install-pelican-with-virtualenvwrapper.html">Install Pelican with virtualenvwrapper</a></h1> 
                     <footer class="post-info">
-        <abbr class="published" title="2011-06-11T18:19:32">
+        <abbr class="published" title="2011-06-11T18:22:02">
                 土 11 6月 2011
         </abbr>
 
@@ -66,22 +66,13 @@
 
 </p>
 
-</footer><!-- /.post-info --><div class="codehilite"><pre><span class="nv">$</span> <span class="nv">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">~</span><span class="sr">/.pelican/co</span><span class="n">ntent</span>
-<span class="nv">$</span> <span class="nv">vim</span> <span class="o">~</span><span class="sr">/.pelican/s</span><span class="n">etting</span><span class="o">.</span><span class="n">py</span>
-<span class="nv">$</span> <span class="nv">cat</span> <span class="o">~</span><span class="sr">/.pelican/s</span><span class="n">etting</span><span class="o">.</span><span class="n">py</span>
-<span class="c1">#!/usr/bin/env python</span>
-
-<span class="n">OUTPUT_PATH</span> <span class="o">=</span> <span class="s">&#39;/path/to/github/site/repository/blog/&#39;</span>
-<span class="nv">$</span> <span class="nv">vim</span> <span class="o">~</span><span class="sr">/.pelican/co</span><span class="n">ntent</span><span class="o">/</span><span class="n">hoge</span><span class="o">.</span><span class="n">md</span>
-<span class="nv">$</span> <span class="nv">pelican</span> <span class="o">-</span><span class="n">s</span> <span class="o">~</span><span class="sr">/.pelican/s</span><span class="n">etting</span><span class="o">.</span><span class="n">py</span> <span class="o">~</span><span class="sr">/.pelican/co</span><span class="n">ntent</span>
-<span class="nv">$</span> <span class="nv">cd</span> <span class="sr">/path/</span><span class="n">to</span><span class="sr">/github/si</span><span class="n">te</span><span class="sr">/repository/</span>
-<span class="nv">$</span> <span class="nv">git</span> <span class="n">add</span> <span class="o">.</span>
-<span class="nv">$</span> <span class="nv">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">m</span> <span class="s">&#39;add blog by pelican&#39;</span>
-<span class="nv">$</span> <span class="nv">git</span> <span class="nb">push</span> <span class="n">origin</span> <span class="n">master</span>
+</footer><!-- /.post-info --><p>I installed Pelican as a environment to write a blog much easier.</p>
+<div class="codehilite"><pre><span class="c">% mkvirtualenv pelican</span>
+<span class="p">(</span><span class="n">pelican</span><span class="p">)</span> <span class="c">% pip install pelican</span>
+<span class="p">(</span><span class="n">pelican</span><span class="p">)</span> <span class="c">% mkdir content &amp;&amp; cd content</span>
+<span class="p">(</span><span class="n">pelican</span><span class="p">)</span> <span class="c">% vim hoge.md</span>
+<span class="p">(</span><span class="n">pelican</span><span class="p">)</span> <span class="c">% pelican ~/content</span>
 </pre></div>
-
-
-<p>It may be better to write a script for automation creating blog and deploying.</p>
                 </article>
                 
             </aside><!-- /#featured -->
@@ -101,12 +92,12 @@
             
             <li><article class="hentry">    
                 <header>
-                        <h1><a href=".././install-pelican-with-virtualenvwrapper.html" rel="bookmark" title="Permalink to Install Pelican with virtualenvwrapper">Install Pelican with virtualenvwrapper</a></h1>
+                        <h1><a href=".././publish-the-blog-created-by-pelican-at-github.html" rel="bookmark" title="Permalink to Publish the blog created by Pelican at github">Publish the blog created by Pelican at github</a></h1>
                 </header>
                 
                 <div class="entry-content">
                 <footer class="post-info">
-        <abbr class="published" title="2011-06-11T17:21:24">
+        <abbr class="published" title="2011-06-11T18:20:54">
                 土 11 6月 2011
         </abbr>
 
@@ -120,8 +111,8 @@
 </p>
 
 </footer><!-- /.post-info -->
-                <property object at 0x102137aa0>
-                <a class="readmore" href=".././install-pelican-with-virtualenvwrapper.html">read more</a>
+                <property object at 0x102137b50>
+                <a class="readmore" href=".././publish-the-blog-created-by-pelican-at-github.html">read more</a>
                 
                 </div><!-- /.entry-content -->
             </article></li>
