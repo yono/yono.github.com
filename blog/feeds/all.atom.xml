@@ -5,6 +5,20 @@
 &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;% mkdir content &amp;amp;&amp;amp; cd content&lt;/span&gt;
 &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;% vim hoge.md&lt;/span&gt;
 &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;% pelican ~/content&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>test</title><link href=".././test.html" rel="alternate"></link><updated>2011-06-06T00:00:00Z</updated><author><name>Yusaku ONO</name></author><id>tag:None,2011-06-06:.././test.html/</id><summary type="html">&lt;h1&gt;aaa&lt;/h1&gt;
-&lt;h2&gt;bbb&lt;/h2&gt;
-&lt;h3&gt;ccc&lt;/h3&gt;</summary></entry></feed>
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>github で Pelican の記事を公開</title><link href=".././github-pelican.html" rel="alternate"></link><updated>2011-06-11T00:00:00Z</updated><author><name>Yusaku ONO</name></author><id>tag:None,2011-06-11:.././github-pelican.html/</id><summary type="html">&lt;p&gt;Pelican で作成した記事を github で公開する。&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$&lt;/span&gt; &lt;span class="nv"&gt;mkdir&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="sr"&gt;/.pelican/co&lt;/span&gt;&lt;span class="n"&gt;ntent&lt;/span&gt;
+&lt;span class="nv"&gt;$&lt;/span&gt; &lt;span class="nv"&gt;vim&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="sr"&gt;/.pelican/s&lt;/span&gt;&lt;span class="n"&gt;etting&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;
+&lt;span class="nv"&gt;$&lt;/span&gt; &lt;span class="nv"&gt;cat&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="sr"&gt;/.pelican/s&lt;/span&gt;&lt;span class="n"&gt;etting&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;
+&lt;span class="c1"&gt;#!/usr/bin/env python&lt;/span&gt;
+
+&lt;span class="n"&gt;OUTPUT_PATH&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;/path/to/github/site/repository/blog/&amp;#39;&lt;/span&gt;
+&lt;span class="nv"&gt;$&lt;/span&gt; &lt;span class="nv"&gt;vim&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="sr"&gt;/.pelican/co&lt;/span&gt;&lt;span class="n"&gt;ntent&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;hoge&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;md&lt;/span&gt;
+&lt;span class="nv"&gt;$&lt;/span&gt; &lt;span class="nv"&gt;pelican&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="sr"&gt;/.pelican/s&lt;/span&gt;&lt;span class="n"&gt;etting&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="sr"&gt;/.pelican/co&lt;/span&gt;&lt;span class="n"&gt;ntent&lt;/span&gt;
+&lt;span class="nv"&gt;$&lt;/span&gt; &lt;span class="nv"&gt;cd&lt;/span&gt; &lt;span class="sr"&gt;/path/&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="sr"&gt;/github/si&lt;/span&gt;&lt;span class="n"&gt;te&lt;/span&gt;&lt;span class="sr"&gt;/repository/&lt;/span&gt;
+&lt;span class="nv"&gt;$&lt;/span&gt; &lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="nv"&gt;$&lt;/span&gt; &lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;add blog by pelican&amp;#39;&lt;/span&gt;
+&lt;span class="nv"&gt;$&lt;/span&gt; &lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nb"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;記事作成からデプロイまで自動化したスクリプトを書くといいかも。&lt;/p&gt;</summary></entry></feed>
