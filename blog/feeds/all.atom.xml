@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>yonolog</title><link href="../." rel="alternate"></link><link href=".././feeds/all.atom.xml" rel="self"></link><id>../.</id><updated>2011-06-11T17:21:24Z</updated><entry><title>Install Pelican with virtualenvwrapper</title><link href=".././install-pelican-with-virtualenvwrapper.html" rel="alternate"></link><updated>2011-06-11T17:21:24Z</updated><author><name>Yusaku ONO</name></author><id>tag:None,2011-06-11:.././install-pelican-with-virtualenvwrapper.html/</id><summary type="html">&lt;p&gt;簡単にブログを書く環境として、pelican をインストールしてみた。&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;% mkvirtualenv pelican&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;% pip install pelican&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;% mkdir content &amp;amp;&amp;amp; cd content&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;% vim hoge.md&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;% pelican ~/content&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>github で Pelican の記事を公開</title><link href=".././github-pelican.html" rel="alternate"></link><updated>2011-06-11T00:00:00Z</updated><author><name>Yusaku ONO</name></author><id>tag:None,2011-06-11:.././github-pelican.html/</id><summary type="html">&lt;p&gt;Pelican で作成した記事を github で公開する。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>yonolog</title><link href="../." rel="alternate"></link><link href=".././feeds/all.atom.xml" rel="self"></link><id>../.</id><updated>2011-06-11T18:14:28Z</updated><entry><title>github で Pelican の記事を公開</title><link href=".././github-pelican.html" rel="alternate"></link><updated>2011-06-11T18:14:28Z</updated><author><name>Yusaku ONO</name></author><id>tag:None,2011-06-11:.././github-pelican.html/</id><summary type="html">&lt;p&gt;Pelican で作成した記事を github で公開する。&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$&lt;/span&gt; &lt;span class="nv"&gt;mkdir&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="sr"&gt;/.pelican/co&lt;/span&gt;&lt;span class="n"&gt;ntent&lt;/span&gt;
 &lt;span class="nv"&gt;$&lt;/span&gt; &lt;span class="nv"&gt;vim&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="sr"&gt;/.pelican/s&lt;/span&gt;&lt;span class="n"&gt;etting&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;
 &lt;span class="nv"&gt;$&lt;/span&gt; &lt;span class="nv"&gt;cat&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="sr"&gt;/.pelican/s&lt;/span&gt;&lt;span class="n"&gt;etting&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;
@@ -21,4 +15,10 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;記事作成からデプロイまで自動化したスクリプトを書くといいかも。&lt;/p&gt;</summary></entry></feed>
+&lt;p&gt;記事作成からデプロイまで自動化したスクリプトを書くといいかも。&lt;/p&gt;</summary></entry><entry><title>Install Pelican with virtualenvwrapper</title><link href=".././install-pelican-with-virtualenvwrapper.html" rel="alternate"></link><updated>2011-06-11T17:21:24Z</updated><author><name>Yusaku ONO</name></author><id>tag:None,2011-06-11:.././install-pelican-with-virtualenvwrapper.html/</id><summary type="html">&lt;p&gt;簡単にブログを書く環境として、pelican をインストールしてみた。&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;% mkvirtualenv pelican&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;% pip install pelican&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;% mkdir content &amp;amp;&amp;amp; cd content&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;% vim hoge.md&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;% pelican ~/content&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry></feed>
