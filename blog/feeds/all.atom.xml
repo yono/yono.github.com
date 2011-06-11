@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>yonolog</title><link href="../." rel="alternate"></link><link href=".././feeds/all.atom.xml" rel="self"></link><id>../.</id><updated>2011-06-11T17:21:24Z</updated><entry><title>Install Pelican with virtualenvwrapper</title><link href=".././install-pelican-with-virtualenvwrapper.html" rel="alternate"></link><updated>2011-06-11T17:21:24Z</updated><author><name>Yusaku ONO</name></author><id>tag:None,2011-06-11:.././install-pelican-with-virtualenvwrapper.html/</id><summary type="html">&lt;p&gt;簡単にブログを書く環境として、pelican をインストールしてみた。&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;% mkvirtualenv pelican&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;% pip install pelican&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;% mkdir content &amp;amp;&amp;amp; cd content&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;% vim hoge.md&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;% pelican ~/content&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>test</title><link href=".././test.html" rel="alternate"></link><updated>2011-06-06T00:00:00Z</updated><author><name>Yusaku ONO</name></author><id>tag:None,2011-06-06:.././test.html/</id><summary type="html">&lt;h1&gt;aaa&lt;/h1&gt;
+&lt;h2&gt;bbb&lt;/h2&gt;
+&lt;h3&gt;ccc&lt;/h3&gt;</summary></entry></feed>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>yonolog</title><link>../.</link><description></description><atom:link href=".././feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 11 Jun 2011 17:21:24 -0000</lastBuildDate><item><title>Install Pelican with virtualenvwrapper</title><link>.././install-pelican-with-virtualenvwrapper.html</link><description>&lt;p&gt;簡単にブログを書く環境として、pelican をインストールしてみた。&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;% mkvirtualenv pelican&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;% pip install pelican&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;% mkdir content &amp;amp;&amp;amp; cd content&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;% vim hoge.md&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;% pelican ~/content&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Yusaku ONO</dc:creator><pubDate>Sat, 11 Jun 2011 17:21:24 -0000</pubDate></item><item><title>test</title><link>.././test.html</link><description>&lt;h1&gt;aaa&lt;/h1&gt;
+&lt;h2&gt;bbb&lt;/h2&gt;
+&lt;h3&gt;ccc&lt;/h3&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Yusaku ONO</dc:creator><pubDate>Mon, 06 Jun 2011 00:00:00 -0000</pubDate></item></channel></rss>

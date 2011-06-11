@@ -1,12 +1,12 @@
 
 ## Python 
-- [Python 基礎](python/python_basics)
-- [文章生成ライブラリ markovchains](python/markovchains)
-- [Google App Engine/Python](python/gae)
-- [クロールして収集したHTMLの解析について](python/html_analysis)
+- [Python 基礎](python/python_basics/index.html)
+- [文章生成ライブラリ markovchains](python/markovchains/index.html)
+- [Google App Engine/Python](python/gae/index.html)
+- [クロールして収集したHTMLの解析について](python/html_analysis/index.html)
 
 ## 勉強会
-- [10/06/11 Java Kuche 第10回勉強会(Python の自動文章生成ライブラリ markovchains とその活用方法（Twitter Bot）について)](study_meeting/100611_javakuche/)
+- [10/06/11 Java Kuche 第10回勉強会(Python の自動文章生成ライブラリ markovchains とその活用方法（Twitter Bot）について)](study_meeting/100611_javakuche/index.html)
 - [10/08/06 HACK勉強会資料(私は如何にして3億件のデータを2日でRDBに突っ込んだか)](static/how_to_insert_huge_data_to_rdb.html)
 - [10/08/13 HACK勉強会資料(VMware Fusion で自宅仮想サーバー)(未発表)](static/vmware_fusion_server.html)
 - [10/09/09 HACK勉強会資料(KVS)](static/kvs/slide.html)
