@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>yonolog</title><link href="../." rel="alternate"></link><link href=".././feeds/all.atom.xml" rel="self"></link><id>../.</id><updated>2011-06-12T22:43:35Z</updated><entry><title>Translating MAHALO License</title><link href=".././translating-mahalo-license.html" rel="alternate"></link><updated>2011-06-12T22:43:35Z</updated><author><name>Yusaku ONO</name></author><id>tag:None,2011-06-12:.././translating-mahalo-license.html/</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/gongo/Tython/blob/development/LICENSE"&gt;MAHALO License&lt;/a&gt; is a software license defined by
+<feed xmlns="http://www.w3.org/2005/Atom"><title>yonolog</title><link href="../." rel="alternate"></link><link href=".././feeds/all.atom.xml" rel="self"></link><id>../.</id><updated>2011-06-12T22:50:37Z</updated><entry><title>Translating MAHALO License</title><link href=".././translating-mahalo-license.html" rel="alternate"></link><updated>2011-06-12T22:50:37Z</updated><author><name>Yusaku ONO</name></author><id>tag:None,2011-06-12:.././translating-mahalo-license.html/</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/gongo/Tython/blob/development/LICENSE"&gt;MAHALO License&lt;/a&gt; is a software license defined by
 &lt;a href="http://twitter.com/gongoZ"&gt;@gongoZ&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;@gongoZ is a developer of the &lt;a href="http://d.hatena.ne.jp/gongoZ/20110514/1305372647"&gt;Tython programming language&lt;/a&gt;.
 He distributes Tython with the MAHALO License.&lt;/p&gt;
@@ -7,7 +7,7 @@ He distributes Tython with the MAHALO License.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;ソフトウェアを使用する際、(ソフトウェアに限らず)何かに対して「感謝」をすることとします。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;I'm trying to translate this sentence to English.
+&lt;p&gt;I'm trying to translate this sentence into English.
 It's a draft version.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;You shall thank to anyone (not only to the software) when you use the software.&lt;/p&gt;
