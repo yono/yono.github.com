@@ -51,8 +51,119 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href=".././translating-mahalo-license.html">Translating MAHALO License</a></h1> 
+                    <h1 class="entry-title"><a href=".././export-pdf-from-redmines-wiki.html">Export PDF from Redmine's Wiki</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2011-07-02T20:50:27">
+                Sat 02 July 2011
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href="#">Yusaku ONO</a>
+        </address>
+        
+<p>In <a href=".././category/content.html">content</a>. </p>
+
+</p>
+
+</footer><!-- /.post-info --><p>I'll introduce a Redmine's plugin, <a href="http://www.redmine.org/plugins/redmine_doc_pu">DocPu</a>.
+It's enable us to export PDF from Redmine's Wiki.</p>
+<p>I tried to set up the plugin on Debian Squeeze.</p>
+<h2>Install LaTeX packages.</h2>
+<p>DocPu uses LaTeX environment, so we must install LaTeX packages.</p>
+<p>I installed these packages using aptitude.</p>
+<ul>
+<li>ptex-bin</li>
+<li>ptex-buildsupport</li>
+<li>ptex-jtex</li>
+<li>texlive-latex-recommended</li>
+<li>texlive-latex-extra</li>
+<li>cjk-latex</li>
+<li>latex-cjk-japanese</li>
+<li>latex-cjk-japanese-wadalab</li>
+</ul>
+<h2>Install DocPu</h2>
+<p>Download and locate the plugin's directory to $RAILSROOT/vendor/plugins.</p>
+<div class="codehilite"><pre><span class="nv">$</span> <span class="nv">wget</span> <span class="n">http:</span><span class="sr">//</span><span class="n">www</span><span class="o">.</span><span class="n">redmine</span><span class="o">.</span><span class="n">org</span><span class="sr">/attachments/</span><span class="mi">4975</span><span class="o">/</span><span class="n">redmine_doc_pu_v003</span><span class="o">.</span><span class="n">zip</span>
+<span class="nv">$</span> <span class="nv">unzip</span> <span class="n">redmine_doc_pu_v003</span><span class="o">.</span><span class="n">zip</span>
+<span class="nv">$</span> <span class="nv">mv</span> <span class="n">redmine_doc_pu</span> <span class="nv">$RAILSROOT</span><span class="sr">/vendor/</span><span class="n">plugins</span><span class="o">/</span>
+<span class="nv">$</span> <span class="nv">sudo</span> <span class="sr">/etc/i</span><span class="n">nit</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">apache2</span> <span class="n">restart</span>
+</pre></div>
+
+
+<p>After that, you should see the plugin's item in above menu [Administration] -&gt; [Plugin].</p>
+<h2>Customize a template</h2>
+<p>Default templates doesn't include Japanese version.</p>
+<p>I wrote a template based on artile_en_tcfi.tex (one of the default templates).</p>
+<div class="codehilite"><pre><span class="c1"># diff article_ja_tcfi.tex article_en_tcfi.tex</span>
+<span class="mi">21</span><span class="n">d20</span>
+<span class="o">&lt;</span> <span class="o">\</span><span class="n">usepackage</span><span class="p">{</span><span class="n">CJKutf8</span><span class="p">}</span>
+<span class="mi">38</span><span class="n">d36</span>
+<span class="o">&lt;</span> <span class="o">\</span><span class="n">begin</span><span class="p">{</span><span class="n">CJK</span><span class="p">}{</span><span class="n">UTF8</span><span class="p">}{</span><span class="n">min</span><span class="p">}</span>
+<span class="mi">54</span><span class="n">d51</span>
+<span class="o">&lt;</span> <span class="o">\</span><span class="n">end</span><span class="p">{</span><span class="n">CJK</span><span class="p">}</span>
+</pre></div>
+
+
+<h2>Export PDF</h2>
+<p>I refered to <a href="http://www.redmine.org/plugins/redmine_doc_pu">the documentation</a> for making PDF.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                        <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+        
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href=".././studying-with-codeeval.html" rel="bookmark" title="Permalink to Studying with CodeEval">Studying with CodeEval</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
+        <abbr class="published" title="2011-06-15T00:55:05">
+                Wed 15 June 2011
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href="#">Yusaku ONO</a>
+        </address>
+        
+<p>In <a href=".././category/content.html">content</a>. </p>
+
+</p>
+
+</footer><!-- /.post-info -->
+                <property object at 0x101678f18>
+                <a class="readmore" href=".././studying-with-codeeval.html">read more</a>
+                
+                </div><!-- /.entry-content -->
+            </article></li>
+        
+        
+        
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href=".././translating-mahalo-license.html" rel="bookmark" title="Permalink to Translating MAHALO License">Translating MAHALO License</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2011-06-13T00:05:01">
                 Mon 13 June 2011
         </abbr>
@@ -66,29 +177,12 @@
 
 </p>
 
-</footer><!-- /.post-info --><p><a href="https://github.com/gongo/Tython/blob/development/LICENSE">MAHALO License</a> is a software license defined by
-<a href="http://twitter.com/gongoZ">@gongoZ</a>.</p>
-<p>@gongoZ is a developer of the <a href="http://d.hatena.ne.jp/gongoZ/20110514/1305372647">Tython programming language</a>.
-He distributes Tython with the MAHALO License.</p>
-<p>MAHALO License is based on MIT License and is added the below sentence.</p>
-<blockquote>
-<p>ソフトウェアを使用する際、(ソフトウェアに限らず)何かに対して「感謝」をすることとします。</p>
-</blockquote>
-<p>I'm trying to translate this sentence into English.
-It's a draft version.</p>
-<blockquote>
-<p>You shall thank for anyone (not only to the software) when you use the software.</p>
-</blockquote>
-                </article>
+</footer><!-- /.post-info -->
+                <property object at 0x10218e4c8>
+                <a class="readmore" href=".././translating-mahalo-license.html">read more</a>
                 
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                        <ol id="posts-list" class="hfeed">
-            
-        
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
         
@@ -117,7 +211,7 @@ It's a draft version.</p>
 </p>
 
 </footer><!-- /.post-info -->
-                <property object at 0x10217a100>
+                <property object at 0x10218e368>
                 <a class="readmore" href=".././publish-the-blog-created-by-pelican-at-github.html">read more</a>
                 
                 </div><!-- /.entry-content -->
@@ -150,7 +244,7 @@ It's a draft version.</p>
 </p>
 
 </footer><!-- /.post-info -->
-                <property object at 0x10216efc8>
+                <property object at 0x10218e2b8>
                 <a class="readmore" href=".././install-pelican-with-virtualenvwrapper.html">read more</a>
                 
                 </div><!-- /.entry-content -->
