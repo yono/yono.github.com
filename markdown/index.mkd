@@ -1,3 +1,6 @@
+## Weblog
+
+- [blog by pelican](blog/)
 
 ## Python 
 - [Python 基礎](python/python_basics/index.html)
