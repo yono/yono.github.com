@@ -1,7 +1,3 @@
-## Weblog
-
-- [blog by pelican](blog/)
-
 ## Python 
 - [Python 基礎](python/python_basics/index.html)
 - [文章生成ライブラリ markovchains](python/markovchains/index.html)
