@@ -5,6 +5,8 @@
   - Google App Engine/Python 上で動く Twitter Bot
 - [ShowOffer](https://github.com/yono/showoff)
   - A Presentation Tool using ShowOff and Shower
+- [きたくグラフ](http://kitaku-graph.herokuapp.com)
+  - Twitter で「きたく」とつぶやいた時刻をグラフ化
 
 ## Python 
 - [Python 基礎](python/python_basics/index.html)
