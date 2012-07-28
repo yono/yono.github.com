@@ -15,6 +15,7 @@
 - [クロールして収集したHTMLの解析について](python/html_analysis/index.html)
 
 ## Slides for Study Meeting
+- [12/07/29 WMO(Redmine を使ったプロジェクト管理)](static/redmine/slides.html)
 - [11/11/11 HACK勉強会資料(Play! frameworkについて)](http://speakerdeck.com/u/yono/p/play-framework)
 - [11/10/10 よのぼっと勉強会（カジュプロ）](http://www.slideshare.net/yono05/ss-9631082)
 - [11/08/28 eXtream HAGO 2 LT 大会（ライフログと可視化とおうちへ帰ろう）](http://www.slideshare.net/yono05/ss-9024013)

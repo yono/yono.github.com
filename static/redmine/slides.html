@@ -1,0 +1,1226 @@
+
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+		 Alex Russell (slightlyoff@chromium.org)
+		 Brad Neuberg
+-->
+<html>
+<head>
+<title>Redmine を使ったプロジェクト管理</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2012-07-29 00:05:30 JST"/>
+<meta name="author" content="小野裕作"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top; font-size: 30px; }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<style>
+body {
+  font: 16px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px; top: 0px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.presentation {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  display: block;
+  overflow: hidden;
+  background: #000;
+  background: -webkit-gradient(linear, left top, left bottom, from(#444), to(black));
+  background: -moz-linear-gradient(top, #444, black);
+}
+
+.slides {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  display: none;
+  -webkit-transition: -webkit-transform 1.5s ease-in-out;
+  -moz-transition: -moz-transform 1.5s ease-in-out;
+  -o-transition: -o-transform 1.5s ease-in-out;
+  transition: transform 1.5s ease-in-out;
+}
+
+.slide {
+  display: none;
+  position: absolute;
+  overflow: hidden;
+  width: 900px;
+  height: 700px;
+  left: 50%;
+  top: 50%;
+  margin-top: -350px;
+  background-color: #eee;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  opacity: 0.35;
+
+  -webkit-transform: scale(0.8) translateZ(0);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+
+  -webkit-transition-property: margin, -webkit-transform, opacity;
+  -webkit-transition-duration: 0.3s, 0.3s, 0.3s;
+  -webkit-transition-timing-function: ease-in-out;
+
+  -moz-transition-property: margin, -moz-transform, opacity;
+  -moz-transition-duration: 0.3s, 0.3s, 0.3s;
+  -moz-transition-timing-function: ease-in-out;
+
+  -o-transition-property: margin, -moz-transform, opacity;
+  -o-transition-duration: 0.3s, 0.3s, 0.3s;
+  -o-transition-timing-function: ease-in-out;
+
+  /* NOTE(slightlyoff): simpler animations for slower boxes */
+  /*
+  -webkit-transition: margin 0.3s ease-in-out;
+  -moz-transition: margin 0.3s ease-in-out;
+  -o-transition: margin 0.3s ease-in-out;
+  */
+}
+
+.slide:nth-child(even) {
+  border-radius: 10px 30px 10px 30px;
+  -moz-border-radius: 10px 20px 10px 20px;
+}
+
+.slide:nth-child(odd) {
+  border-radius: 20px 10px 20px 10px;
+  -moz-border-radius: 20px 10px 20px 10px;
+}
+
+.slide p, .slide textarea {
+  font-size: 20px;
+}
+
+.slide .counter {
+  color: #999999;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  display: block;
+  font-size: 12px;
+  width: 100%;
+}
+
+.slide:not(.transitionSlide) .counter:after {
+  content: '';
+  width: 32px;
+  height: 32px;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  position: absolute;
+  bottom: 0;
+  right: 45px;
+  opacity: 0.25;
+}
+
+.offline-storage .counter:after {
+  background-image: url(http://www.html5rocks.com/static/images/identity/classes_32/HTML5_Offline_Storage_32.png);
+}
+
+.device-access .counter:after{
+  background-image: url(http://www.html5rocks.com/static/images/identity/classes_32/HTML5_Device_Access_32.png);
+}
+
+.realtime-communication .counter:after {
+  background-image: url(http://www.html5rocks.com/static/images/identity/classes_32/HTML5_Connectivity_32.png);
+}
+
+.performance .counter:after {
+  background-image: url(http://www.html5rocks.com/static/images/identity/classes_32/HTML5_Performance_32.png);
+}
+
+.semantics .counter:after {
+  background-image: url(http://www.html5rocks.com/static/images/identity/classes_32/HTML5_Semantics_32.png);
+}
+
+.multimedia .counter:after {
+  background: url(http://www.html5rocks.com/static/images/identity/classes_32/HTML5_MultiMedia_32.png);
+}
+
+.effects .counter:after {
+  background: url(http://www.html5rocks.com/static/images/identity/classes_32/HTML5_3D_Effects_32.png);
+}
+
+.styling .counter:after {
+  background: url(http://www.html5rocks.com/static/images/identity/classes_32/HTML5_Styling_32.png);
+}
+
+.slide.title > .counter,
+.slide.segue > .counter,
+.slide.mainTitle > .counter {
+  display: none;
+}
+
+.slide.transitionSlide h2 {
+  font-size: 40px;
+  margin: 0;
+  line-height: 10px;
+}
+.slide.transitionSlide p {
+  margin: 0;
+}
+
+.slide.transitionSlide img {
+  opacity: 0.25;
+  width: 64px;
+  height: 64px;
+}
+
+.vbox {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+}
+
+.hbox {
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+}
+
+.flex {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+}
+
+.noflex {
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  box-flex: 0;
+}
+
+.boxcenter {
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+}
+
+.slide.far-past {
+  display: block;
+  margin-left: -2400px;
+}
+
+.slide.past {
+  visibility: visible;
+  display: block;
+  margin-left: -1400px;
+}
+
+.slide.current {
+  visibility: visible;
+  display: block;
+  margin-left: -450px;
+  -webkit-transform: scale(1.0);
+  -moz-transform: scale(1.0);
+  -o-transform: scale(1.0);
+  opacity: 1.0;
+}
+
+.slide.future {
+  visibility: visible;
+  display: block;
+  margin-left: 500px;
+}
+
+.slide.far-future {
+  display: block;
+  margin-left: 1500px;
+}
+
+body.three-d div.presentation {
+  /*background: -webkit-gradient(radial, 50% 50%, 10, 50% 50%, 1000, from(#333), to(#000));        */
+}
+
+body.three-d div.slides {
+  -webkit-transform: translateX(50px) scale(0.8) rotateY(10deg);
+  -moz-transform: translateX(50px) scale(0.8) rotateY(10deg);
+  -o-transform: translateX(50px) scale(0.8) rotateY(10deg);
+  transform: translateX(50px) scale(0.8) rotateY(10deg);
+}
+
+/* Content */
+/*
+  Font sizes:
+  header h1 - 50px
+  h2, p - 20px
+  default, pre, input - 16px
+*/
+
+@font-face {
+  font-family: 'Yanone Kaffeesatz';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/src/fonts/yanone/YanoneKaffeesatz-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/src/fonts/inconsolata/Inconsolata.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'JunctionRegular';
+	src: url('/src/fonts/junction02/junction02-webfont.eot');
+	src: local('笘ｺ'), url('/src/fonts/junction02/junction02-webfont.woff') format('woff'), url('/src/fonts/junction02/junction02-webfont.ttf') format('truetype'), url('/src/fonts/junction02/junction02-webfont.svg#webfontwzJOjWvv') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'LeagueGothicRegular';
+	src: url('/src/fonts/leaguegothic/leaguegothic-webfont.eot');
+	src: local('笘ｺ'), url('/src/fonts/leaguegothic/leaguegothic-webfont.woff') format('woff'), url('/src/fonts/leaguegothic/leaguegothic-webfont.ttf') format('truetype'), url('/src/fonts/leaguegothic/leaguegothic-webfont.svg#webfontWgfhmMGx') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+header {
+  font-family: Arial;
+  font-weight: normal;
+  letter-spacing: -.05em;
+  color: #0054AB;
+  font-weight: normal;
+  text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+  position: absolute;
+  left: 30px;
+  top: 25px;
+  margin: 0;
+  padding: 0;
+  font-size: 50px;
+}
+
+h1 {
+  font-size: 100%;
+  display: inline;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+}
+
+h2 {
+  font-family: Arial;
+  color: black;
+  font-size: 20px;
+  padding: 0;
+  margin: 15px 0 5px 0;
+}
+      
+h2:first-child {
+  margin-top: 0;
+}
+
+section, footer {
+  font: Arial;
+  font-weight: normal;
+  color: #3f3f3f;
+  text-shadow: white 0px 1px 0px, rgba(0, 0, 0, 0.2) 0 2px 5px;
+  margin: 100px 30px 0;
+  display: block;
+  overflow: hidden;
+}
+
+footer {
+  font-size: 12px;
+  margin: 20px 0 0 30px;
+}
+
+a {
+  color: inherit;
+  display: inline-block;
+  text-decoration: none;
+  line-height: 110%;
+  border-bottom: 2px solid #3f3f3f;
+}
+
+.gmap a {
+  line-height: 100%;
+  border-bottom: none;
+}
+
+li {
+  list-style: none;
+  padding: 10px 0;
+}
+
+button {
+  font-size: 20px;
+}
+
+pre button {
+  margin: 2px;
+}
+
+.summary {
+  font-size: 30px;
+}
+
+.bullets {
+  font-size: 40px;
+}
+
+section.left {
+  float: left;
+  width: 390px;
+}
+
+section.small {
+  font-size: 24px;
+}
+
+section.small ul {
+  margin: 0 0 0 15px;
+  padding: 0;
+}
+
+section.small li {
+  padding-bottom: 0;
+}
+
+section.middle {
+  line-height: 68px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  height: 700px;
+  width: 900px;
+}
+
+pre {
+  font: 'Inconsolata';
+  color: #000;
+  text-align: left;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: rgba(255, 204, 0, 0.05);
+  border: 2px solid rgba(255, 204, 0, 0.3);
+  /*text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;*/
+}
+
+pre select {
+  font-family: Monaco, Courier;
+  border: 1px solid #c61800;
+}
+  
+input {
+  font-size: 16px;
+  margin-right: 10px;
+  font-family: Helvetica;
+  padding: 3px 5px;
+}
+input[type="range"] {
+  width: 100%;
+}
+
+button {
+  font-family: Verdana;
+}
+
+button.large {
+  font-size: 32px;
+}
+  
+pre b {
+  font-weight: normal;
+  color: #c61800;
+  text-shadow: #c61800 0 0 1px;
+  /*letter-spacing: -1px;*/
+}
+pre em {
+  font-weight: normal;
+  font-style: normal;
+  color: #18a600;
+  text-shadow: #18a600 0 0 1px;
+}
+pre input[type="range"] {
+  height: 6px;
+  cursor: pointer;
+  width: auto;
+}
+
+div.example {
+  display: block;
+  padding: 10px 20px;
+  color: black;
+  background: rgba(255, 255, 255, 0.4);
+  -webkit-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+video {
+  -moz-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.css,
+.js,
+.html,
+.key {
+  font-family: 'Inconsolata';
+  color: black;
+  display: inline-block;
+  padding: 6px 10px 3px 10px;
+  font-size: 25px;
+  line-height: 30px;
+  text-shadow: none;
+  letter-spacing: 0;
+  bottom: 10px;
+  position: relative;
+  -moz-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+  -o-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+}
+
+.key { font-family: "Lucida console", Monospace, Arial; }
+
+:not(header) > .css,
+:not(header) > .js,
+:not(header) > .html,
+:not(header) > .key {
+  margin: 0 5px;
+  bottom: 4px;
+}
+
+.css {
+  background: -webkit-gradient(linear, left top, left bottom, from(#ff4), to(#ffa));
+  background-color: #ff4;
+  background: -moz-linear-gradient(left top, #ff4, #ffa);
+}
+.js {
+  background: -webkit-gradient(linear, left top, left bottom, from(#4f4), to(#afa));
+  background-color: #4f4;
+  background: -moz-linear-gradient(left top, #4f4, #afa);
+}
+.html {
+  background: -webkit-gradient(linear, left top, left bottom, from(#e88), to(#fee));
+  background-color: #e88;
+  background: -moz-linear-gradient(left top, #e88, #fee);
+}
+
+.two-column {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+}
+
+.stroke {
+  -webkit-text-stroke-color: red;
+  -webkit-text-stroke-width: 1px;
+} /* currently webkit-only */
+
+.center {
+  text-align: center;
+}
+
+.formula {
+  font-size: 50px;
+}
+
+#presentation-counter {
+  color: #fff;
+  font: 100px 'Yanone Kaffeesatz';
+  letter-spacing: 1px;
+  position: relative;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+}
+
+.hsl-value {
+  display: inline-block;
+  width: 50px;
+}
+
+[data-build] > * {
+  -webkit-transition: opacity 0.5s ease-in-out 0.2s; 
+  -moz-transition: opacity 0.5s ease-in-out 0.2s; 
+  -o-transition: opacity 0.5s ease-in-out 0.2s; 
+}
+
+[data-build] > *.to-build {
+  opacity: 0;
+}
+
+.sidebar {
+  background-color: #F3F3F3;
+  border-right: 5px solid #987;
+}
+
+.intro h1 {
+  color: black;
+  padding: 0;
+  maring: 0;
+  letter-spacing: -2px;
+  font-size: 96px;
+}
+
+.intro h2 {
+  color: black;
+  font-family: 'LeagueGothic';
+  padding: 0;
+  margin: 0;
+  margin-top: -5px;
+  font-size: 68px;
+  letter-spacing: -1px;
+
+</style>
+<body>
+<div class="presentation">
+<div id="content">
+
+
+<div class="slide">
+  <section class="center intro">
+    <style>
+      span.strike { text-decoration:line-through;}
+    </style>
+    <h2>
+      Redmine を使ったプロジェクト管理
+    </h2>
+    <p style="margin-top:100px; font-size: 40px;">
+      小野裕作
+    </p>
+
+  </section>
+</div>
+
+<div class="slide">
+<header><h1><span class="section-number-2">1</span> はじめに </h1></header>
+
+<section>
+<ul class="summary">
+<li>懇親会で話がでたので資料用意してみました
+</li>
+<li>発表者は実際にプロジェクトマネージャをやったことはありません
+</li>
+<li>一例として聞いていただけると幸いです
+</li>
+</ul>
+
+
+</section>
+
+</div>
+
+<div class="slide">
+<header><h1><span class="section-number-2">2</span> プロジェクト管理で必要なのは </h1></header>
+
+<section>
+
+<ul class="summary">
+<li>タスクを洗い出す
+</li>
+<li>タスクを割り振る
+</li>
+<li>スケジューリングする
+</li>
+<li>進捗管理する
+</li>
+<li>情報を共有する
+</li>
+<li>成果物を管理する
+</li>
+</ul>
+
+
+</section>
+
+</div>
+
+<div class="slide">
+<header><h1><span class="section-number-2">3</span> どういうツールを使うか </h1></header>
+
+<section>
+
+<ul class="summary">
+<li>Excel
+</li>
+<li>Trac
+</li>
+<li>Redmine
+</li>
+<li><a href="http://www.backlog.jp/">backlog</a>
+</li>
+</ul>
+
+
+</section>
+
+</div>
+
+<div class="slide">
+<header><h1><span class="section-number-2">4</span> 今回は Redmine について紹介します </h1></header>
+
+<section>
+
+<ul class="summary">
+<li>OSS のプロジェクト管理ツール
+</li>
+<li>タスク管理や進捗管理、情報共有が行える
+</li>
+<li>バージョン管理システムと連携できる
+</li>
+</ul>
+
+
+</section>
+
+</div>
+
+<div class="slide">
+<header><h1><span class="section-number-2">5</span> 実際に画面を見てみましょう </h1></header>
+
+<section>
+
+</section>
+
+</div>
+
+<div class="slide">
+<header><h1><span class="section-number-2">6</span> 流れ </h1></header>
+
+<section>
+
+<ul class="summary">
+<li>タスクを洗い出す
+</li>
+<li>タスクを割り振る
+</li>
+<li>スケジューリングする
+</li>
+<li>進捗管理する
+</li>
+<li>情報を共有する
+</li>
+<li>成果物を管理する
+</li>
+</ul>
+
+
+</section>
+
+</div>
+
+<div class="slide">
+<header><h1><span class="section-number-2">7</span> タスクを洗い出す </h1></header>
+
+<section>
+
+<ul class="summary">
+<li>チケットを作成する
+</li>
+<li>タスクの粒度が細かすぎても大きすぎてもダメ
+</li>
+</ul>
+
+
+</section>
+
+</div>
+
+<div class="slide">
+<header><h1><span class="section-number-2">8</span> タスクを割り振る </h1></header>
+
+<section>
+
+<ul class="summary">
+<li>チケットの担当者を設定する
+</li>
+</ul>
+
+
+</section>
+
+</div>
+
+<div class="slide">
+<header><h1><span class="section-number-2">9</span> スケジューリングする </h1></header>
+
+<section>
+
+<ul class="summary">
+<li>マイルストーンを洗い出す
+</li>
+<li>バージョンを作る
+</li>
+<li>チケットにバージョンを設定する
+</li>
+<li>ガントチャートが作られる
+</li>
+</ul>
+
+
+</section>
+
+</div>
+
+<div class="slide">
+<header><h1><span class="section-number-2">10</span> 進捗管理する </h1></header>
+
+<section>
+
+<ul class="summary">
+<li>ワークフローを決める
+<ul class="summary">
+<li>新規 =&gt; チケット作成時点
+</li>
+<li>着手 =&gt; 作業者が作業に着手
+</li>
+<li>完了 =&gt; 作業者の作業が完了した
+</li>
+<li>承認 =&gt; 管理者がOKを出した
+</li>
+<li>否認 =&gt; 作業に戻りが発生
+</li>
+</ul>
+
+</li>
+</ul>
+
+
+</section>
+
+</div>
+
+<div class="slide">
+<header><h1><span class="section-number-2">11</span> 情報を共有する </h1></header>
+
+<section>
+
+<ul class="summary">
+<li>Wiki に情報をまとめる
+</li>
+</ul>
+
+
+</section>
+
+</div>
+
+<div class="slide">
+<header><h1><span class="section-number-2">12</span> 成果物を管理する </h1></header>
+
+<section>
+
+<ul class="summary">
+<li>バージョン管理システムを使う
+</li>
+<li>チケットと連動して使える
+</li>
+</ul>
+
+<pre class="example">
+svn commit -m '◯◯を作成開始 refs #3'
+</pre>
+
+
+<p>
+=&gt; チケット番号 #3 に関連付けられる
+</p>
+<pre class="example">
+svn commit -m '◯◯を修正 fixes #3'
+</pre>
+
+
+<p>
+=&gt; チケット番号 #3 のステータスが自動的に「完了」に変わる
+</p>
+</section>
+
+</div>
+
+<div class="slide">
+<header><h1><span class="section-number-2">13</span> タスク割り振りの一連の流れ </h1></header>
+
+<section>
+
+<ul class="summary">
+<li>ディレクター: チケットを作ってコーダーAに割り振る
+</li>
+<li>コーダーA: メールが飛んでくるのでチケットを確認
+</li>
+<li>コーダーA: Subversion にコミット（作成途中）
+</li>
+</ul>
+
+<pre class="example">
+ ◯◯に着手 refs #100
+</pre>
+
+<ul class="summary">
+<li>コーダーA: Subversion にコミット（作成完了）
+</li>
+</ul>
+
+<pre class="example">
+◯◯が完了 fixes #100
+</pre>
+
+<p>自動的にチケットのステータスが「完了」になる
+</p>
+</section>
+
+</div>
+
+<div class="slide">
+<header><h1><span class="section-number-2">14</span> タスク割り振りの一連の流れ（続 </h1></header>
+
+<section>
+
+<ul class="summary">
+<li>ディレクター: コミットされた内容を確認する
+</li>
+<li>ディレクター: 確認結果OKなのでチケットのステータスを「承認」にする
+</li>
+<li>コーダーA: 承認された旨をメールで受け取る。
+</li>
+</ul>
+
+
+</section>
+
+</div>
+
+<div class="slide">
+<header><h1><span class="section-number-2">15</span> まとめ </h1></header>
+
+<section>
+
+<ul class="summary">
+<li>まずはルールを決める
+</li>
+<li>チーム全員が納得した上で進める
+</li>
+<li>できるだけシンプルに使えるようにする
+</li>
+</ul>
+
+
+</section>
+</div>
+
+</div>
+<script>
+  (function() {
+    // Since we don't have the fallback of attachEvent and
+    // other IE only stuff we won't try to run JS for IE.
+    // It will run though when using Google Chrome Frame
+    if (document.all) { return; }
+
+    var currentSlideNo;
+    var notesOn = false;
+    var slides = document.getElementsByClassName('slide');
+    var touchStartX = 0;
+
+    // var slide_hash = window.location.hash.replace(/#/, '');
+    // if (slide_hash) {
+    //   for (var i = 0, len = slides.length; i < len; i++) {
+    //     if (slides[i].id == slide_hash) {
+    //       currentSlideNo = i;
+    //       updateSlideClasses();
+    //     }
+    //   }
+    // }
+
+    var spaces = /\s+/, a1 = [""];
+
+    var str2array = function(s) {
+      if (typeof s == "string" || s instanceof String) {
+	if (s.indexOf(" ") < 0) {
+	  a1[0] = s;
+	  return a1;
+	} else {
+	  return s.split(spaces);
+	}
+      }
+      return s;
+    };
+
+    var trim = function(str) {
+      return str.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+    };
+
+    var addClass = function(node, classStr) {
+      classStr = str2array(classStr);
+      var cls = " " + node.className + " ";
+      for (var i = 0, len = classStr.length, c; i < len; ++i) {
+	c = classStr[i];
+	if (c && cls.indexOf(" " + c + " ") < 0) {
+	  cls += c + " ";
+	}
+      }
+      node.className = trim(cls);
+    };
+
+    var removeClass = function(node, classStr) {
+      var cls;
+      if (classStr !== undefined) {
+	classStr = str2array(classStr);
+	cls = " " + node.className + " ";
+	for (var i = 0, len = classStr.length; i < len; ++i) {
+	  cls = cls.replace(" " + classStr[i] + " ", " ");
+	}
+	cls = trim(cls);
+      } else {
+	cls = "";
+      }
+      if (node.className != cls) {
+	node.className = cls;
+      }
+    };
+
+    var getSlideEl = function(slideNo) {
+      if (slideNo > 0) {
+	return slides[slideNo - 1];
+      } else {
+	return null;
+      }
+    };
+
+    var getSlideTitle = function(slideNo) {
+      var el = getSlideEl(slideNo);
+
+      if (el) {
+	return el.getElementsByTagName('header')[0].innerHTML;
+      } else {
+	return null;
+      }
+    };
+
+    var changeSlideElClass = function(slideNo, className) {
+      var el = getSlideEl(slideNo);
+
+      if (el) {
+	removeClass(el, 'far-past past current future far-future');
+	addClass(el, className);
+      }
+    };
+
+    var updateSlideClasses = function() {
+      window.location.hash = "slide" + currentSlideNo;
+      changeSlideElClass(currentSlideNo - 2, 'far-past');
+      changeSlideElClass(currentSlideNo - 1, 'past');
+      changeSlideElClass(currentSlideNo, 'current');
+      changeSlideElClass(currentSlideNo + 1, 'future');
+      changeSlideElClass(currentSlideNo + 2, 'far-future');
+    };
+
+    var nextSlide = function() {
+      if (currentSlideNo < slides.length) {
+	currentSlideNo++;
+      }
+
+      updateSlideClasses();
+    };
+
+    var prevSlide = function() {
+      if (currentSlideNo > 1) {
+	currentSlideNo--;
+      }
+      updateSlideClasses();
+    };
+
+    var showNotes = function() {
+      var notes = document.querySelectorAll('.notes');
+      for (var i = 0, len = notes.length; i < len; i++) {
+	notes[i].style.display = (notesOn) ? 'none':'block';
+      }
+      notesOn = (notesOn) ? false:true;
+    };
+
+    var switch3D = function() {
+      if (document.body.className.indexOf('three-d') == -1) {
+	document.getElementsByClassName('presentation')[0].style.webkitPerspective = '1000px';
+	document.body.className += ' three-d';
+      } else {
+	window.setTimeout("document.getElementsByClassName('presentation')[0].style.webkitPerspective = '0';", 2000);
+	document.body.className = document.body.className.replace(/three-d/, '');
+      }
+    };
+
+    var handleBodyKeyDown = function(event) {
+      // console.log(event.keyCode);
+      switch (event.keyCode) {
+	case 37: // left arrow
+	  prevSlide();
+	  break;
+	case 39: // right arrow
+	// case 32: // space
+	  nextSlide();
+	  break;
+	case 50: // 2
+	  showNotes();
+	  break;
+	case 51: // 3
+	  switch3D();
+	  break;
+    case 84: // T
+      changeTheme();
+      break;
+      }
+    };
+
+    var addTouchListeners = function() {
+      document.addEventListener('touchstart', function(e) {
+	touchStartX = e.touches[0].pageX;
+      }, false);
+      document.addEventListener('touchend', function(e) {
+	var pixelsMoved = touchStartX - e.changedTouches[0].pageX;
+	var SWIPE_SIZE = 150;
+	if (pixelsMoved > SWIPE_SIZE) {
+	  nextSlide();
+	}
+	else if (pixelsMoved < -SWIPE_SIZE) {
+	 prevSlide();
+	}
+      }, false);
+    };
+
+    // initialize
+
+    (function() {
+      if (window.location.hash != "") {
+	currentSlideNo = Number(window.location.hash.replace('#slide', ''));
+      } else {
+	currentSlideNo = 1;
+      }
+
+      document.addEventListener('keydown', handleBodyKeyDown, false);
+
+      var els = slides;
+      for (var i = 0, el; el = els[i]; i++) {
+	addClass(el, 'slide far-future');
+      }
+      updateSlideClasses();
+
+      // add support for finger events (filter it by property detection?)
+      addTouchListeners();
+    })();
+  })();
+</script>
+</body>
+</html>
