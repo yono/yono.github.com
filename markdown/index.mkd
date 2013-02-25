@@ -7,6 +7,8 @@
   - A Presentation Tool using ShowOff and Shower
 - [きたくグラフ](http://kitaku-graph.herokuapp.com)
   - Twitter で「きたく」とつぶやいた時刻をグラフ化
+- [typable\_map](http://yono.cc/typable_map)
+  - TypableMap inspired by TwitterIRCGateway and FacebookIRCGateway.
 
 ## Python 
 - [Python 基礎](python/python_basics/index.html)
