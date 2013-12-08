@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=320">
+        <link rel="stylesheet" media="screen, print" href="/styles/reset-min.css">
+        <link rel="stylesheet" media="screen, print" href="/styles/fonts-min.css">
+        <link rel="stylesheet" media="screen and (min-device-width: 481px), print" href="/styles/cg.css">
+        <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="/styles/iphone.css">
+        <!--[if IE]><link rel="stylesheet" media="screen, projection" href="<%= @relative %>styles/cg.css"><![endif]-->
+        <!--[if lte IE 8]><script src="<%= @relative %>scripts/create-elements.js" type="text/javascript"></script><![endif]-->
+        <script src="/scripts/highlight.pack.js" type="text/javascript"></script>
+        <link rel="stylesheet" media="screen, print" href="/styles/github.css">
+        <script type="text/javascript">hljs.initHighlightingOnLoad('bash','python','html','css');</script>
+        <title>{{ page.title }} - {{ site.title }}</title>
+    </head>
+    <body>
+        <header>
+          <h1><a href="http://yono.cc"><img src="/static/img/top.png"></img></a></h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Index</a></li>
+            </ul>
+        </nav>
+
+        <article>
+
+<!-- Auto generated start -->
+
+{{ content }}
+
+<!-- Auto generated end -->
+
+        </article>
+
+        <footer>
+        <p>Copyright 2013 &#169; <a href="mailto:yono.05@gmail.com">{{ site.author }}</a> All rights reserved.</p>
+        </footer>
+    </body>
+</html>
