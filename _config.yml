@@ -3,7 +3,6 @@ title: yono.co
 author: Yusaku ONO
 
 # Jekyll settings
-source: _src
 markdown: redcarpet
 redcarpet:
   extensions: ['tables', 'autolink', 'no_intra_emphasis']
