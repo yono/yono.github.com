@@ -3,16 +3,9 @@ layout: default
 title: Top
 ---
 ## Software
-- [yonobot](https://twitter.com/#!/yonobot)
-  - Twitter Bot
-- [gae-twibot](https://twitter.com/#!/yonobot)
-  - Google App Engine/Python 上で動く Twitter Bot
-- [ShowOffer](https://github.com/yono/showoff)
-  - A Presentation Tool using ShowOff and Shower
-- [きたくグラフ](http://kitaku-graph.herokuapp.com)
-  - Twitter で「きたく」とつぶやいた時刻をグラフ化
-- [typable\_map](http://yono.cc/typable_map)
-  - TypableMap inspired by TwitterIRCGateway and FacebookIRCGateway.
+- [yonobot](https://twitter.com/#!/yonobot): Twitter Bot
+- [ShowOffer](https://github.com/yono/showoff): A Presentation Tool using ShowOff and Shower
+- [typable\_map](http://yono.cc/typable_map): TypableMap inspired by TwitterIRCGateway and FacebookIRCGateway.
 
 ## Python 
 - [Python 基礎](python/python_basics/index.html)
