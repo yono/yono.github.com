@@ -2,8 +2,6 @@
 layout: default
 title: "Python 基礎: 目次"
 ---
-# Python 基礎: 目次
-
 1. [Python イントロダクション](introduction.html)
 2. [標準型](standard.html)
 3. [データ構造](data_structure.html)

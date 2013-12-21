@@ -2,8 +2,6 @@
 layout: default
 title: "Python のマルコフ連鎖ライブラリとその活用方法（Twitter Bot)"
 ---
-# Python のマルコフ連鎖ライブラリとその活用方法（Twitter Bot)
-
 ## マルコフ連鎖とは
 
 - ひとつ前の状態における情報のみを参考に、現在の状態が決定する

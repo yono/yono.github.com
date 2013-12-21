@@ -2,8 +2,6 @@
 layout: default
 title: "Python イントロダクション"
 ---
-# Python イントロダクション
-
 ## Python とは
 
 Guido van Rossum により開発されたオブジェクト指向スクリプト言語です。

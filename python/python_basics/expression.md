@@ -2,8 +2,6 @@
 layout: default
 title: "式／文"
 ---
-# 式／文
-
 Python における演算子や制御構造について。
 
 ## 演算子

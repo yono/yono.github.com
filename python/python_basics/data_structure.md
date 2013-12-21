@@ -2,8 +2,6 @@
 layout: default
 title: "データ構造"
 ---
-# データ構造
-
 Python で扱えるデータ構造について。
 
 ## リスト

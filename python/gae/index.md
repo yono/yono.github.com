@@ -2,8 +2,6 @@
 layout: default
 title: "Google App Engine / Python"
 ---
-# Google App Engine / Python
-
 ## Google App Engine とは
 - Google が提供するサービスの一つ
 - Web アプリケーションを Google のインフラ上で実行する環境を提供する

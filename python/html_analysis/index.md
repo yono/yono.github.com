@@ -2,8 +2,6 @@
 layout: default
 title: "HTML から文章抽出して解析する際の Tips"
 ---
-# HTML から文章抽出して解析する際の Tips
-
 ## 概要
 
 HTML から文章などを抽出して解析する際の Tips をまとめたいと思います。
