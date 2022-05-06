@@ -3,7 +3,7 @@ title: yono.co
 author: Yusaku ONO
 
 # Jekyll settings
-markdown: redcarpet
+markdown: kramdown
 redcarpet:
   extensions: ['tables', 'autolink', 'no_intra_emphasis']
 exclude: ['vendor', 'Gemfile', 'Gemfile.lock']
