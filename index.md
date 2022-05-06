@@ -13,9 +13,9 @@ title: Yusaku ONO
 - [Speaker Deck](https://speakerdeck.com/yono)
 
 ## Software
-- [yonobot](https://twitter.com/#!/yonobot): Twitter Bot
+- [yonobot](https://twitter.com/yonobot): Twitter Bot
 - [ShowOffer](https://github.com/yono/showoff): A Presentation Tool using ShowOff and Shower
-- [typable\_map](http://yono.cc/typable_map): TypableMap inspired by TwitterIRCGateway and FacebookIRCGateway.
+- [typable\_map](https://github.com/yono/typable_map): TypableMap inspired by TwitterIRCGateway and FacebookIRCGateway.
 
 ## Slides
 - [12/08/17 HACK勉強会LT(Emacs近況報告)](static/emacs-lt/slide.html)
