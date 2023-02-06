@@ -7,3 +7,4 @@ markdown: kramdown
 redcarpet:
   extensions: ['tables', 'autolink', 'no_intra_emphasis']
 exclude: ['vendor', 'Gemfile', 'Gemfile.lock']
+include: ['.well-known']
