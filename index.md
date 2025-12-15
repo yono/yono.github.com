@@ -9,7 +9,7 @@ title: Yusaku ONO
 ## Social
 - [GitHub](https://github.com/yono)
 - [Twitter](http://twitter.com/yono)
-- [blog](https://blog.yono.cc)
+- [blog](https://yono.hatenablog.jp/)
 - [Speaker Deck](https://speakerdeck.com/yono)
 
 ## Software
